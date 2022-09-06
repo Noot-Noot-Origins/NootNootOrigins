@@ -1,0 +1,24 @@
+{
+	"type": "origins:active_self",
+	"hidden": true,
+	"entity_action": {
+
+
+		"type": "origins:add_velocity",
+		"z": 1,
+		"space": "local"
+
+
+
+	},
+
+	"key": {
+		"key": "key.origins.secondary_active",
+		"continuous": true
+	},
+	"cooldown": 0,
+	"hud_render": {
+		"should_render": false
+    }
+
+}

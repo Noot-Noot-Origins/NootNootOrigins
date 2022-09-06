@@ -1,0 +1,36 @@
+{
+	"type": "origins:action_over_time",
+    "hidden": true,
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [{
+				"type": "origins:change_resource",
+				"resource": "morgan:bool",
+				"change": -1
+
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "tellraw @a {\"text\":\"The beast has ran out of energy and returned to is original form\",\"color\":\"red\"}",
+				"permission_level": 4
+			}
+		]
+	},
+	"interval": 20,
+	"condition": {
+		"type": "origins:and",
+		"conditions": [{
+				"type": "origins:resource",
+				"resource": "morgan:blood_bar",
+				"comparison": "==",
+				"compare_to": 0
+			},
+			{
+				"type": "origins:resource",
+				"resource": "morgan:bool",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		]
+	}
+}

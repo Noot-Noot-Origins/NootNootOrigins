@@ -1,0 +1,11 @@
+{
+  "type": "origins:prevent_item_use",
+  "name": "Curse of Madness",
+	"description": "You were sent mad, reducing your ability to comprehend battle beyond simple swords.",
+  "item_condition": {
+    "type": "origins:ingredient",
+    "ingredient": {
+      "tag": "origins:shields"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+	"1": {
+		"type": "origins:action_over_time",
+
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:apply_effect",
+					"effects": [{
+							"effect": "minecraft:speed",
+							"duration": 30,
+							"amplifier": 2
+						},
+						{
+							"effect": "minecraft:glowing",
+							"duration": 30,
+							"amplifier": 0
+						},
+						{
+							"effect": "minecraft:jump_boost",
+							"duration": 30,
+							"amplifier": 0
+						},
+						{
+							"effect": "minecraft:night_vision",
+							"duration": 240,
+							"amplifier": 0
+						},
+						{
+							"effect": "minecraft:water_breathing",
+							"duration": 30,
+							"amplifier": 0
+						},
+						{
+							"effect": "minecraft:fire_resistance",
+							"duration": 30,
+							"amplifier": 0
+						}
+					]
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "morgan:blood_bar",
+					"change": -3
+
+				}
+			]
+		},
+		"interval": 20,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:bool",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"2": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.attack_damage",
+			"operation": "addition",
+			"value": 18
+		},
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:bool",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"3": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.attack_damage",
+			"operation": "multiply_base",
+			"value": 0.5
+		},
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "morgan:bool",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:netherite_sword"
+						}
+					}
+				}
+			]
+		}
+	}
+}

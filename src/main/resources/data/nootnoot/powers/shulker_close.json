@@ -1,0 +1,9 @@
+{
+  "type": "origins:toggle",
+  "name": "Shulker Shell",
+  "description": "You have a shell which you can deploy to help you survive, at the cost of movement",
+  "key": {
+    "key": "key.origins.primary_active",
+    "continuous": false
+  }
+}

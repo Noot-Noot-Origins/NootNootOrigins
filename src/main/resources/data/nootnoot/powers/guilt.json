@@ -1,0 +1,14 @@
+{
+	"type": "origins:attacker_action_when_hit",
+	"name": "Guilt",
+	"description": "Attackers feel guilty after attacking you",
+	"entity_action": {
+		"type": "origins:apply_effect",
+		"effect": {
+			"effect": "minecraft:weakness",
+			"duration": 40,
+			"amplifier": 0
+		}
+	},
+	"cooldown": 80
+}

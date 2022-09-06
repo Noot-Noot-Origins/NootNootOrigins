@@ -1,0 +1,410 @@
+{
+	"type": "origins:multiple",
+    "name": "Special Digestive System",
+	"description": "You have special digestive system, causing you to be unable to eat normal food, only flowers and grass",
+	"allium": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "mainhand",
+					"action": {
+						"type": "origins:consume",
+						"amount": 1
+					}
+				},
+				{
+					"type": "origins:feed",
+					"food": 4,
+					"saturation": 2
+				},
+				{
+					"type": "origins:apply_effect",
+					"effect": {
+						"effect": "minecraft:fire_resistance",
+						"duration": 400,
+						"amplifier": 0
+					}
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.player.burp"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:allium"
+						}
+					}
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 20
+				}
+			]
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		},
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+    "blue_orchid": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "mainhand",
+					"action": {
+						"type": "origins:consume",
+						"amount": 1
+					}
+				},
+				{
+					"type": "origins:feed",
+					"food": 4,
+					"saturation": 2
+				},
+				{
+					"type": "origins:apply_effect",
+					"effect": {
+						"effect": "minecraft:saturation",
+						"duration": 7,
+						"amplifier": 0
+					}
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.player.burp"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:blue_orchid"
+						}
+					}
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 20
+				}
+			]
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		},
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+    "dandelion": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "mainhand",
+					"action": {
+						"type": "origins:consume",
+						"amount": 1
+					}
+				},
+				{
+					"type": "origins:feed",
+					"food": 4,
+					"saturation": 2
+				},
+				{
+					"type": "origins:apply_effect",
+					"effect": {
+						"effect": "minecraft:saturation",
+						"duration": 7,
+						"amplifier": 0
+					}
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.player.burp"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:dandelion"
+						}
+					}
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 20
+				}
+			]
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		},
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+    "cornflower": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "mainhand",
+					"action": {
+						"type": "origins:consume",
+						"amount": 1
+					}
+				},
+				{
+					"type": "origins:feed",
+					"food": 4,
+					"saturation": 2
+				},
+				{
+					"type": "origins:apply_effect",
+					"effect": {
+						"effect": "minecraft:jump_boost",
+						"duration": 600,
+						"amplifier": 1
+					}
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.player.burp"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:cornflower"
+						}
+					}
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 20
+				}
+			]
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		},
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+    "oxeye_daisy": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "mainhand",
+					"action": {
+						"type": "origins:consume",
+						"amount": 1
+					}
+				},
+				{
+					"type": "origins:feed",
+					"food": 4,
+					"saturation": 2
+				},
+				{
+					"type": "origins:apply_effect",
+					"effect": {
+						"effect": "minecraft:regeneration",
+						"duration": 800,
+						"amplifier": 0
+					}
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.player.burp"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:oxeye_daisy"
+						}
+					}
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 20
+				}
+			]
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		},
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+    "poppy": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "mainhand",
+					"action": {
+						"type": "origins:consume",
+						"amount": 1
+					}
+				},
+				{
+					"type": "origins:feed",
+					"food": 4,
+					"saturation": 2
+				},
+				{
+					"type": "origins:apply_effect",
+					"effect": {
+						"effect": "minecraft:night_vision",
+						"duration": 500,
+						"amplifier": 0
+					}
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.player.burp"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:poppy"
+						}
+					}
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 20
+				}
+			]
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		},
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+    "flowers": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "mainhand",
+					"action": {
+						"type": "origins:consume",
+						"amount": 1
+					}
+				},
+				{
+					"type": "origins:feed",
+					"food": 8,
+					"saturation": 4
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.player.burp"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "morgan:other_flowers"
+						}
+					}
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 19
+				}
+			]
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		},
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		}
+	}
+}

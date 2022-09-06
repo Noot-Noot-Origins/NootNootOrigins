@@ -1,0 +1,15 @@
+{
+  "powers": [
+    "origins:elytra",
+    "nootnoot:airmortality",
+    "nootnoot:launch_into_air",
+    "nootnoot:911"
+  ],
+  "icon": {
+    "item": "minecraft:elytra"
+  },
+  "order": 1,
+  "impact": 3,
+  "name": "Plane",
+  "description": "Plane go brrrr"
+}

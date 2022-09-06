@@ -1,0 +1,9 @@
+{
+  "type": "origins:modify_exhaustion",
+      "name": "Extreme Hunger",
+    "description": "You are burdened with an inextinguishable appetite for the souls of others, causing you to lose hunger at a much greater rate.",
+  "modifier": {
+    "value": 3,
+    "operation": "multiply_base"
+  }
+}

@@ -1,0 +1,27 @@
+{
+	"type": "origins:recipe",
+	"hidden": true,
+	"recipe": {
+		"id": "morgan:extra_craftings",
+		"type": "minecraft:crafting_shaped",
+		"pattern": [
+			"nd ",
+			"dsd",
+			" dn"
+		],
+		"key": {
+			"n": {
+				"item": "minecraft:netherite_ingot"
+			},
+			"d": {
+				"item": "minecraft:diamond"
+			},
+			"s": {
+				"item": "minecraft:nether_star"
+			}
+		},
+		"result": {
+			"item": "origins:orb_of_origin"
+		}
+	}
+}

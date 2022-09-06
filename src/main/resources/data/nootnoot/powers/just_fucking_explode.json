@@ -1,0 +1,70 @@
+{
+	"type": "origins:action_over_time",
+	"name": "A Powerful Hunger",
+	"description": "If you fail to fulfil your cursed Hunger, the hidden fury of the Gods will cause you to explode with the death of a Thousand creatures.",
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [{
+				"type": "origins:play_sound",
+				"sound": "minecraft:particle.soul_escape",
+				"volume": 10000,
+				"pitch": 2
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.ghast.hurt",
+				"volume": 8000,
+				"pitch": 0.4
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.axolotl.death",
+				"volume": 10000,
+				"pitch": 0.6
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.blaze.death",
+				"volume": 10000,
+				"pitch": 0.6
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.cat.death",
+				"volume": 10000,
+				"pitch": 0.6
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.creeper.hurt",
+				"volume": 10000,
+				"pitch": 0.6
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.dolphin.death",
+				"volume": 10000,
+				"pitch": 0.6
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:soul ~ ~-2.5 ~ 5 5 5 0 50",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "power grant @e[distance=..7,tag=!morph] morgan:fling"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "kill"
+			}
+		]
+	},
+	"interval": 20,
+	"condition": {
+		"type": "origins:food_level",
+		"comparison": "==",
+		"compare_to": 0
+	}
+}

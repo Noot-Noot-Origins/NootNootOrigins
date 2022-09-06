@@ -1,0 +1,155 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+	"description": "DISCLAIMER: Dick size does not scale with Morph-Size, and you are stuck with the smallest size's penis (1/2)",
+	"1": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:execute_command",
+					"command": "scale set 5 @s",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:reach 0.5 @s",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:motion 0.4 @s",
+					"permission_level": 4
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 4
+		},
+		"interval": 5
+	},
+	"2": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "fall"
+		},
+		"modifier": {
+
+			"operation": "multiply_total",
+			"value": 2
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 4
+		}
+	},
+	"3": {
+		"type": "origins:modify_damage_dealt",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 4
+		},
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 1.5
+		}
+	},
+	"4": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"value": 5,
+			"operation": "multiply_base"
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 4
+		}
+	},
+	"5": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "fall",
+			"inverted": true
+		},
+		"modifier": {
+
+			"operation": "multiply_total",
+			"value": -0.66
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 4
+		}
+	},
+	"6": {
+		"type": "origins:phasing",
+		"blacklist": false,
+		"render_type": "remove_blocks",
+		"block_condition": {
+			"type": "origins:in_tag",
+			"tag": "morgan:leaves"
+		},
+		"phase_down_condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:on_block"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 5
+		}
+	},
+	"7": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.attack_speed",
+			"operation": "addition",
+			"value": -0.4
+		},
+		"tick_rate": 2,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 4
+		}
+	},
+	"8": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:projectile"
+		},
+		"modifier": {
+			"name": "Weak to arrows",
+			"operation": "multiply_base",
+			"value": 6
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 4
+		}
+
+	}
+}

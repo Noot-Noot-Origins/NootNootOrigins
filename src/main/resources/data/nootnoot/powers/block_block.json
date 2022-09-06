@@ -1,0 +1,47 @@
+{
+	"type": "origins:action_on_block_break",
+    "name": "High Power",
+    "description": "When you are big, you are so strong that you can launch entities when you break blocks",
+	"entity_action": {
+		"type": "origins:exhaust",
+		"amount": 1
+	},
+	"block_action": {
+		"type": "origins:and",
+		"actions": [{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:explosion_emitter"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:entity.generic.explode ambient @a[distance=..100] ~ ~ ~ 5"
+			},
+            {
+            "type": "origins:execute_command",
+				"command": "power grant @e[distance=..7,tag=!morph] morgan:fling"
+            },
+            {
+            "type": "origins:execute_command",
+				"command": "power grant @e[distance=..7,tag=morph] morgan:fling_morph"
+            }
+		]
+	},
+	"only_when_harvested": false,
+	"condition": {
+		"type": "origins:and",
+		"conditions": [{
+				"type": "origins:resource",
+				"resource": "morgan:size_level",
+				"comparison": "==",
+				"compare_to": 4
+			},
+			{
+
+				"type": "origins:food_level",
+				"comparison": ">=",
+				"compare_to": 11
+
+			}
+		]
+	}
+}

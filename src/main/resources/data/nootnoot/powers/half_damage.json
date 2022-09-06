@@ -1,0 +1,9 @@
+{
+    "type": "origins:modify_damage_dealt",
+    "name": "Less damage",
+    "description": "You deal half the damage of a normal player",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -0.5
+    }
+}

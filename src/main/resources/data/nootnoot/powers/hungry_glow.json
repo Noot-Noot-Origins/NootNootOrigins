@@ -1,0 +1,19 @@
+{
+	"type": "origins:entity_glow",
+    "hidden": true,
+	"condition": {
+		"type": "origins:or",
+		"conditions": [{
+				"type": "origins:food_level",
+				"comparison": "<=",
+				"compare_to": 8
+			},
+			{
+				"type": "origins:resource",
+				"resource": "morgan:bool",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		]
+	}
+}

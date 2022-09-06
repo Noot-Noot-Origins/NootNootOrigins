@@ -1,0 +1,10 @@
+{
+  "type": "origins:toggle",
+  "key": {
+    "key": "key.use",
+    "continuous": false
+  },
+  "condition": {
+    "type": "origins:sneaking"
+  }
+}

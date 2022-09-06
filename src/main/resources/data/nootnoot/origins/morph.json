@@ -1,23 +1,23 @@
 {
   "powers": [
-    "morgan:change_size",
-    "morgan:size_level",
-    "morgan:0.25",
-    "morgan:0.5",
-    "morgan:1",
-    "morgan:2.5",
-    "morgan:5",
-    "morgan:small_climb",
-    "morgan:eat_sugar",
-    "morgan:block_block",
-    "morgan:no_elytra_when_big",
-    "morgan:add_morph_tag"
+    "nootnoot:change_size",
+    "nootnoot:size_level",
+    "nootnoot:0.25",
+    "nootnoot:0.5",
+    "nootnoot:1",
+    "nootnoot:2.5",
+    "nootnoot:5",
+    "nootnoot:small_climb",
+    "nootnoot:eat_sugar",
+    "nootnoot:block_block",
+    "nootnoot:no_elytra_when_big",
+    "nootnoot:add_morph_tag"
   ],
   "icon": {
     "item": "minecraft:sea_lantern"
   },
   "order": 4,
-  "impact": 2,
+  "impact": 3,
   "name": "Morph-i.n.e",
   "description": "The result of a experiment gone very wrong..."
 }

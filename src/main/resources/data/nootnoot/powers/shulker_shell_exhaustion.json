@@ -1,0 +1,10 @@
+{
+	"type": "origins:exhaust",
+    "hidden": true,
+	"interval": 20,
+	"exhaustion": 4.0,
+	"condition": {
+		"type": "origins:power_active",
+		"power": "morgan:shulker_close"
+	}
+}

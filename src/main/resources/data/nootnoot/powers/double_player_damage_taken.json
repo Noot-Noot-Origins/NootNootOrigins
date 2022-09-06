@@ -1,0 +1,12 @@
+{
+    "type": "origins:modify_damage_taken",
+    "hidden": true,
+    "entity_condition": {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:player"
+    },
+    "modifier": {
+        "operation": "multiply_base",
+        "value": 0.5
+    }
+}

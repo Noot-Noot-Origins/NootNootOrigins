@@ -1,0 +1,72 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+	"1": {
+		"type": "origins:active_self",
+		"hidden": true,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+
+					"type": "origins:add_velocity",
+					"z": 1,
+					"space": "local"
+
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:particle.soul_escape",
+					"volume": 100,
+					"pitch": 0.5
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute anchored feet run particle minecraft:soul ^ ^ ^-0.1 0.25 1 0.25 0 25",
+					"permission_level": 4
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "morgan:bool",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "morgan:weapons"
+						}
+					}
+				}
+			]
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		},
+		"cooldown": 10,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 23.0
+		}
+	},
+	"2": {
+
+		"type": "origins:modify_falling",
+		"take_fall_damage": false,
+		"velocity": 0.0,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:dash_1",
+			"comparison": ">=",
+			"compare_to": 10
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+    "type": "origins:prevent_sleep",
+    "message": "You can't sleep in the end, however your respawn point still changes",
+    "condition": {
+        "type": "origins:dimension",
+        "dimension": "minecraft:the_end"
+    },
+    "set_spawn_point": true,
+    "hidden": true
+}

@@ -1,0 +1,23 @@
+{
+	"type": "origins:action_over_time",
+	"name": "Photosynthesis",
+	"description": "You can photosynthesize in the sun giving you speed and resistance, but you get weakness in the dark",
+	"entity_action": {
+		"type": "origins:apply_effect",
+		"effects": [{
+				"effect": "minecraft:speed",
+				"duration": 6,
+				"amplifier": 0
+			},
+			{
+				"effect": "minecraft:resistance",
+				"duration": 6,
+				"amplifier": 0
+			}
+		]
+	},
+	"interval": 5,
+	"condition": {
+		"type": "origins:exposed_to_sun"
+	}
+}

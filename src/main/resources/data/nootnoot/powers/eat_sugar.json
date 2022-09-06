@@ -1,0 +1,66 @@
+{
+	"type": "origins:active_self",
+	"name": "Totally Not A Drug addiction",
+	"description": "You can 'consume sugar' when you are small, granting you 'special abilities'for a while",
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [{
+				"type": "origins:equipped_item_action",
+				"equipment_slot": "mainhand",
+				"action": {
+					"type": "origins:consume",
+					"amount": 1
+				}
+			},
+
+			{
+				"type": "origins:apply_effect",
+				"effects": [{
+						"effect": "minecraft:speed",
+						"duration": 400,
+						"amplifier": 9,
+                        "is_ambient": true
+					},
+					{
+						"effect": "minecraft:jump_boost",
+						"duration": 400,
+						"amplifier": 2,
+                        "is_ambient": true
+					}
+				]
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.player.burp"
+			}
+		]
+	},
+	"condition": {
+		"type": "origins:and",
+		"conditions": [{
+				"type": "origins:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:sugar"
+					}
+				}
+			},
+			{
+				"type": "origins:resource",
+				"resource": "morgan:size_level",
+				"comparison": "<=",
+				"compare_to": 1
+			}
+		]
+	},
+	"key": {
+		"key": "key.use",
+		"continuous": true
+	},
+	"cooldown": 20,
+	"hud_render": {
+		"should_render": false
+	}
+}

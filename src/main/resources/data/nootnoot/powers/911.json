@@ -1,0 +1,24 @@
+{
+  "type": "origins:action_when_damage_taken",
+  "entity_action": {
+      "type": "origins:explode",
+      "power": 20,
+      "destruction_type": "break",
+      "damage_self": false,
+      "create_fire": false
+  },
+  "damage_condition": {
+    "type": "origins:or",
+    "conditions": [
+      {
+        "type": "origins:name",
+        "name": "flyIntoWall"
+      },
+      {
+        "type": "origins:name",
+        "name": "flyIntoWall.player"
+      }
+    ]
+  },
+  "cooldown": 1
+}

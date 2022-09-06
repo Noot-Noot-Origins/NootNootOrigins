@@ -1,0 +1,11 @@
+{
+    "type": "origins:model_color",
+    "hidden": true,
+    "red": 1.0,
+    "green": 0.0,
+    "blue": 1.0,
+"condition": {
+		"type": "origins:power_active",
+		"power": "morgan:shulker_close"
+	}
+}

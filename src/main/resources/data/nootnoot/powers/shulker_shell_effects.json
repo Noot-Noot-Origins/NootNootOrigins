@@ -1,0 +1,28 @@
+{
+	"type": "origins:stacking_status_effect",
+    "hidden": true,
+	"min_stacks": 0,
+	"max_stacks": 1,
+	"duration_per_stack": 35,
+	"effects": [
+        {
+			"effect": "minecraft:blindness",
+			"amplifier": 0,
+            "duration": 35,
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": false
+		},
+		{
+			"effect": "minecraft:resistance",
+			"amplifier": 2,
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": true
+		}
+	],
+	"condition": {
+		"type": "origins:power_active",
+		"power": "morgan:shulker_close"
+	}
+}

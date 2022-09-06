@@ -1,0 +1,25 @@
+{
+		"type": "origins:action_over_time",
+        "hidden": true,
+		"interval": 40,
+		"entity_action": {
+			"type": "origins:and",
+        		"actions": [
+            			{
+                			"type": "origins:execute_command",
+                			"command": "data modify storage hated vill set value {Type: \"trading\", Value: 75}",
+                			"permission_level": 4
+            			},
+            			{
+                			"type": "origins:execute_command",
+                			"command": "data modify storage hated vill.Target set from entity @s UUID",
+                			"permission_level": 4
+            			},
+            			{
+                			"type": "origins:execute_command",
+                			"command": "execute as @e[type=minecraft:villager] run data modify entity @s Gossips append from storage minecraft:hated vill",
+                			"permission_level": 4
+            			}
+        		]
+		}
+        }

@@ -1,0 +1,21 @@
+{
+  "type": "origins:conditioned_attribute",
+  "hidden": true,
+  "modifiers": [
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "value": -0.1,
+      "operation": "addition"
+    },
+    {
+      "attribute": "minecraft:generic.knockback_resistance",
+      "value": 1,
+      "operation": "addition"
+    }
+  ],
+  "tick_rate": 5,
+  "condition": {
+    "type": "origins:power_active",
+    "power": "morgan:shulker_close"
+  }
+}  

@@ -1,0 +1,12 @@
+{
+	"type": "origins:modify_damage_taken",
+	"name": "Flammable",
+	"description": "You are very flammable, causing you to take x4 the damage from burning",
+	"damage_condition": {
+		"type": "origins:fire"
+	},
+	"modifier": {
+		"operation": "multiply_base",
+		"value": 1
+	}
+}

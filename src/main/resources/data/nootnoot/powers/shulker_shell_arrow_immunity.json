@@ -1,0 +1,12 @@
+{
+  "type": "origins:invulnerability",
+  "hidden": true,
+  "damage_condition": {
+    "type": "origins:name",
+    "name": "arrow"
+  },
+  "condition": {
+    "type": "origins:power_active",
+    "power": "morgan:shulker_close"
+  }
+}

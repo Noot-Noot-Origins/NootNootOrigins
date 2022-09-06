@@ -3,5 +3,7 @@
 	"allow_random": true,
 	"enabled": true,
 	"origins": [
+		"nootnoot:morph",
+		"nootnoot:plane"
 	]
 }

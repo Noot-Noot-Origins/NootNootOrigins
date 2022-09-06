@@ -1,0 +1,40 @@
+{
+	"type": "origins:multiple",
+	"name": "A Mania for Pain",
+	"description": "You are tantalised with an inability to consume regular food, having been cursed to receive sustenance from the pain of others.",
+	"1": {
+		"type": "origins:self_action_on_kill",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:feed",
+					"food": 10,
+					"saturation": 10
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "morgan:blood_bar",
+					"change": 1
+				}
+			]
+		},
+		"cooldown": 0
+	},
+	"2": {
+		"type": "origins:self_action_on_kill",
+
+		"entity_action": {
+
+			"type": "origins:change_resource",
+			"resource": "morgan:blood_bar",
+			"change": 49
+
+
+		},
+		"target_condition": {
+			"type": "origins:entity_type",
+			"entity_type": "minecraft:player"
+		},
+		"cooldown": 1200
+	}
+}

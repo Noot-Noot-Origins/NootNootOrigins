@@ -1,0 +1,21 @@
+{
+	"type": "origins:recipe",
+    "hidden": true,
+	"recipe": {
+		"id": "morgan:extra_craftings",
+		"type": "minecraft:crafting_shaped",
+		"pattern": [
+			"ppp",
+			"ppp",
+			"ppp"
+		],
+		"key": {
+			"p": {
+				"item": "minecraft:paper"
+			}
+		},
+		"result": {
+			"item": "minecraft:knowledge_book"
+		}
+	}
+}

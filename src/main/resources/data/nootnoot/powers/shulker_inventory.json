@@ -1,0 +1,10 @@
+{
+  "type": "origins:inventory",
+  "name": "Extra Shulker Inventory",
+  "description": "Inherited from your ancestors, you have a secret storage compartment",
+  "drop_on_death": false,
+  "key": {
+    "key": "key.origins.secondary_active",
+    "continuous": false
+  }
+}

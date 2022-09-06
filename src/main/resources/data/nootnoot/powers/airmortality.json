@@ -1,0 +1,15 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "origins:apply_effect",
+    "effect": {
+      "effect": "minecraft:regeneration",
+      "duration": 40,
+      "amplifier": 0
+    }
+  },
+  "interval": 1,
+  "condition": {
+    "type": "origins:fall_flying"
+  }
+}

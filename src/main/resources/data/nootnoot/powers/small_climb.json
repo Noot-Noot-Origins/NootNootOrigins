@@ -1,0 +1,37 @@
+{
+	"type": "origins:climbing",
+    "name": "Climbing",
+    "description": "You can climb up walls when small",
+	"hold_condition": {
+		"type": "origins:and",
+		"conditions": [{
+
+				"type": "origins:block_collision",
+				"offset_x": 0.1,
+				"offset_z": 0.1,
+				"offset_y": 0
+			},
+			{
+				"type": "origins:block_collision",
+				"offset_x": -0.1,
+				"offset_z": -0.1,
+				"offset_y": 0
+			}
+
+
+		]
+	},
+	"condition": {
+		"type": "origins:and",
+		"conditions": [{
+				"type": "origins:collided_horizontally"
+			},
+			{
+				"type": "origins:resource",
+				"resource": "morgan:size_level",
+				"comparison": "<=",
+				"compare_to": 1
+			}
+		]
+	}
+}

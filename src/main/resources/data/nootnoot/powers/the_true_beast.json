@@ -1,0 +1,52 @@
+{
+	"type": "origins:active_self",
+	"name": "A Silver Lining",
+	"description": "After you liberate 1000 creatures, you are able to release the powers of the Pantheon for a short period of time.",
+	"key": {
+		"key": "key.origins.primary_active",
+		"continuous": false
+	},
+	"condition": {
+        "type": "origins:and",
+        "conditions": [
+        {
+		"type": "origins:resource",
+		"resource": "morgan:blood_bar",
+		"comparison": ">=",
+		"compare_to": 1000
+        },
+        {
+        "type": "origins:resource",
+		"resource": "morgan:bool",
+		"comparison": "==",
+		"compare_to": 0
+        },
+        {
+        "type": "origins:resource",
+		"resource": "morgan:the_true_beast_remove",
+		"comparison": "==",
+		"compare_to": 0
+        }
+        ]
+	},
+    "hud_render": {
+        "should_render": false
+    },
+    "cooldown": 0,
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "tellraw @a {\"text\":\"The beast has realeased its true form\",\"color\":\"red\"}",
+				"permission_level": 4
+			},
+            {
+            				"type": "origins:change_resource",
+				"resource": "morgan:bool",
+				"change": 1
+
+            }
+		]
+	}
+}

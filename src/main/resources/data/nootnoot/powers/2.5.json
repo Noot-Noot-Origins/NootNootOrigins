@@ -1,0 +1,97 @@
+{
+	"type": "origins:multiple",
+    "hidden": true,
+	"1": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:execute_command",
+					"command": "scale set 2.5 @s",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:reach 0.7 @s",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:motion 0.75 @s",
+					"permission_level": 4
+				}
+			]
+
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 3
+		},
+		"interval": 5
+	},
+	"2": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "fall"
+		},
+		"modifier": {
+
+			"operation": "multiply_total",
+			"value": 1
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 3
+		}
+	},
+	"3": {
+		"type": "origins:modify_damage_dealt",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 3
+		},
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 0.75
+		}
+	},
+    "4": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"value": 3,
+			"operation": "multiply_base"
+		},
+        "condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 3
+		}
+	},
+	"5": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "fall",
+			"inverted": true
+		},
+		"modifier": {
+
+			"operation": "multiply_total",
+			"value": -0.5
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "morgan:size_level",
+			"comparison": "==",
+			"compare_to": 3
+		}
+	}
+}

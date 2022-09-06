@@ -1,0 +1,22 @@
+{
+	"type": "origins:fire_projectile",
+    "hidden": true,
+	"cooldown": 1,
+	"hud_render": {
+		"should_render": false
+	},
+	"entity_type": "minecraft:ender_pearl",
+	"sound": "minecraft:entity.ender_pearl.throw",
+	"speed": 1.0
+    
+    ,
+	"divergence": 1,
+	"key": {
+		"key": "key.pickItem",
+		"continuous": true
+	},
+  "condition": {
+    "type": "origins:power_active",
+    "power": "morgan:shulker_close"
+  }
+}

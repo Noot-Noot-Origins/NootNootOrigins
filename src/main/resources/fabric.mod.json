@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "morgan.noot.noot.origins.ExampleMod"
+      "morgan.noot.noot.origins.NootNootOrigins"
     ]
   },
   "mixins": [

@@ -1,6 +1,6 @@
-package net.fabricmc.example.mixin;
+package morgan.noot.noot.origins.mixin;
 
-import net.fabricmc.example.ExampleMod;
+import morgan.noot.noot.origins.ExampleMod;
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

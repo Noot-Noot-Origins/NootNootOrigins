@@ -3,7 +3,8 @@
     "origins:elytra",
     "nootnoot:airmortality",
     "nootnoot:launch_into_air",
-    "nootnoot:911"
+    "nootnoot:911",
+    "nootnoot:rideable"
   ],
   "icon": {
     "item": "minecraft:elytra"

@@ -1,0 +1,86 @@
+{
+	"type": {
+		"name": "morgan:overworld",
+		"ultrawarm": false,
+		"natural": true,
+		"piglin_safe": false,
+		"respawn_anchor_works": false,
+		"bed_works": true,
+		"has_raids": true,
+		"has_skylight": true,
+		"has_ceiling": false,
+		"coordinate_scale": 1,
+		"ambient_light": 1,
+		"logical_height": 256,
+		"infiniburn": "minecraft:infiniburn_overworld",
+		"min_y": 0,
+		"height": 256
+	},
+	"generator": {
+		"type": "minecraft:flat",
+		"settings": {
+			"lakes": false,
+			"features": false,
+			"layers": [{
+					"block": "minecraft:bedrock",
+					"height": 1
+				},
+				{
+					"block": "minecraft:obsidian",
+					"height": 1
+				},
+				{
+					"block": "minecraft:deepslate",
+					"height": 1
+				},
+				{
+					"block": "minecraft:iron_block",
+					"height": 1
+				},
+				{
+					"block": "minecraft:sea_lantern",
+					"height": 1
+				},
+				{
+					"block": "minecraft:gravel",
+					"height": 1
+				},
+				{
+					"block": "minecraft:sand",
+					"height": 1
+				},
+				{
+					"block": "minecraft:glass",
+					"height": 1
+				},
+                {
+					"block": "minecraft:tinted_glass",
+					"height": 1
+				},
+                {
+					"block": "minecraft:glass",
+					"height": 1
+				},
+				{
+					"block": "minecraft:black_concrete_powder",
+					"height": 1
+				},
+				{
+					"block": "minecraft:gray_concrete_powder",
+					"height": 1
+				},
+                {
+					"block": "minecraft:light_gray_concrete_powder",
+					"height": 1
+				},
+				{
+					"block": "minecraft:white_concrete_powder",
+					"height": 1
+				}
+			],
+			"structures": {
+				"structures": {}
+			}
+		}
+	}
+}

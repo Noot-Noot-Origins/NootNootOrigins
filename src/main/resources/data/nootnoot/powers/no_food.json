@@ -4,7 +4,7 @@
   "item_condition": {
     "type": "origins:ingredient",
     "ingredient": {
-      "tag": "morgan:all_food"
+      "tag": "nootnoot:all_food"
     },
     "inverted": false
   }

@@ -18,11 +18,11 @@
 			},
             {
             "type": "origins:execute_command",
-				"command": "power grant @e[distance=..7,tag=!morph] morgan:fling"
+				"command": "power grant @e[distance=..7,tag=!morph] nootnoot:fling"
             },
             {
             "type": "origins:execute_command",
-				"command": "power grant @e[distance=..7,tag=morph] morgan:fling_morph"
+				"command": "power grant @e[distance=..7,tag=morph] nootnoot:fling_morph"
             }
 		]
 	},
@@ -31,7 +31,7 @@
 		"type": "origins:and",
 		"conditions": [{
 				"type": "origins:resource",
-				"resource": "morgan:size_level",
+				"resource": "nootnoot:size_level",
 				"comparison": "==",
 				"compare_to": 4
 			},

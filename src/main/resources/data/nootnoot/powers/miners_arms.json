@@ -5,6 +5,6 @@
   "allow": true,
   "block_condition": {
     "type": "origins:in_tag",
-    "tag": "morgan:all_stone"
+    "tag": "nootnoot:all_stone"
   }
 }

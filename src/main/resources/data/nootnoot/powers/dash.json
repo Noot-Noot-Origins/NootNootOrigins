@@ -30,7 +30,7 @@
 			"type": "origins:and",
 			"conditions": [{
 					"type": "origins:resource",
-					"resource": "morgan:bool",
+					"resource": "nootnoot:bool",
 					"comparison": "==",
 					"compare_to": 1
 				},
@@ -40,7 +40,7 @@
 					"item_condition": {
 						"type": "origins:ingredient",
 						"ingredient": {
-							"tag": "morgan:weapons"
+							"tag": "nootnoot:weapons"
 						}
 					}
 				}
@@ -64,7 +64,7 @@
 		"velocity": 0.0,
 		"condition": {
 			"type": "origins:resource",
-			"resource": "morgan:dash_1",
+			"resource": "nootnoot:dash_1",
 			"comparison": ">=",
 			"compare_to": 10
 		}

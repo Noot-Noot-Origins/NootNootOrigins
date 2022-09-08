@@ -5,7 +5,7 @@
 		"type": "origins:and",
 		"actions": [{
 				"type": "origins:change_resource",
-				"resource": "morgan:bool",
+				"resource": "nootnoot:bool",
 				"change": -1
 
 			},
@@ -21,13 +21,13 @@
 		"type": "origins:and",
 		"conditions": [{
 				"type": "origins:resource",
-				"resource": "morgan:blood_bar",
+				"resource": "nootnoot:blood_bar",
 				"comparison": "==",
 				"compare_to": 0
 			},
 			{
 				"type": "origins:resource",
-				"resource": "morgan:bool",
+				"resource": "nootnoot:bool",
 				"comparison": "==",
 				"compare_to": 1
 			}

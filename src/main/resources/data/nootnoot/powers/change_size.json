@@ -6,7 +6,7 @@
 		"type": "origins:active_self",
 		"entity_action": {
 			"type": "origins:change_resource",
-			"resource": "morgan:size_level",
+			"resource": "nootnoot:size_level",
 			"change": 1
 		},
 
@@ -22,7 +22,7 @@
 		"type": "origins:active_self",
 		"entity_action": {
 			"type": "origins:change_resource",
-			"resource": "morgan:size_level",
+			"resource": "nootnoot:size_level",
 			"change": -1
 		},
 

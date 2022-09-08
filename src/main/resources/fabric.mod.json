@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "morgan.noot.noot.origins.NootNootOrigins"
+    ],
+    "preLaunch": [
+      "morgan.noot.noot.origins.NootNootOriginsPreLaunch"
     ]
   },
   "mixins": [

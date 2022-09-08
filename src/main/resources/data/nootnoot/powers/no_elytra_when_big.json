@@ -10,7 +10,7 @@
 	},
 	"condition": {
 		"type": "origins:resource",
-		"resource": "morgan:size_level",
+		"resource": "nootnoot:size_level",
 		"comparison": ">=",
 		"compare_to": 3
 	},

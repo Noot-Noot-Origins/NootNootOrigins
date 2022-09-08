@@ -2,7 +2,7 @@
   "type": "origins:modify_break_speed",
   "block_condition": {
     "type": "origins:in_tag",
-    "tag": "morgan:all_stone"
+    "tag": "nootnoot:all_stone"
   },
   "modifier": {
     "name": "Strong Arms stone break speed bonus",

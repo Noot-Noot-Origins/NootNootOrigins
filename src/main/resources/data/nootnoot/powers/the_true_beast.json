@@ -11,19 +11,19 @@
         "conditions": [
         {
 		"type": "origins:resource",
-		"resource": "morgan:blood_bar",
+		"resource": "nootnoot:blood_bar",
 		"comparison": ">=",
 		"compare_to": 1000
         },
         {
         "type": "origins:resource",
-		"resource": "morgan:bool",
+		"resource": "nootnoot:bool",
 		"comparison": "==",
 		"compare_to": 0
         },
         {
         "type": "origins:resource",
-		"resource": "morgan:the_true_beast_remove",
+		"resource": "nootnoot:the_true_beast_remove",
 		"comparison": "==",
 		"compare_to": 0
         }
@@ -43,7 +43,7 @@
 			},
             {
             				"type": "origins:change_resource",
-				"resource": "morgan:bool",
+				"resource": "nootnoot:bool",
 				"change": 1
 
             }

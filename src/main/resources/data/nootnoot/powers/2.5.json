@@ -25,7 +25,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "morgan:size_level",
+			"resource": "nootnoot:size_level",
 			"comparison": "==",
 			"compare_to": 3
 		},
@@ -44,7 +44,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "morgan:size_level",
+			"resource": "nootnoot:size_level",
 			"comparison": "==",
 			"compare_to": 3
 		}
@@ -53,7 +53,7 @@
 		"type": "origins:modify_damage_dealt",
 		"condition": {
 			"type": "origins:resource",
-			"resource": "morgan:size_level",
+			"resource": "nootnoot:size_level",
 			"comparison": "==",
 			"compare_to": 3
 		},
@@ -70,7 +70,7 @@
 		},
         "condition": {
 			"type": "origins:resource",
-			"resource": "morgan:size_level",
+			"resource": "nootnoot:size_level",
 			"comparison": "==",
 			"compare_to": 3
 		}
@@ -89,7 +89,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "morgan:size_level",
+			"resource": "nootnoot:size_level",
 			"comparison": "==",
 			"compare_to": 3
 		}

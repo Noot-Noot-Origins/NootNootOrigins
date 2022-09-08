@@ -2,7 +2,7 @@
 	"type": "origins:recipe",
     "hidden": true,
 	"recipe": {
-		"id": "morgan:extra_craftings",
+		"id": "nootnoot:extra_craftings",
 		"type": "minecraft:crafting_shaped",
 		"pattern": [
 			"ppp",

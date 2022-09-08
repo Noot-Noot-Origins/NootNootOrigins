@@ -387,7 +387,7 @@
 					"item_condition": {
 						"type": "origins:ingredient",
 						"ingredient": {
-							"tag": "morgan:other_flowers"
+							"tag": "nootnoot:other_flowers"
 						}
 					}
 				},

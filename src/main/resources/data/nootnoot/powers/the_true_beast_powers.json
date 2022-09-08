@@ -42,7 +42,7 @@
 				},
 				{
 					"type": "origins:change_resource",
-					"resource": "morgan:blood_bar",
+					"resource": "nootnoot:blood_bar",
 					"change": -3
 
 				}
@@ -51,7 +51,7 @@
 		"interval": 20,
 		"condition": {
 			"type": "origins:resource",
-			"resource": "morgan:bool",
+			"resource": "nootnoot:bool",
 			"comparison": "==",
 			"compare_to": 1
 		}
@@ -66,7 +66,7 @@
 		"tick_rate": 20,
 		"condition": {
 			"type": "origins:resource",
-			"resource": "morgan:bool",
+			"resource": "nootnoot:bool",
 			"comparison": "==",
 			"compare_to": 1
 		}
@@ -83,7 +83,7 @@
 			"type": "origins:and",
 			"conditions": [{
 					"type": "origins:resource",
-					"resource": "morgan:bool",
+					"resource": "nootnoot:bool",
 					"comparison": "==",
 					"compare_to": 1
 				},

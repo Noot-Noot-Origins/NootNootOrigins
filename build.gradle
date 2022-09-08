@@ -59,6 +59,11 @@ dependencies {
 
 
 	modImplementation "com.github.apace100:origins-fabric:${project.origins_version}"
+
+	modApi("com.github.Virtuoel:Pehkui:${project.pehkui_version}")
+
+	implementation("com.github.LlamaLad7:MixinExtras:0.0.12")
+	annotationProcessor("com.github.LlamaLad7:MixinExtras:0.0.12")
 }
 
 processResources {

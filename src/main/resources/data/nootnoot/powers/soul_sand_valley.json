@@ -11,7 +11,7 @@
 			},
 			{
 				"type": "origins:change_resource",
-				"resource": "morgan:blood_bar",
+				"resource": "nootnoot:blood_bar",
 				"change": 1
 			}
 		]

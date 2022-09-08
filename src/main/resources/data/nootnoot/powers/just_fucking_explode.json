@@ -53,7 +53,7 @@
 			},
 			{
 				"type": "origins:execute_command",
-				"command": "power grant @e[distance=..7,tag=!morph] morgan:fling"
+				"command": "power grant @e[distance=..7,tag=!morph] nootnoot:fling"
 			},
 			{
 				"type": "origins:execute_command",

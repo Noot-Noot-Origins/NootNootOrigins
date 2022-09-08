@@ -4,7 +4,7 @@
 		"type": "origins:and",
 		"actions": [{
 				"type": "origins:execute_command",
-				"command": "power revoke @s morgan:fling_morph",
+				"command": "power revoke @s nootnoot:fling_morph",
 				"permission_level": 4
 			},
 			{

@@ -19,7 +19,7 @@
 				},
 				{
 					"type": "origins:change_resource",
-					"resource": "morgan:jump_bool",
+					"resource": "nootnoot:jump_bool",
 					"change": 1
 				},
 				{
@@ -39,14 +39,14 @@
 			"type": "origins:and",
 			"conditions": [{
 					"type": "origins:resource",
-					"resource": "morgan:bool",
+					"resource": "nootnoot:bool",
 					"comparison": "==",
 					"compare_to": 1
 				},
 
 				{
 					"type": "origins:resource",
-					"resource": "morgan:jump_bool",
+					"resource": "nootnoot:jump_bool",
 					"comparison": "==",
 					"compare_to": 0
 				},
@@ -69,7 +69,7 @@
 		"type": "origins:action_over_time",
 		"entity_action": {
 			"type": "origins:change_resource",
-			"resource": "morgan:jump_bool",
+			"resource": "nootnoot:jump_bool",
 			"change": -1
 		},
 		"interval": 2,

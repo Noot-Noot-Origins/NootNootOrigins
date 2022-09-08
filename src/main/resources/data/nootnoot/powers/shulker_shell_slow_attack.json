@@ -9,6 +9,6 @@
     "tick_rate": 5,
 	"condition": {
 		"type": "origins:power_active",
-		"power": "morgan:shulker_close"
+		"power": "nootnoot:shulker_close"
 	}
 }

@@ -10,7 +10,7 @@
 			},
 			{
 				"type": "origins:resource",
-				"resource": "morgan:bool",
+				"resource": "nootnoot:bool",
 				"comparison": "==",
 				"compare_to": 1
 			}

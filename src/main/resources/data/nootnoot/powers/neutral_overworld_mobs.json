@@ -20,7 +20,7 @@
 				"command": "team join bloomfolk @s"
 			}, {
 				"type": "origins:execute_command",
-				"command": "execute at @s as @e[distance=..64,type=#morgan:overworld_mobs,tag=!aggressed,team=!ghost] run team join bloomfolk @s"
+				"command": "execute at @s as @e[distance=..64,type=#nootnoot:overworld_mobs,tag=!aggressed,team=!ghost] run team join bloomfolk @s"
 			}]
 		},
 		"interval": 20
@@ -39,7 +39,7 @@
 		},
 		"target_condition": {
 "type": "origins:in_tag",
-    "tag": "morgan:overworld_mobs"
+    "tag": "nootnoot:overworld_mobs"
 		},
 		"cooldown": 0,
 		"hud_render": {

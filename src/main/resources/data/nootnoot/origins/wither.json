@@ -1,0 +1,12 @@
+{
+  "powers": [
+    "nootnoot:wither_summon_skull"
+  ],
+  "icon": {
+    "item": "minecraft:wither_skeleton_skull"
+  },
+  "order": 2,
+  "impact": 3,
+  "name": "Wither",
+  "description": "Funny Nether guy"
+}

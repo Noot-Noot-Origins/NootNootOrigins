@@ -1,0 +1,30 @@
+{
+  "type": "origins:fire_projectile",
+  "entity_type": "minecraft:wither_skull",
+  "cooldown": 5,
+  "hud_render": {
+    "should_render": true
+  },
+  "key": {
+    "key": "key.use"
+  },
+  "condition": {
+    "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+    "item_condition": {
+      "type": "origins:or",
+      "conditions": [
+        {
+          "type": "origins:empty"
+        },
+        {
+          "type": "origins:ingredient",
+          "ingredient": {
+            "tag": "nootnoot:swords"
+          }
+        }
+      ]
+
+    }
+  }
+}

@@ -24,7 +24,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 1
 		},
@@ -43,7 +43,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 1
 		}
@@ -52,7 +52,7 @@
 		"type": "origins:modify_damage_dealt",
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 1
 		},
@@ -69,7 +69,7 @@
 		},
         "condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 1
 		}
@@ -88,7 +88,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 1
 		}

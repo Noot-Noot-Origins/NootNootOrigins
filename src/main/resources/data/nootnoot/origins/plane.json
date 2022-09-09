@@ -1,10 +1,11 @@
 {
   "powers": [
     "origins:elytra",
-    "nootnoot:airmortality",
-    "nootnoot:launch_into_air",
-    "nootnoot:911",
-    "nootnoot:rideable"
+    "nootnoot:plane_airmortality",
+    "nootnoot:plane_launch_into_air",
+    "nootnoot:plane_911",
+    "nootnoot:plane_rideable",
+    "nootnoot:plane_prevent_glass_render"
   ],
   "icon": {
     "item": "minecraft:elytra"

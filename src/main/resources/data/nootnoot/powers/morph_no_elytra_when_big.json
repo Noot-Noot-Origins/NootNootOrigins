@@ -1,0 +1,12 @@
+{
+	"type": "origins:prevent_elytra_flight",
+	"name": "Too Heavy",
+	"description": "When you are big, you are too heavy to use the elytra",
+	"condition": {
+		"type": "origins:resource",
+		"resource": "nootnoot:morph_size_level",
+		"comparison": ">=",
+		"compare_to": 3
+	},
+	"tick_rate": 40
+}

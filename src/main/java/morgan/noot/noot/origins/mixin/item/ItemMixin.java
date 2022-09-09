@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(Item.class)
 public class ItemMixin {
-    @ModifyExpressionValue(method = "u",at = @At(value = "INVOKE","isFood"))
+    //@ModifyExpressionValue(method = "u",at = @At(value = "INVOKE","isFood"))
     public void allowEatingFuel(){
 
     }

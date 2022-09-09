@@ -25,7 +25,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 4
 		},
@@ -44,7 +44,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 4
 		}
@@ -53,7 +53,7 @@
 		"type": "origins:modify_damage_dealt",
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 4
 		},
@@ -70,7 +70,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 4
 		}
@@ -89,7 +89,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 4
 		}
@@ -102,21 +102,11 @@
 			"type": "origins:in_tag",
 			"tag": "nootnoot:leaves"
 		},
-		"phase_down_condition": {
-			"type": "origins:and",
-			"conditions": [{
-					"type": "origins:sneaking"
-				},
-				{
-					"type": "origins:on_block"
-				}
-			]
-		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
-			"compare_to": 5
+			"compare_to": 4
 		}
 	},
 	"7": {
@@ -129,7 +119,7 @@
 		"tick_rate": 2,
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 4
 		}
@@ -146,7 +136,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "nootnoot:size_level",
+			"resource": "nootnoot:morph_size_level",
 			"comparison": "==",
 			"compare_to": 4
 		}

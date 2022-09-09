@@ -1,17 +1,17 @@
 {
   "powers": [
-    "nootnoot:change_size",
-    "nootnoot:size_level",
-    "nootnoot:0.25",
-    "nootnoot:0.5",
-    "nootnoot:1",
-    "nootnoot:2.5",
-    "nootnoot:5",
-    "nootnoot:small_climb",
-    "nootnoot:eat_sugar",
+    "nootnoot:morph_change_size",
+    "nootnoot:morph_size_level",
+    "nootnoot:morph_0.25",
+    "nootnoot:morph_0.5",
+    "nootnoot:morph_1",
+    "nootnoot:morph_2.5",
+    "nootnoot:morph_5",
+    "nootnoot:morph_small_climb",
+    "nootnoot:morph_eat_sugar",
     "nootnoot:block_block",
-    "nootnoot:no_elytra_when_big",
-    "nootnoot:add_morph_tag"
+    "nootnoot:morph_no_elytra_when_big",
+    "nootnoot:morph_is_morph_tag"
   ],
   "icon": {
     "item": "minecraft:sea_lantern"

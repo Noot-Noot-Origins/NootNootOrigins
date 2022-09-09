@@ -22,7 +22,7 @@
 	},
 	"condition": {
 		"type": "origins:resource",
-		"resource": "nootnoot:size_level",
+		"resource": "nootnoot:morph_size_level",
 		"comparison": "==",
 		"compare_to": 2
 	},

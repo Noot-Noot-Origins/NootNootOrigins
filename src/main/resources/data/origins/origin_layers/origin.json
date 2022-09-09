@@ -4,6 +4,7 @@
 	"enabled": true,
 	"origins": [
 		"nootnoot:morph",
-		"nootnoot:plane"
+		"nootnoot:plane",
+		"nootnoot:shade"
 	]
 }

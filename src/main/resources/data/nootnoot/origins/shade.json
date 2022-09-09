@@ -1,13 +1,13 @@
 {
   "powers": [
     "nootnoot:shade_prevent_feature_render",
-    ""
+    "nootnoot:shade_shadow"
   ],
   "icon": {
-    "item": "minecraft:sea_lantern"
+    "item": "minecraft:wither_rose"
   },
   "order": 2,
   "impact": 3,
-  "name": "Morph-i.n.e",
-  "description": "The result of a experiment gone very wrong..."
+  "name": "Shade",
+  "description": "temp"
 }

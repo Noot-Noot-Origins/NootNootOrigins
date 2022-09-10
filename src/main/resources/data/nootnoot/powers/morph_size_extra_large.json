@@ -2,18 +2,25 @@
 	"type": "origins:multiple",
 	"hidden": true,
 	"description": "DISCLAIMER: Dick size does not scale with Morph-Size, and you are stuck with the smallest size's penis (1/2)",
-	"1": {
+
+	"modify_stats": {
 		"type": "origins:action_over_time",
 		"entity_action": {
 			"type": "origins:and",
-			"actions": [{
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "scale persist set true @s",
+					"permission_level": 4
+				},
+				{
 					"type": "origins:execute_command",
 					"command": "scale set 5 @s",
 					"permission_level": 4
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "scale set pehkui:reach 0.5 @s",
+					"command": "scale set pehkui:reach 1 @s",
 					"permission_level": 4
 				},
 				{
@@ -31,7 +38,8 @@
 		},
 		"interval": 5
 	},
-	"2": {
+
+	"175_percent_fall_damage": {
 		"type": "origins:modify_damage_taken",
 		"damage_condition": {
 			"type": "origins:name",
@@ -39,7 +47,21 @@
 		},
 		"modifier": {
 
-			"operation": "multiply_total",
+			"operation": "multiply_base_additive",
+			"value": 0.75
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "nootnoot:morph_size_level",
+			"comparison": "==",
+			"compare_to": 4
+		}
+	},
+
+	"300_percent_damage_dealt": {
+		"type": "origins:modify_damage_dealt",
+		"modifier": {
+			"operation": "multiply_base_additive",
 			"value": 2
 		},
 		"condition": {
@@ -49,20 +71,8 @@
 			"compare_to": 4
 		}
 	},
-	"3": {
-		"type": "origins:modify_damage_dealt",
-		"condition": {
-			"type": "origins:resource",
-			"resource": "nootnoot:morph_size_level",
-			"comparison": "==",
-			"compare_to": 4
-		},
-		"modifier": {
-			"operation": "multiply_total",
-			"value": 1.5
-		}
-	},
-	"4": {
+
+	"500_percent_food_loss": {
 		"type": "origins:modify_exhaustion",
 		"modifier": {
 			"value": 5,
@@ -75,7 +85,8 @@
 			"compare_to": 4
 		}
 	},
-	"5": {
+
+	"33_percent_damage_taken": {
 		"type": "origins:modify_damage_taken",
 		"damage_condition": {
 			"type": "origins:name",
@@ -83,8 +94,7 @@
 			"inverted": true
 		},
 		"modifier": {
-
-			"operation": "multiply_total",
+			"operation": "multiply_base_additive",
 			"value": -0.66
 		},
 		"condition": {
@@ -94,7 +104,8 @@
 			"compare_to": 4
 		}
 	},
-	"6": {
+
+	"walking_through_leaves": {
 		"type": "origins:phasing",
 		"blacklist": false,
 		"render_type": "remove_blocks",
@@ -109,12 +120,13 @@
 			"compare_to": 4
 		}
 	},
-	"7": {
+
+	"slowed_attack_speed": {
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.attack_speed",
-			"operation": "addition",
-			"value": -0.4
+			"operation": "multiply_base",
+			"value": -0.5
 		},
 		"tick_rate": 2,
 		"condition": {
@@ -123,23 +135,5 @@
 			"comparison": "==",
 			"compare_to": 4
 		}
-	},
-	"8": {
-		"type": "origins:modify_damage_taken",
-		"damage_condition": {
-			"type": "origins:projectile"
-		},
-		"modifier": {
-			"name": "Weak to arrows",
-			"operation": "multiply_base",
-			"value": 6
-		},
-		"condition": {
-			"type": "origins:resource",
-			"resource": "nootnoot:morph_size_level",
-			"comparison": "==",
-			"compare_to": 4
-		}
-
 	}
 }

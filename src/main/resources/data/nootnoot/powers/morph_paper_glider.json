@@ -1,0 +1,28 @@
+{
+  "type": "origins:elytra_flight",
+  "name": "Paper Glider",
+  "description": "You can use a piece of paper to glide when very small",
+  "render_elytra": true,
+  "texture_location": "minecraft:textures/item/paper.png",
+  "condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:resource",
+        "resource": "nootnoot:morph_size_level",
+        "comparison": "==",
+        "compare_to": 0
+      },
+      {
+        "type": "origins:equipped_item",
+        "equipment_slot": "mainhand",
+        "item_condition": {
+          "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:paper"
+          }
+        }
+      }
+    ]
+  }
+}

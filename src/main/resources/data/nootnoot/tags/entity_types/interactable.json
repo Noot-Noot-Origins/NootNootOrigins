@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:boat",
+    "minecraft:chest_boat",
+    "minecraft:minecart",
+    "minecraft:chest_minecart",
+    "minecraft:hopper_minecart",
+    "minecraft:furnace_minecart",
+    "minecraft:item_frame",
+    "minecraft:glow_item_frame"
+  ]
+}

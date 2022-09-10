@@ -4,6 +4,7 @@
     "armor",
     "held_item",
     "elytra",
-    "cape"
+    "cape",
+    "stuck_objects"
   ]
 }

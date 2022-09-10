@@ -1,12 +1,14 @@
 {
   "type": "origins:fire_projectile",
   "entity_type": "minecraft:wither_skull",
-  "cooldown": 5,
+  "cooldown": 0,
   "hud_render": {
-    "should_render": true
+    "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+    "bar_index": 14
   },
   "key": {
-    "key": "key.use"
+    "key": "key.use",
+    "continuous": true
   },
   "condition": {
     "type": "origins:equipped_item",

@@ -2,7 +2,9 @@
   "powers": [
     "nootnoot:shade_prevent_feature_render",
     "nootnoot:shade_shadow",
-    "nootnoot:shade_shadow_hop"
+    "nootnoot:shade_shadow_hop",
+    "nootnoot:shade_shadow_realm",
+    "nootnoot:shade_shadow_realm_toggle"
   ],
   "icon": {
     "item": "minecraft:wither_rose"

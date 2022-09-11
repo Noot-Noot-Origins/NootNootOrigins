@@ -3,19 +3,10 @@
     "hidden": true,
 	"entity_action": {
 		"type": "origins:and",
-		"actions": [{
-				"type": "origins:execute_command",
-				"command": "scale set 1 @s",
-				"permission_level": 4
-			},
+		"actions": [
 			{
 				"type": "origins:execute_command",
-				"command": "scale set pehkui:reach 1 @s",
-				"permission_level": 4
-			},
-			{
-				"type": "origins:execute_command",
-				"command": "scale set pehkui:motion 1 @s",
+				"command": "scale reset",
 				"permission_level": 4
 			}
 		]

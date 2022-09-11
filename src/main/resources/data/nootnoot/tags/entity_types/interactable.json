@@ -8,6 +8,8 @@
     "minecraft:hopper_minecart",
     "minecraft:furnace_minecart",
     "minecraft:item_frame",
-    "minecraft:glow_item_frame"
+    "minecraft:glow_item_frame",
+    "minecraft:horse",
+    "minecraft:llama"
   ]
 }

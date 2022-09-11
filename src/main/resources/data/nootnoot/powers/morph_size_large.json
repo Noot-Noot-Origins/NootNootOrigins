@@ -70,10 +70,10 @@
 		}
 	},
 
-    "300_percent_food_loss": {
+    "200_percent_food_loss": {
 		"type": "origins:modify_exhaustion",
 		"modifier": {
-			"value": 2,
+			"value": 1,
 			"operation": "multiply_base"
 		},
         "condition": {

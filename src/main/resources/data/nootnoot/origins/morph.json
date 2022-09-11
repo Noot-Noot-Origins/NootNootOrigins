@@ -1,5 +1,6 @@
 {
   "powers": [
+    "nootnoot:morph_callback",
     "nootnoot:morph_change_size",
     "nootnoot:morph_size_level",
     "nootnoot:morph_size_extra_small",

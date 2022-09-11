@@ -4,15 +4,10 @@
     "type": "origins:raycast",
     "distance": 100,
     "block": true,
-    "entity": true,
+    "entity": false,
     "shape_type": "visual",
     "fluid_handling": "none",
-    "block_action": {
-      "type": "origins:execute_command",
-      "command": "particle minecraft:dust 0 0 0 2 ~ ~ ~ 1 1 1 0 100 normal @a"
-    },
     "command_at_hit": "tp @s ~ ~ ~",
-    "command_along_ray": "particle minecraft:dust 0 0 0 1.5",
     "command_step": 1,
     "command_along_ray_only_on_hit": true
   },
@@ -25,78 +20,7 @@
     "should_render": false
   },
   "condition": {
-    "type": "origins:and",
-    "conditions": [
-      {
-        "type": "origins:raycast",
-        "distance": 100,
-        "block": true,
-        "entity": true,
-        "shape_type": "visual",
-        "fluid_handling": "none",
-        "block_condition": {
-          "type": "origins:and",
-          "conditions": [
-            {
-              "type": "origins:offset",
-              "condition": {
-                "type": "origins:light_level",
-                "comparison": "<=",
-                "compare_to": 5
-              },
-              "y": 1
-            },
-            {
-              "type": "origins:in_tag",
-              "tag": "nootnoot:interactable",
-              "inverted": true
-            }
-          ]
-        },
-        "hit_bientity_condition": {
-          "type": "origins:or",
-          "conditions": [
-            {
-              "type": "origins:target_condition",
-              "condition": {
-                "type": "origins:in_tag",
-                "tag": "nootnoot:interactable"
-              }
-            },
-            {
-              "type": "origins:owner"
-            }
-          ],
-          "inverted": true
-        }
-      },
-      {
-        "type": "origins:in_block",
-        "block_condition": {
-          "type": "origins:light_level",
-          "comparison": "<=",
-          "compare_to": 5
-        }
-      },
-      {
-        "type": "origins:equipped_item",
-        "equipment_slot": "mainhand",
-        "item_condition": {
-          "type": "origins:or",
-          "conditions": [
-            {
-              "type": "origins:empty"
-            },
-            {
-              "type": "origins:ingredient",
-              "ingredient": {
-                "tag": "nootnoot:swords"
-              }
-            }
-          ]
-
-        }
-      }
-    ]
+    "type": "origins:power_active",
+    "power": "nootnoot:shade_shadow_realm_toggle"
   }
 }

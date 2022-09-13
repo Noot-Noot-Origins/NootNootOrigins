@@ -5,7 +5,8 @@
     "nootnoot:plane_launch_into_air",
     "nootnoot:plane_911",
     "nootnoot:plane_rideable",
-    "nootnoot:plane_prevent_glass_render"
+    "nootnoot:plane_extra_abilities",
+    "nootnoot:can_eat_fuel"
   ],
   "icon": {
     "item": "minecraft:elytra"

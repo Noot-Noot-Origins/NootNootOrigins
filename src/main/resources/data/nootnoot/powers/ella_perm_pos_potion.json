@@ -1,0 +1,94 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "origins:apply_effect",
+    "effects": [
+      {
+        "effect": "minecraft:speed",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:strength",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:haste",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:fire_resistance",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:jump_boost",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:slow_falling",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:regeneration",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:resistance",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:water_breathing",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:night_vision",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:health_boost",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:absorption",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:luck",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:saturation",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:conduit_power",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:dolphins_grace",
+        "show_icon": false,
+        "show_particles": false
+      },
+      {
+        "effect": "minecraft:hero_of_the_village",
+        "show_icon": false,
+        "show_particles": false
+      }
+    ]
+  },
+  "interval": 40
+}

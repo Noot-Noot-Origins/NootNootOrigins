@@ -1,12 +1,13 @@
 {
   "powers": [
-    "nootnoot:wither_summon_skull"
+    "nootnoot:ella_pos_potion_stack",
+    "nootnoot:ella_perm_pos_potion"
   ],
   "icon": {
     "item": "minecraft:lily_of_the_valley"
   },
   "order": 5,
-  "impact": 3,
+  "impact": 2,
   "name": "ella",
   "description": "ella is cute"
 }

@@ -1,0 +1,8 @@
+{
+  "type": "origins:modify_status_effect_amplifier",
+  "status_effects": ["minecraft:speed", "minecraft:haste", "minecraft:strength", "minecraft:jump_boost", "minecraft:regeneration", "minecraft:resistance", "minecraft:health_boost", "minecraft:absorption", "minecraft:luck", "minecraft:saturation", "minecraft:slow_falling", "minecraft:hero_of_the_village"],
+  "modifier": {
+    "operation": "add_base_early",
+    "value": 1
+  }
+}

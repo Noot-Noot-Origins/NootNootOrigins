@@ -6,7 +6,7 @@
     "nootnoot:plane_911",
     "nootnoot:plane_rideable",
     "nootnoot:plane_extra_abilities",
-    "nootnoot:can_eat_fuel"
+    "nootnoot:plane_can_eat_fuel"
   ],
   "icon": {
     "item": "minecraft:elytra"

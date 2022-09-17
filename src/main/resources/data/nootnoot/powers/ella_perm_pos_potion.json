@@ -54,11 +54,6 @@
         "show_particles": false
       },
       {
-        "effect": "minecraft:health_boost",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
         "effect": "minecraft:absorption",
         "show_icon": false,
         "show_particles": false

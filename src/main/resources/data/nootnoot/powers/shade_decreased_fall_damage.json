@@ -1,0 +1,20 @@
+{
+  "type": "origins:modify_damage_taken",
+  "damage_condition": {
+    "type": "origins:or",
+    "conditions": [
+      {
+        "type": "origins:name",
+        "name": "fall"
+      },
+      {
+        "type": "origins:name",
+        "name": "fall.player"
+      }
+    ]
+  },
+  "modifier": {
+    "operation": "addition",
+    "value": -4
+  }
+}

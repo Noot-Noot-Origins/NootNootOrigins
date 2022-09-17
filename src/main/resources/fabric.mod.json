@@ -21,6 +21,9 @@
     "main": [
       "morgan.noot.noot.origins.NootNootOrigins"
     ],
+    "client": [
+      "morgan.noot.noot.origins.NootNootOriginsClient"
+    ],
     "preLaunch": [
       "morgan.noot.noot.origins.NootNootOriginsPreLaunch"
     ]

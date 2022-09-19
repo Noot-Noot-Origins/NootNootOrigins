@@ -1,6 +1,32 @@
 {
   "replace": false,
   "values": [
-    "minecraft:coal"
+    "minecraft:lava_bucket",
+    "minecraft:coal_block",
+    "minecraft:dried_kelp_block",
+    "minecraft:blaze_rod",
+    "minecraft:coal",
+    "minecraft:charcoal",
+    "minecraft:oak_boat",
+    "#minecraft:boats",
+    "minecraft:scaffolding",
+    "#minecraft:logs",
+    "#minecraft:planks",
+    "minecraft:ladder",
+    "minecraft:crafting_table",
+    "minecraft:bowl",
+    "#minecraft:saplings",
+    "minecraft:stick",
+    "#minecraft:wool",
+    "minecraft:bamboo",
+    "minecraft:gunpowder",
+    "#minecraft:wooden_buttons",
+    "#minecraft:wooden_doors",
+    "#minecraft:wooden_fences",
+    "#minecraft:wooden_pressure_plates",
+    "#minecraft:wooden_slabs",
+    "#minecraft:wooden_trapdoors",
+    "#minecraft:wool_carpets"
+
   ]
 }

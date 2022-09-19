@@ -2,10 +2,30 @@
   "type": "nootnoot:can_eat",
   "items": [
     {
-      "item": "minecraft:coal",
+      "item": "minecraft:coal_block",
       "food_component": {
         "hunger": 10,
-        "saturation": 1
+        "saturation": 12
+      }
+    },
+    {
+      "item": "minecraft:coal",
+      "food_component": {
+        "hunger": 1.11,
+        "saturation": 1.33,
+        "snack": true
+      }
+    },
+    {
+      "item": "minecraft:stick",
+      "food_component": {
+        "hunger": 1,
+        "saturation": 0.6,
+        "effect": {
+          "effect": {"effect": "minecraft:poison", "duration":  100, "amplifier":  1},
+          "chance": 1.0
+        },
+        "snack": true
       }
     }
   ]

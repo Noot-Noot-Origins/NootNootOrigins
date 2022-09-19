@@ -1,3 +1,4 @@
 {
-  "type": "origins:simple"
+  "type": "nootnoot:double_jump",
+  "double_jumps": 2
 }

@@ -1,6 +1,7 @@
 package morgan.noot.noot.origins;
 
 import morgan.noot.noot.origins.network.packet.NootNootOriginsPacketsInit;
+import morgan.noot.noot.origins.origins.powers.NootNootOriginsPowers;
 import morgan.noot.noot.origins.tags.NootNootOriginsTags;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -21,6 +22,7 @@ public class NootNootOrigins implements ModInitializer {
 		// Proceed with mild caution.
 		NootNootOriginsTags.init();
 		NootNootOriginsPacketsInit.init();
+		NootNootOriginsPowers.init();
 
 		LOGGER.info("Hello Fabric world!");
 	}

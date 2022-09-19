@@ -1,21 +1,15 @@
 package morgan.noot.noot.origins.mixin.entity;
 
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import morgan.noot.noot.origins.NootNootOrigins;
-import morgan.noot.noot.origins.NootNootOriginsEntityConditions;
 import morgan.noot.noot.origins.entity.LivingEntityExtension;
-import morgan.noot.noot.origins.item.ItemExtension;
 import morgan.noot.noot.origins.network.packet.NootNootOriginsPacketsInit;
-import morgan.noot.noot.origins.tags.NootNootOriginsTags;
+import morgan.noot.noot.origins.origins.powers.NootNootOriginsPowers;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.stat.Stats;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -26,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin extends Entity implements LivingEntityExtension {
+public abstract class LivingEntityDoubleJumpMixin extends Entity implements LivingEntityExtension {
     @Shadow protected boolean jumping;
 
     @Shadow protected abstract boolean shouldSwimInFluids();
@@ -45,19 +39,22 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityEx
 
     @Shadow public float forwardSpeed;
 
-    public LivingEntityMixin(EntityType<?> type, World world) {
+    public LivingEntityDoubleJumpMixin(EntityType<?> type, World world) {
         super(type, world);
     }
 
-    public int maxDoubleJumps = 2;
-    public int doubleJumps = maxDoubleJumps;
+    public int doubleJumps = 0;
+
+    public int getMaxDoubleJumps(){
+        return NootNootOriginsPowers.getMaxDoubleJumps((LivingEntity) (Object)this);
+    }
 
     public boolean canDoubleJump(){
-        return (NootNootOriginsEntityConditions.DOUBLE_JUMP.isActive(this) && doubleJumps > 0 && !this.onGround);
+        return (NootNootOriginsPowers.maxDoubleJumps((LivingEntity) (Object)this) && doubleJumps > 0 && !this.onGround);
     }
 
     public boolean hasDoubleJumped(){
-        return (NootNootOriginsEntityConditions.DOUBLE_JUMP.isActive(this) && doubleJumps < maxDoubleJumps);
+        return (NootNootOriginsPowers.maxDoubleJumps((LivingEntity) (Object)this) && doubleJumps < getMaxDoubleJumps());
     }
 
     public float getDoubleJumps(){
@@ -73,46 +70,43 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityEx
         }
     }
 
-    public boolean canEatFuel(ItemStack stack){
-        return (NootNootOriginsEntityConditions.PLANE_CAN_EAT_FUEL.isActive(this) && stack.isIn(NootNootOriginsTags.FUEL_SOURCES));
-    }
-
-    @ModifyExpressionValue(method = "eatFood",at = @At(value = "INVOKE",target = "Lnet/minecraft/item/ItemStack;isFood()Z"))
-    public boolean modifyEatFoodIsFood(boolean original, World world, ItemStack stack){
-        return original || ((ItemExtension)stack.getItem()).isFuelEdible(stack);
-    }
-
     protected void doubleJump() {
         double d = (double) this.getJumpVelocity() + this.getJumpBoostVelocityModifier();
         Vec3d vec3d = this.getVelocity();
         this.setVelocity(vec3d.x, d, vec3d.z);
-        float f = 0;
+        float f;
         if (this.sidewaysSpeed < 0) {
             f = (this.getYaw() + 90) % 360 * ((float) Math.PI / 180);
+            this.setVelocity(this.getVelocity().add(-MathHelper.sin(f) * 0.2f, 0.0, MathHelper.cos(f) * 0.2f));
+            this.velocityDirty = true;
         }
         else if (this.sidewaysSpeed > 0) {
             f = (this.getYaw() - 90) % 360 * ((float) Math.PI / 180);
+            this.setVelocity(this.getVelocity().add(-MathHelper.sin(f) * 0.2f, 0.0, MathHelper.cos(f) * 0.2f));
+            this.velocityDirty = true;
         }
         else if (this.forwardSpeed < 0 ) {
             f = (this.getYaw() - 180) % 360 * ((float) Math.PI / 180);
+            this.setVelocity(this.getVelocity().add(-MathHelper.sin(f) * 0.2f, 0.0, MathHelper.cos(f) * 0.2f));
+            this.velocityDirty = true;
         }
-        else {
+        else if (this.forwardSpeed > 0 ) {
             f = this.getYaw() * ((float) Math.PI / 180);
+            this.setVelocity(this.getVelocity().add(-MathHelper.sin(f) * 0.2f, 0.0, MathHelper.cos(f) * 0.2f));
+            this.velocityDirty = true;
         }
         //this.setVelocity(this.getVelocity().multiply(-MathHelper.sin(f), 1, MathHelper.cos(f)));
-        this.setVelocity(this.getVelocity().add(-MathHelper.sin(f) * 0.2f, 0.0, MathHelper.cos(f) * 0.2f));
-        this.velocityDirty = true;
     }
 
     @Inject(method = "tickMovement",at = @At(value = "INVOKE",target = "Lnet/minecraft/entity/LivingEntity;shouldSwimInFluids()Z",shift = At.Shift.BEFORE))
     public void tickMovementResetDoubleJump(CallbackInfo ci)
     {
-        if (this.onGround && doubleJumps < maxDoubleJumps)
+        if (this.onGround && doubleJumps < getMaxDoubleJumps())
         {
-            this.setDoubleJumps(maxDoubleJumps);
+            this.setDoubleJumps(getMaxDoubleJumps());
         }
-        else if (this.isTouchingWater() && doubleJumps <= maxDoubleJumps ) {
-            this.setDoubleJumps(maxDoubleJumps+1);
+        else if (this.isTouchingWater() && doubleJumps <= getMaxDoubleJumps() ) {
+            this.setDoubleJumps(getMaxDoubleJumps()+1);
         }
 
         if (this.jumping && this.shouldSwimInFluids()) {
@@ -126,22 +120,4 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityEx
             }
         }
     }
-
-    /*
-    @Inject(method = "tickMovement",slice = @Slice(from = @At(value = "INVOKE",target = "Lnet/minecraft/entity/LivingEntity;swimUpward(Lnet/minecraft/tag/TagKey;)V",ordinal = 1)),at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;jump()V",ordinal = 0,shift = At.Shift.AFTER))
-    public void tickMovementDecreaseDoubleJumps(CallbackInfo ci)
-    {
-       if (canDoubleJump())
-       {
-           this.setDoubleJumps(doubleJumps-1);
-       }
-    }
-
-    @ModifyExpressionValue(method = "tickMovement",slice = @Slice(from = @At(value = "INVOKE",target = "Lnet/minecraft/entity/LivingEntity;swimUpward(Lnet/minecraft/tag/TagKey;)V",ordinal = 1)),at = @At(value = "FIELD",target = "Lnet/minecraft/entity/LivingEntity;onGround:Z",ordinal = 0))
-    public boolean modifyTickMovementOnGround(boolean original)
-    {
-        return original || canDoubleJump();
-    }
-
-     */
 }

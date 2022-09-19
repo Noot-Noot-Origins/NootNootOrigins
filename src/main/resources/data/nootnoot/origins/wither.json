@@ -1,7 +1,6 @@
 {
   "powers": [
-    "nootnoot:wither_summon_skull",
-    "nootnoot:plane_can_eat_fuel"
+    "nootnoot:wither_summon_skull"
   ],
   "icon": {
     "item": "minecraft:wither_skeleton_skull"

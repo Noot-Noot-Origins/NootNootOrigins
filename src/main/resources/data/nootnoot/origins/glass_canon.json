@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "nootnoot:glass_less_health",
+    "nootnoot:glass_strength_boost"
+  ],
+  "icon": {
+    "item": "minecraft:glass_pane"
+  },
+  "order": 6,
+  "impact": 2,
+  "name": "glass_canon",
+  "description": "literally a glass canon"
+}

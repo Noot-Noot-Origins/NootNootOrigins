@@ -1,10 +1,10 @@
 {
   "powers": [
-    "nootnoot:ella_pos_potion_stack",
     "nootnoot:ella_neg_potion_stack",
     "nootnoot:ella_perm_pos_potion",
     "nootnoot:ella_health_boost",
-    "nootnoot:ella_ride_players"
+    "nootnoot:ella_ride_players",
+    "nootnoot:ella_pos_potion_stack"
   ],
   "icon": {
     "item": "minecraft:lily_of_the_valley"

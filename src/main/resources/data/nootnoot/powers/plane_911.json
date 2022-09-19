@@ -1,24 +1,103 @@
 {
-  "type": "origins:action_when_damage_taken",
-  "entity_action": {
-      "type": "origins:explode",
-      "power": 20,
-      "destruction_type": "break",
-      "damage_self": false,
-      "create_fire": false
+  "type": "origins:multiple",
+  "explode": {
+    "type": "origins:action_when_damage_taken",
+    "entity_action": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "origins:exhaust",
+          "amount": 1000
+        },
+        {
+          "type": "origins:explode",
+          "power": 20,
+          "destruction_type": "break",
+          "damage_self": false,
+          "create_fire": false
+        },
+        {
+          "type": "origins:change_resource",
+          "resource": "nootnoot:plane_broken_wings",
+          "operation": "set",
+          "change": 30
+        },
+        {
+          "type": "origins:change_resource",
+          "resource": "nootnoot:plane_911_toggle",
+          "operation": "set",
+          "change": 0
+        }
+      ]
+    },
+    "damage_condition": {
+      "type": "origins:or",
+      "conditions": [
+        {
+          "type": "origins:name",
+          "name": "flyIntoWall"
+        },
+        {
+          "type": "origins:name",
+          "name": "flyIntoWall.player"
+        },
+        {
+          "type": "origins:name",
+          "name": "fall"
+        },
+        {
+          "type": "origins:name",
+          "name": "fall.player"
+        }
+      ]
+    },
+    "condition": {
+      "type": "origins:resource",
+      "resource": "nootnoot:plane_911_toggle",
+      "comparison": "==",
+      "compare_to": 1
+    }
   },
-  "damage_condition": {
-    "type": "origins:or",
-    "conditions": [
-      {
-        "type": "origins:name",
-        "name": "flyIntoWall"
-      },
-      {
-        "type": "origins:name",
-        "name": "flyIntoWall.player"
-      }
-    ]
+  "nine_eleven_boost": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "origins:add_velocity",
+      "space": "local",
+      "z": 3,
+      "set": true
+    },
+    "interval": 1,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "nootnoot:plane_911_toggle",
+      "comparison": "==",
+      "compare_to": 1
+    }
   },
-  "cooldown": 1
+  "activate_nine_eleven_mode": {
+    "type": "origins:active_self",
+    "entity_action": {
+      "type": "origins:change_resource",
+      "resource": "nootnoot:plane_911_toggle",
+      "operation": "set",
+      "change": 1
+    },
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:resource",
+          "resource": "nootnoot:plane_911_toggle",
+          "comparison": "==",
+          "compare_to": 0
+        },
+        {
+          "type": "origins:fall_flying"
+        }
+      ]
+    },
+    "key": {
+      "key": "key.origins.secondary_active"
+    }
+  }
 }

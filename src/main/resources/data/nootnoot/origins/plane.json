@@ -1,9 +1,12 @@
 {
   "powers": [
-    "origins:elytra",
+    "nootnoot:plane_elytra",
     "nootnoot:plane_airmortality",
-    "nootnoot:plane_launch_into_air",
+    "nootnoot:plane_broken_wings",
+    "nootnoot:plane_wing_repair",
+    "nootnoot:plane_thrust",
     "nootnoot:plane_911",
+    "nootnoot:plane_911_toggle",
     "nootnoot:plane_rideable",
     "nootnoot:plane_extra_abilities",
     "nootnoot:plane_can_eat_fuel",

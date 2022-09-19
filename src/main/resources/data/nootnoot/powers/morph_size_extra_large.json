@@ -20,7 +20,7 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "scale set pehkui:reach 1 @s",
+					"command": "scale set pehkui:reach 3 @s",
 					"permission_level": 4
 				},
 				{

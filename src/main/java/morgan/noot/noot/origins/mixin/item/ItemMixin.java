@@ -33,7 +33,6 @@ public abstract class ItemMixin {
 
     @Inject(method = "isFood",at = @At("HEAD"),cancellable = true)
     public void isFood(CallbackInfoReturnable<Boolean> cir){
-        NootNootOrigins.LOGGER.info(String.valueOf(NootNootOriginsPowers.canEatItem(user,(Item)(Object)this)));
         if (user != null && NootNootOriginsPowers.canEatItem(user,(Item)(Object)this)){
             cir.setReturnValue(true);
             return;

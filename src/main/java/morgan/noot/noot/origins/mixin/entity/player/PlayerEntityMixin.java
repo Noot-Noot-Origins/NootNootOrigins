@@ -23,14 +23,9 @@ public abstract class PlayerEntityMixin extends LivingEntityDoubleJumpMixin {
 
     @Override
     public void doubleJump() {
-        NootNootOrigins.LOGGER.info("hee");
         super.doubleJump();
 
-        NootNootOrigins.LOGGER.info("heer");
         this.incrementStat(Stats.JUMP);
         this.addExhaustion(0.4f);
-
-        NootNootOrigins.LOGGER.info("heeerer");
-
     }
 }

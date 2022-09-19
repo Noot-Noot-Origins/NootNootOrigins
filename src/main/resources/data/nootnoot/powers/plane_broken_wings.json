@@ -1,0 +1,17 @@
+{
+  "type": "origins:resource",
+  "hidden": true,
+  "min": 0,
+  "max": 30,
+  "start_value":0,
+  "hud_render": {
+    "bar_index": 4,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "nootnoot:plane_broken_wings",
+      "comparison": "==",
+      "compare_to": 0,
+      "inverted": true
+    }
+  }
+}

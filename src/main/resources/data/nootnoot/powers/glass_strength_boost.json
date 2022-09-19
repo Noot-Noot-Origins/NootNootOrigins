@@ -7,7 +7,7 @@
         "effect": "minecraft:strength",
         "show_icon": false,
         "show_particles": false,
-        "amplifier": 2
+        "amplifier": 3
       }
   },
   "interval": 40

@@ -27,6 +27,13 @@
         },
         "snack": true
       }
+    },
+    {
+      "tag": "minecraft:saplings",
+      "food_component": {
+        "hunger": 10,
+        "saturation": 1
+      }
     }
   ]
 }

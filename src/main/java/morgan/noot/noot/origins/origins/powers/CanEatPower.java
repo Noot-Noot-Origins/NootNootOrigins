@@ -9,6 +9,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class CanEatPower extends Power {
@@ -23,14 +24,37 @@ public class CanEatPower extends Power {
     }
 
     public boolean canEat(Item item) {
-        return !itemFoodComponents.getItemFoodComponents().stream().filter(target -> target.getItem() == item).toList().isEmpty();
+        List<ItemFoodComponentType> itemFoodComponentTypes = itemFoodComponents.getItemFoodComponents();
+        Iterator<ItemFoodComponentType> iterator = itemFoodComponentTypes.iterator();
+
+        while(iterator.hasNext()) {
+            ItemFoodComponentType itemFoodComponentType = iterator.next();
+            if (itemFoodComponentType.getItem() != null && item == itemFoodComponentType.getItem()) {
+                return true;
+            }
+            if (itemFoodComponentType.getTag() != null && item.getDefaultStack().isIn(itemFoodComponentType.getTag())) {
+                return true;
+
+            }
+        }
+
+        return false;
     }
 
     public FoodComponent getFoodComponent(Item item) {
-        List<ItemFoodComponentType> filteredFoodComponentsType = itemFoodComponents.getItemFoodComponents().stream().filter(target -> target.getItem() == item).toList();
-        if (!filteredFoodComponentsType.isEmpty()){
-            return filteredFoodComponentsType.get(0).getFoodComponent();
+        List<ItemFoodComponentType> itemFoodComponentTypes = itemFoodComponents.getItemFoodComponents();
+        Iterator<ItemFoodComponentType> iterator = itemFoodComponentTypes.iterator();
+
+        while(iterator.hasNext()) {
+            ItemFoodComponentType itemFoodComponentType = iterator.next();
+            if (itemFoodComponentType.getItem() != null && item == itemFoodComponentType.getItem()) {
+                return itemFoodComponentType.getFoodComponent();
+            }
+            if (itemFoodComponentType.getTag() != null && item.getDefaultStack().isIn(itemFoodComponentType.getTag())) {
+                return itemFoodComponentType.getFoodComponent();
+            }
         }
+
         return null;
     }
 }

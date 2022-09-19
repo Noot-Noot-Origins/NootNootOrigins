@@ -8,12 +8,12 @@
 
 project = 'Noot Noot Origins'
 copyright = '2022, Morgan'
-author = 'Morgan'
+author = 'Morgan, AwareTortoise'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = ['myst_parser']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

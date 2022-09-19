@@ -29,6 +29,13 @@
       }
     },
     {
+      "item": "minecraft:lava_bucket",
+      "food_component": {
+        "hunger": 20,
+        "saturation": 1
+      }
+    },
+    {
       "tag": "minecraft:saplings",
       "food_component": {
         "hunger": 10,

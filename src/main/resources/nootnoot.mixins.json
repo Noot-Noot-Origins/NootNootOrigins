@@ -6,8 +6,7 @@
   "mixins": [
     "item.ItemMixin",
     "entity.LivingEntityDoubleJumpMixin",
-    "entity.player.PlayerEntityMixin",
-    "entity.player.HungerManagerMixin"
+    "entity.player.PlayerEntityMixin"
   ],
   "client": [
     "NootNootOriginsMixin"

@@ -1,5 +1,6 @@
 package morgan.noot.noot.origins.origins.powers;
 
+import com.google.gson.JsonParseException;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
@@ -66,10 +67,15 @@ public class NootNootOriginsPowers {
             data ->
                     (type, player) -> {
                         CanEatPower power = new CanEatPower(type, player);
-                        if(data.isPresent("item")) {
+                        boolean itemsPresent = data.isPresent("items");
+                        boolean itemPresent = data.isPresent("item");
+                        if(itemsPresent == itemPresent) {
+                            throw new JsonParseException("An food can be either a tag or an item, " + (itemsPresent ? "not both" : "one has to be provided."));
+                        }
+                        if(itemPresent) {
                             power.addItemFoodComponentType((ItemFoodComponentType) data.get("item"));
                         }
-                        if(data.isPresent("items")) {
+                        else if(itemsPresent) {
                             ((List<ItemFoodComponentType>)data.get("items")).forEach(power::addItemFoodComponentType);
                         }
                         return power;
@@ -79,7 +85,9 @@ public class NootNootOriginsPowers {
     public static boolean canEatItem(LivingEntity entity, Item item)
     {
         for (CanEatPower canEatPower : PowerHolderComponent.getPowers(LivingEntity.class.cast(entity), CanEatPower.class)) {
-            return canEatPower.canEat(item);
+            if (canEatPower.canEat(item)){
+                return true;
+            }
         }
         return false;
     }
@@ -87,18 +95,83 @@ public class NootNootOriginsPowers {
     public static FoodComponent getItemFoodComponent(LivingEntity entity, Item item)
     {
         for (CanEatPower canEatPower : PowerHolderComponent.getPowers(LivingEntity.class.cast(entity), CanEatPower.class)) {
-            return canEatPower.getFoodComponent(item);
+            FoodComponent foodComponent = canEatPower.getFoodComponent(item);
+            if (foodComponent!=null){
+                return foodComponent;
+            }
         }
         return null;
     }
 
-    //PLANE_CAN_EAT_FUEL
+    // MAKE_NEUTRAL
     //
     //
-    public static final PowerType<?> PLANE_CAN_EAT_FUEL = new PowerTypeReference<>(new Identifier(NootNootOrigins.MODID, "plane_can_eat_fuel"));
+    public static final PowerFactory<Power> MAKE_NEUTRAL = new PowerFactory<>(new Identifier(NootNootOrigins.MODID,"make_neutral"),
+            new SerializableData()
+                    .add("entity_group", SerializableDataTypes.ENTITY_GROUP, null)
+                    .add("entity_tag", SerializableDataTypes.ENTITY_TAG, null)
+                    .add("entity_type", SerializableDataTypes.ENTITY_TYPE, null),
+            data ->
+                    (type, player) -> {
+                        MakeNeutralPower power = new MakeNeutralPower(type, player);
+                        boolean tagPresent = data.isPresent("entity_tag");
+                        boolean typePresent = data.isPresent("entity_type");
+                        boolean groupPresent = data.isPresent("entity_group");
+                        // if all the same (i.e none present or all present)
+                        if(tagPresent == typePresent && typePresent == groupPresent) {
+                            throw new JsonParseException("An entity can be either a type, a group or a tag, " + (tagPresent ? "not all of them" : "one has to be provided."));
+                        }
+                        // no idea how this works but i guess ill see
+                        if ((tagPresent ^ typePresent ^ groupPresent) == (tagPresent && typePresent && groupPresent)){
+                            throw new JsonParseException("An entity can be either a type, a group or a tag, not two of them");
+                        }
+
+                        if(tagPresent) {
+                            power.addEntityTag(data.get("entity_tag"));
+                        }
+                        else if(typePresent) {
+                            power.addEntityType(data.get("entity_type"));
+                        }
+                        else if(groupPresent) {
+                            power.addEntityGroup(data.get("entity_group"));
+                        }
+                        return power;
+                    })
+            .allowCondition();
+
+    public static boolean isNeutral(LivingEntity target, LivingEntity attacker)
+    {
+        for (MakeNeutralPower makeNeutralPower : PowerHolderComponent.getPowers(LivingEntity.class.cast(target), MakeNeutralPower.class)) {
+            if (makeNeutralPower.isNeutral(attacker)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // CHANGE_TRADE_PRICE
+    //
+    //
+    public static final PowerFactory<Power> CHANGE_TRADE_PRICE = new PowerFactory<>(new Identifier(NootNootOrigins.MODID,"change_trade_price"),
+            new SerializableData()
+                    .add("amount", SerializableDataTypes.INT),
+            data ->
+                    (type, player) -> new ChangeTradePrice(type, player, data.getInt("amount")))
+            .allowCondition();
+
+    public static int getTradeChangePrice(LivingEntity entity)
+    {
+        int price = 0;
+        for (ChangeTradePrice changeTradePrice : PowerHolderComponent.getPowers(LivingEntity.class.cast(entity), ChangeTradePrice.class)) {
+            price += changeTradePrice.getAmount();
+        }
+        return price;
+    }
 
     public static void init(){
         Registry.register(ApoliRegistries.POWER_FACTORY, DOUBLE_JUMP.getSerializerId(), DOUBLE_JUMP);
         Registry.register(ApoliRegistries.POWER_FACTORY, CAN_EAT.getSerializerId(), CAN_EAT);
+        Registry.register(ApoliRegistries.POWER_FACTORY, MAKE_NEUTRAL.getSerializerId(), MAKE_NEUTRAL);
+        Registry.register(ApoliRegistries.POWER_FACTORY, CHANGE_TRADE_PRICE.getSerializerId(), CHANGE_TRADE_PRICE);
     }
 }

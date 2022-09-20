@@ -1,0 +1,26 @@
+{
+  "values": [
+    "minecraft:grass",
+    "minecraft:fern",
+    "minecraft:azalea",
+    "minecraft:flowering_azalea",
+    "minecraft:seagrass",
+    "minecraft:sea_pickle",
+    "minecraft:spore_blossom",
+    "minecraft:crimson_roots",
+    "minecraft:warped_roots",
+    "minecraft:nether_sprouts",
+    "minecraft:weeping_vines",
+    "minecraft:twisting_vines",
+    "minecraft:sugar_cane",
+    "minecraft:kelp",
+    "minecraft:hanging_roots",
+    "minecraft:big_dripleaf",
+    "minecraft:small_dripleaf",
+    "minecraft:bamboo",
+    "minecraft:vine",
+    "minecraft:glow_lichen",
+    "minecraft:tall_grass",
+    "minecraft:large_fern"
+  ]
+}

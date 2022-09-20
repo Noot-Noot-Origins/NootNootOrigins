@@ -1,0 +1,18 @@
+{
+	"type": "origins:stacking_status_effect",
+	"hidden": true,
+	"min_stacks": -2,
+	"max_stacks": 2,
+	"duration_per_stack": 10,
+	"tick_rate": 10,
+	"effect": {
+		"effect": "minecraft:weakness",
+		"is_ambient": true,
+		"show_particles": false,
+		"show_icon": true
+	},
+	"condition": {
+		"type": "origins:exposed_to_sun",
+		"inverted": true
+	}
+}

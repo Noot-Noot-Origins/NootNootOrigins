@@ -1,0 +1,10 @@
+{
+  "type": "origins:attribute",
+  "name": "Cow Hide",
+  "description": "due to your thick skin, you have a slight increase in armour",
+  "modifier": {
+    "attribute": "minecraft:generic.armor",
+    "value": 4.0,
+    "operation": "addition"
+  }
+}

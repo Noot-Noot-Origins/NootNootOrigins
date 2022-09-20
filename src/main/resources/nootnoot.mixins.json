@@ -6,7 +6,9 @@
   "mixins": [
     "item.ItemMixin",
     "entity.LivingEntityDoubleJumpMixin",
-    "entity.player.PlayerEntityMixin"
+    "entity.player.PlayerEntityMixin",
+    "entity.ai.goal.ActiveTargetGoalMakeNeutralMixin",
+    "entity.passive.VillagerEntityChangeTradePriceMixin"
   ],
   "client": [
     "NootNootOriginsMixin"

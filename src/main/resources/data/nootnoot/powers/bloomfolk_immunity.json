@@ -1,0 +1,14 @@
+{
+  "type": "origins:effect_immunity",
+  "name": "Immune",
+  "description": "As you produce milk, you are immune to all bad potion effects",
+  "effects": [
+    "minecraft:hunger",
+    "minecraft:mining_fatigue",
+    "minecraft:levitation",
+    "minecraft:nausea",
+    "minecraft:poison",
+    "minecraft:unluck",
+    "minecraft:wither"
+  ]
+}

@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Debug(export = true)
+//@Debug(export = true)
 @Mixin(value = Item.class)
 public abstract class ItemMixin {
 
@@ -35,7 +35,6 @@ public abstract class ItemMixin {
     public void isFood(CallbackInfoReturnable<Boolean> cir){
         if (user != null && NootNootOriginsPowers.canEatItem(user,(Item)(Object)this)){
             cir.setReturnValue(true);
-            return;
         }
     }
 
@@ -43,7 +42,6 @@ public abstract class ItemMixin {
     public void getFoodComponent(CallbackInfoReturnable<FoodComponent> cir){
         if (this.isFood() && NootNootOriginsPowers.getItemFoodComponent(user,(Item)(Object)this)!=null){
             cir.setReturnValue(NootNootOriginsPowers.getItemFoodComponent(user,(Item)(Object)this));
-            return;
         }
     }
 

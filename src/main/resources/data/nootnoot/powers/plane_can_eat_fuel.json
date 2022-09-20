@@ -22,7 +22,11 @@
         "hunger": 1,
         "saturation": 0.6,
         "effect": {
-          "effect": {"effect": "minecraft:poison", "duration":  100, "amplifier":  1},
+          "effect": {
+            "effect": "minecraft:poison",
+            "duration":  100,
+            "amplifier":  1
+          },
           "chance": 1.0
         },
         "snack": true

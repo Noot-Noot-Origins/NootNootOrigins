@@ -1,0 +1,122 @@
+{
+  "type": "nootnoot:can_eat",
+  "name": "Special Digestive System",
+  "description": "You have special digestive system, causing you to be unable to eat normal food, only plants",
+  "items": [
+    {
+      "tag": "minecraft:leaves",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 0.5,
+        "snack": true
+      }
+    },
+    {
+      "tag": "minecraft:saplings",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 0.5,
+        "snack": true
+      }
+    },
+    {
+      "tag": "nootnoot:small_plants",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 0.5,
+        "snack": true
+      }
+    },
+    {
+      "item": "minecraft:allium",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 0.5,
+        "effect": {
+          "effect": {
+            "effect": "minecraft:fire_resistance",
+            "duration":  400,
+            "amplifier":  0
+          }
+        }
+      }
+    },
+    {
+      "item": "minecraft:blue_orchid",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 0.5,
+        "effect": {
+          "effect": {
+            "effect": "minecraft:saturation",
+            "duration":  400,
+            "amplifier":  0
+          }
+        }
+      }
+    },
+    {
+      "item": "minecraft:dandelion",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 0.5,
+        "effect": {
+          "effect": {
+            "effect": "minecraft:saturation",
+            "duration":  400,
+            "amplifier":  0
+          }
+        }
+      }
+    },
+    {
+      "item": "minecraft:cornflower",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 0.5,
+        "effect": {
+          "effect": {
+            "effect": "minecraft:jump_boost",
+            "duration":  400,
+            "amplifier":  0
+          }
+        }
+      }
+    },
+    {
+      "item": "minecraft:oxeye_daisy",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 0.5,
+        "effect": {
+          "effect": {
+            "effect": "minecraft:regeneration",
+            "duration":  400,
+            "amplifier":  0
+          }
+        }
+      }
+    },
+    {
+      "item": "minecraft:poppy",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 0.5,
+        "effect": {
+          "effect": {
+            "effect": "minecraft:night_vision",
+            "duration":  400,
+            "amplifier":  0
+          }
+        }
+      }
+    },
+    {
+      "tag": "nootnoot:other_flowers",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 0.5
+      }
+    }
+  ]
+}

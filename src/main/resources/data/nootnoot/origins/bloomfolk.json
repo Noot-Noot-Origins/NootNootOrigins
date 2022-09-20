@@ -1,0 +1,22 @@
+{
+  "powers": [
+    "nootnoot:bloomfolk_no_normal_food",
+    "nootnoot:bloomfolk_can_eat_plants",
+    "nootnoot:bloomfolk_cow_hide",
+    "nootnoot:bloomfolk_neutral_overworld_mobs",
+    "nootnoot:bloomfolk_photosynthesis",
+    "nootnoot:bloomfolk_photosynthesis_2",
+    "nootnoot:bloomfolk_immunity",
+    "nootnoot:bloomfolk_guilt",
+    "nootnoot:bloomfolk_flammable",
+    "nootnoot:bloomfolk_half_damage",
+    "nootnoot:bloomfolk_decreased_villager_prices"
+  ],
+  "icon": {
+    "item": "minecraft:poppy"
+  },
+  "order": 4,
+  "impact": 1,
+  "name": "Bloomfolk",
+  "description": "Being a close relative to the moobloom, all the creatures of the overworld love you!"
+}

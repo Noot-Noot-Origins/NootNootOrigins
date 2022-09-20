@@ -1,0 +1,5 @@
+{
+  "type": "nootnoot:change_trade_price",
+  "hidden": true,
+  "amount": -50
+}

@@ -1,0 +1,26 @@
+{
+	"type": "origins:stacking_status_effect",
+	"name": "Photosynthesis",
+	"description": "You can photosynthesize in the sun making you faster and stronger, but you become weaker in the dark",
+	"min_stacks": -2,
+	"max_stacks": 2,
+	"duration_per_stack": 10,
+	"tick_rate": 10,
+	"effects": [
+		{
+			"effect": "minecraft:speed",
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": true
+		},
+		{
+			"effect": "minecraft:resistance",
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": true
+		}
+	],
+	"condition": {
+		"type": "origins:exposed_to_sun"
+	}
+}

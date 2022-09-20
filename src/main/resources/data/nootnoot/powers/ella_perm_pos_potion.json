@@ -1,89 +1,240 @@
 {
-  "type": "origins:action_over_time",
-  "entity_action": {
-    "type": "origins:apply_effect",
-    "effects": [
+  "type": "origins:action_on_callback",
+  "entity_action_gained": {
+    "type": "origins:and",
+    "actions": [
       {
-        "effect": "minecraft:speed",
-        "show_icon": false,
-        "show_particles": false
+        "type": "origins:apply_effect",
+        "effects": [
+          {
+            "effect": "minecraft:health_boost",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:speed",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:strength",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:haste",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:fire_resistance",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:jump_boost",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:slow_falling",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:regeneration",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:resistance",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:water_breathing",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:night_vision",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:absorption",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:luck",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:conduit_power",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:dolphins_grace",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:hero_of_the_village",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          }
+        ]
       },
       {
-        "effect": "minecraft:strength",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:haste",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:fire_resistance",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:jump_boost",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:slow_falling",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:regeneration",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:resistance",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:water_breathing",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:night_vision",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:absorption",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:luck",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:saturation",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:conduit_power",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:dolphins_grace",
-        "show_icon": false,
-        "show_particles": false
-      },
-      {
-        "effect": "minecraft:hero_of_the_village",
-        "show_icon": false,
-        "show_particles": false
+        "type": "origins:execute_command",
+        "command": "power grant @s nootnoot:ella_pos_potion_stack"
       }
     ]
   },
-  "interval": 40
+  "entity_action_respawned": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:execute_command",
+        "command": "power remove @s nootnoot:ella_pos_potion_stack"
+      },
+      {
+        "type": "origins:apply_effect",
+        "effects": [
+          {
+            "effect": "minecraft:health_boost",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:speed",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:strength",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:haste",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:fire_resistance",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:jump_boost",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:slow_falling",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:regeneration",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:resistance",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:water_breathing",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:night_vision",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:absorption",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:luck",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:conduit_power",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:dolphins_grace",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          },
+          {
+            "effect": "minecraft:hero_of_the_village",
+            "show_icon": false,
+            "show_particles": false,
+            "duration": 1000000000
+          }
+        ]
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "power grant @s nootnoot:ella_pos_potion_stack"
+      }
+    ]
+  },
+  "entity_action_lost": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:execute_command",
+        "command": "power remove @s nootnoot:ella_pos_potion_stack"
+      },
+      {
+        "type": "origins:clear_effect"
+      }
+    ]
+  },
+  "execute_chosen_when_orb": true
 }

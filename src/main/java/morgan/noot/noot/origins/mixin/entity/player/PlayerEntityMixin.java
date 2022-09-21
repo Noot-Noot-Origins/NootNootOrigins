@@ -2,8 +2,10 @@ package morgan.noot.noot.origins.mixin.entity.player;
 
 import morgan.noot.noot.origins.NootNootOrigins;
 import morgan.noot.noot.origins.mixin.entity.LivingEntityDoubleJumpMixin;
+import morgan.noot.noot.origins.origins.powers.NootNootOriginsPowers;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Identifier;
@@ -17,6 +19,8 @@ public abstract class PlayerEntityMixin extends LivingEntityDoubleJumpMixin {
 
     @Shadow public abstract void addExhaustion(float exhaustion);
 
+    @Shadow protected HungerManager hungerManager;
+
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -27,5 +31,10 @@ public abstract class PlayerEntityMixin extends LivingEntityDoubleJumpMixin {
 
         this.incrementStat(Stats.JUMP);
         this.addExhaustion(0.4f);
+    }
+
+    @Override
+    public boolean canDoubleJump(){
+        return super.canDoubleJump() && this.hungerManager.getFoodLevel()>6;
     }
 }

@@ -39,6 +39,8 @@ public abstract class LivingEntityDoubleJumpMixin extends Entity implements Livi
 
     @Shadow public float forwardSpeed;
 
+    @Shadow public abstract boolean canBeRiddenInWater();
+
     public LivingEntityDoubleJumpMixin(EntityType<?> type, World world) {
         super(type, world);
     }

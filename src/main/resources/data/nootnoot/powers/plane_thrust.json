@@ -14,11 +14,11 @@
         },
         {
           "type": "origins:add_velocity",
-          "y": 1
+          "y": 3
         }
       ]
     },
-    " else_action": {
+    "else_action": {
       "type": "origins:if_else",
       "condition": {
         "type": "origins:fall_flying"

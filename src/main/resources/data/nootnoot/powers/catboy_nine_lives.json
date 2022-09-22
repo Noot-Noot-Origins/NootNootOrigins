@@ -1,0 +1,11 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Max health decrease",
+    "attribute": "minecraft:generic.max_health",
+    "value": -2,
+    "operation": "addition"
+  },
+  "name": "Bane of Lust",
+  "description": "Aftwer enwticwing twhe Gowoddwess wof Sweep, hwer Wusbwand, Godw owf Pwospewity, chwoose towu stwip youwu owf youw vitwawity."
+}

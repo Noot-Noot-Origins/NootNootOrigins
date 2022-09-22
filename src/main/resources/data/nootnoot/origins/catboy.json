@@ -1,0 +1,19 @@
+{
+  "powers": [
+    "nootnoot:catboy_big_thing",
+    "nootnoot:catboy_no_swords",
+    "nootnoot:catboy_no_bows",
+    "nootnoot:catboy_hoes",
+    "nootnoot:catboy_nine_lives",
+    "nootnoot:catboy_purr_damage_sound",
+    "nootnoot:catboy_climbing",
+    "nootnoot:catboy_decreased_fall_damage",
+    "nootnoot:catboy_double_jump",
+    "origins:carnivore"
+  ],
+  "icon": "minecraft:milk_bucket",
+  "order": 10,
+  "impact": 2,
+  "name": "Catboy",
+  "description": "Youwu awre a catbowy, awnd a wwhowe of wone aws weww"
+}

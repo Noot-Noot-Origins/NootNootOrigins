@@ -1,0 +1,21 @@
+{
+  "type": "origins:modify_damage_dealt",
+  "hidden": false,
+  "condition": {
+    "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "tag": "nootnoot:swords"
+      }
+    }
+  },
+  "modifier": {
+    "name": "less sword damage",
+    "operation": "multiply_total",
+    "value": -1
+  },
+  "name": "Sensitive Paws",
+  "description": "Youraw weak pawws awre toowu senswitive to hwold a swoword orwr a bowo."
+}

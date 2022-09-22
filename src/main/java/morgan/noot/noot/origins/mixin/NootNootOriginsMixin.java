@@ -11,6 +11,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class NootNootOriginsMixin {
 	@Inject(at = @At("HEAD"), method = "init()V")
 	private void init(CallbackInfo info) {
-		NootNootOrigins.LOGGER.info("Noot Noot Origins Mixins has been initialized!");
+		NootNootOrigins.LOGGER.info(
+				"Noot Noot Origins Mixins has been initialized!"
+		);
+
 	}
 }

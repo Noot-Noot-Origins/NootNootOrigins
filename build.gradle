@@ -62,6 +62,7 @@ dependencies {
 
 	modApi("com.github.Virtuoel:Pehkui:${project.pehkui_version}")
 
+	include("com.github.LlamaLad7:MixinExtras:0.0.12")
 	implementation("com.github.LlamaLad7:MixinExtras:0.0.12")
 	annotationProcessor("com.github.LlamaLad7:MixinExtras:0.0.12")
 }

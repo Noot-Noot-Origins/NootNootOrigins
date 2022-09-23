@@ -4,11 +4,12 @@
   "package": "morgan.noot.noot.origins.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "item.ItemMixin",
     "entity.LivingEntityDoubleJumpMixin",
-    "entity.player.PlayerEntityMixin",
     "entity.ai.goal.ActiveTargetGoalMakeNeutralMixin",
-    "entity.passive.VillagerEntityChangeTradePriceMixin"
+    "entity.passive.BeeEntityOwnableMixin",
+    "entity.passive.VillagerEntityChangeTradePriceMixin",
+    "entity.player.PlayerEntityMixin",
+    "item.ItemMixin"
   ],
   "client": [
     "NootNootOriginsMixin"

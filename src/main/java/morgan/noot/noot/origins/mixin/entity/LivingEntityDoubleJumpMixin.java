@@ -1,5 +1,6 @@
 package morgan.noot.noot.origins.mixin.entity;
 
+import morgan.noot.noot.origins.NootNootOrigins;
 import morgan.noot.noot.origins.entity.LivingEntityExtension;
 import morgan.noot.noot.origins.network.packet.NootNootOriginsPacketsInit;
 import morgan.noot.noot.origins.origins.powers.NootNootOriginsPowers;
@@ -41,6 +42,8 @@ public abstract class LivingEntityDoubleJumpMixin extends Entity implements Livi
 
     @Shadow public abstract boolean canBeRiddenInWater();
 
+    @Shadow public abstract float getYaw(float tickDelta);
+
     public LivingEntityDoubleJumpMixin(EntityType<?> type, World world) {
         super(type, world);
     }
@@ -76,28 +79,34 @@ public abstract class LivingEntityDoubleJumpMixin extends Entity implements Livi
         double d = (double) this.getJumpVelocity() + this.getJumpBoostVelocityModifier();
         Vec3d vec3d = this.getVelocity();
         this.setVelocity(vec3d.x, d, vec3d.z);
-        float f;
+        float f = ((this.getYaw()+180)%360);
+        float radians = (float) (Math.PI / 180.f);
+        float speed =  MathHelper.sqrt((float) (MathHelper.square(this.getVelocity().x)+MathHelper.square(this.getVelocity().z)));
         if (this.sidewaysSpeed < 0) {
-            f = (this.getYaw() + 90) % 360 * ((float) Math.PI / 180);
-            this.setVelocity(this.getVelocity().add(-MathHelper.sin(f) * 0.2f, 0.0, MathHelper.cos(f) * 0.2f));
+            f = ((f + 90)%360) * radians;
+            this.setVelocity(MathHelper.sin(f)*speed, this.getVelocity().y, -MathHelper.cos(f)*speed);
+            this.setVelocity(this.getVelocity().add(MathHelper.sin(f) * 0.2f, 0.0, -MathHelper.cos(f) * 0.2f));
             this.velocityDirty = true;
         }
         else if (this.sidewaysSpeed > 0) {
-            f = (this.getYaw() - 90) % 360 * ((float) Math.PI / 180);
-            this.setVelocity(this.getVelocity().add(-MathHelper.sin(f) * 0.2f, 0.0, MathHelper.cos(f) * 0.2f));
+            f = ((f - 90)%360) * radians;
+            this.setVelocity(MathHelper.sin(f)*speed, this.getVelocity().y, -MathHelper.cos(f)*speed);
+            this.setVelocity(this.getVelocity().add(MathHelper.sin(f) * 0.2f, 0.0, -MathHelper.cos(f) * 0.2f));
             this.velocityDirty = true;
         }
         else if (this.forwardSpeed < 0 ) {
-            f = (this.getYaw() - 180) % 360 * ((float) Math.PI / 180);
-            this.setVelocity(this.getVelocity().add(-MathHelper.sin(f) * 0.2f, 0.0, MathHelper.cos(f) * 0.2f));
+            f = ((f - 180)%360) * radians;
+            this.setVelocity(MathHelper.sin(f)*speed, this.getVelocity().y, -MathHelper.cos(f)*speed);
+            this.setVelocity(this.getVelocity().add(MathHelper.sin(f) * 0.2f, 0.0, -MathHelper.cos(f) * 0.2f));
             this.velocityDirty = true;
         }
         else if (this.forwardSpeed > 0 ) {
-            f = this.getYaw() * ((float) Math.PI / 180);
-            this.setVelocity(this.getVelocity().add(-MathHelper.sin(f) * 0.2f, 0.0, MathHelper.cos(f) * 0.2f));
+            f *= radians;
+            this.setVelocity(MathHelper.sin(f)*speed, this.getVelocity().y, -MathHelper.cos(f)*speed);
+            this.setVelocity(this.getVelocity().add(MathHelper.sin(f) * 0.2f, 0.0, -MathHelper.cos(f) * 0.2f));
             this.velocityDirty = true;
         }
-        //this.setVelocity(this.getVelocity().multiply(-MathHelper.sin(f), 1, MathHelper.cos(f)));
+        NootNootOrigins.LOGGER.info(String.valueOf(f)+" "+MathHelper.sin(f)+" "+-MathHelper.cos(f)+" "+speed);
     }
 
     @Inject(method = "tickMovement",at = @At(value = "INVOKE",target = "Lnet/minecraft/entity/LivingEntity;shouldSwimInFluids()Z",shift = At.Shift.BEFORE))

@@ -2,7 +2,6 @@
   "powers": [
     "nootnoot:shade_prevent_feature_render",
     "nootnoot:shade_shadow",
-    "nootnoot:shade_shadow_hop",
     "nootnoot:shade_shadow_realm",
     "nootnoot:shade_shadow_realm_toggle",
     "nootnoot:shade_double_jump",

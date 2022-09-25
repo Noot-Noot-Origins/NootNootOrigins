@@ -1,9 +1,12 @@
 package morgan.noot.noot.origins.mixin.entity.passive;
 
+import io.github.apace100.origins.power.OriginsPowerTypes;
+import morgan.noot.noot.origins.NootNootOrigins;
 import morgan.noot.noot.origins.entity.ai.goal.BeeAttackWithOwnerGoal;
 import morgan.noot.noot.origins.entity.ai.goal.BeeFollowOwnerGoal;
 import morgan.noot.noot.origins.entity.ai.goal.BeeTrackOwnerAttackerGoal;
 import morgan.noot.noot.origins.entity.passive.BeeEntityExtension;
+import morgan.noot.noot.origins.origins.powers.NootNootOriginsPowers;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.AttackWithOwnerGoal;
@@ -43,6 +46,7 @@ public abstract class BeeEntityOwnableMixin
 
     private static final TrackedData<Byte> TAMEABLE_FLAGS = DataTracker.registerData(BeeEntity.class, TrackedDataHandlerRegistry.BYTE);
     private static final TrackedData<Optional<UUID>> OWNER_UUID = DataTracker.registerData(BeeEntity.class, TrackedDataHandlerRegistry.OPTIONAL_UUID);
+    private static final TrackedData<Boolean> CAN_BE_TAMED = DataTracker.registerData(BeeEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     protected BeeEntityOwnableMixin(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -52,10 +56,12 @@ public abstract class BeeEntityOwnableMixin
     public void initDataTracker(CallbackInfo ci) {
         this.dataTracker.startTracking(TAMEABLE_FLAGS, (byte)0);
         this.dataTracker.startTracking(OWNER_UUID, Optional.empty());
+        this.dataTracker.startTracking(CAN_BE_TAMED, false);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
+        nbt.putBoolean("CanBeTamed",this.getCanBeTamed());
         if (this.getOwnerUuid() != null) {
             nbt.putUuid("Owner", this.getOwnerUuid());
         }
@@ -64,6 +70,7 @@ public abstract class BeeEntityOwnableMixin
     @Inject(method = "readCustomDataFromNbt",at = @At("TAIL"))
     public void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
         UUID uUID;
+        this.setCanBeTamed(nbt.getBoolean("CanBeTamed"));
         if (nbt.containsUuid("Owner")) {
             uUID = nbt.getUuid("Owner");
         } else {
@@ -79,6 +86,14 @@ public abstract class BeeEntityOwnableMixin
                 this.setTamed(false);
             }
         }
+    }
+
+    public boolean getCanBeTamed() {
+        return this.dataTracker.get(CAN_BE_TAMED);
+    }
+
+    public void setCanBeTamed(boolean canBeTamed) {
+        this.dataTracker.set(CAN_BE_TAMED, canBeTamed);
     }
 
     @Override
@@ -174,5 +189,27 @@ public abstract class BeeEntityOwnableMixin
         this.goalSelector.add(3, new BeeFollowOwnerGoal((BeeEntity)(Object)this, 1.0, 16.0f, 2.0f, false));
         this.targetSelector.add(1, new BeeTrackOwnerAttackerGoal((BeeEntity)(Object)this));
         this.targetSelector.add(2, new BeeAttackWithOwnerGoal((BeeEntity)(Object)this));
+    }
+
+    public void findClosestOwner() {
+        if (this.getCanBeTamed()) {
+            double distance = -1.0;
+            PlayerEntity player = null;
+            for (PlayerEntity player2 : this.world.getPlayers()) {
+                if (!NootNootOriginsPowers.BEE_TAME.isActive(player2)) continue;
+                double e = player2.squaredDistanceTo(this.getX(), this.getEyeY(), this.getZ());
+                if (distance != -1.0 && !(e < distance)) continue;
+                if (distance > 6) continue;
+                distance = e;
+                player = player2;
+            }
+
+            if(player!=null) this.setOwner(player);
+        }
+    }
+
+    @Inject(method = "tick",at = @At("TAIL"))
+    public void tick(CallbackInfo ci){
+        this.findClosestOwner();
     }
 }

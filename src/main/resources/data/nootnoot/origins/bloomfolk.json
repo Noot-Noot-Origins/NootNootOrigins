@@ -10,7 +10,10 @@
     "nootnoot:bloomfolk_guilt",
     "nootnoot:bloomfolk_flammable",
     "nootnoot:bloomfolk_half_damage",
-    "nootnoot:bloomfolk_decreased_villager_prices"
+    "nootnoot:bloomfolk_decreased_villager_prices",
+    "nootnoot:bloomfolk_bee_tame",
+    "nootnoot:bloomfolk_bee_counts",
+    "nootnoot:bloomfolk_bees"
   ],
   "icon": {
     "item": "minecraft:poppy"

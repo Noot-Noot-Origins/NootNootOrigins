@@ -1,0 +1,46 @@
+{
+  "type": "origins:multiple",
+  "name": "Bees",
+  "description": "bees",
+  "increase_bees": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "origins:change_resource",
+      "resource": "nootnoot:bloomfolk_bee_counts",
+      "change": 1
+    },
+    "interval": 50
+  },
+  "spawn_bees": {
+    "type": "origins:active_self",
+    "entity_action": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "origins:change_resource",
+          "resource": "nootnoot:bloomfolk_bee_counts",
+          "change": -1
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "summon minecraft:bee ~ ~ ~ {\"CanBeTamed\":true}",
+          "permission_level": 4
+        }
+      ]
+    },
+    "cooldown": 0,
+    "hud_render": {
+      "should_render": false
+    },
+    "key": {
+      "key": "key.origins.primary_active",
+      "continuous": true
+    },
+    "condition": {
+      "type": "origins:resource",
+      "resource": "nootnoot:bloomfolk_bee_counts",
+      "comparison": ">",
+      "compare_to": 0
+    }
+  }
+}

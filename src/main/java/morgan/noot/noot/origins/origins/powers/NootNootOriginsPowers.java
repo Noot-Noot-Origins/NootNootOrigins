@@ -168,6 +168,11 @@ public class NootNootOriginsPowers {
         return price;
     }
 
+    //BEE_TAME
+    public static final PowerType<?> BEE_TAME = new PowerTypeReference<>(new Identifier(NootNootOrigins.MODID,"bloomfolk_bee_tame"));
+
+
+
     public static void init(){
         Registry.register(ApoliRegistries.POWER_FACTORY, DOUBLE_JUMP.getSerializerId(), DOUBLE_JUMP);
         Registry.register(ApoliRegistries.POWER_FACTORY, CAN_EAT.getSerializerId(), CAN_EAT);

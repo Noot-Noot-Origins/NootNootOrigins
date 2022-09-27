@@ -1,0 +1,30 @@
+{
+  "type": "origins:multiple",
+  "reset_timer_when_hit": {
+    "type": "origins:action_when_hit",
+    "bientity_action": {
+      "type": "origins:target_action",
+      "action": {
+        "type": "origins:change_resource",
+        "resource": "nootnoot:hit_timer",
+        "operation": "set",
+        "change": 10
+      }
+    }
+  },
+  "decrement_timer": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "origins:change_resource",
+      "resource": "nootnoot:hit_timer",
+      "change": -1
+    },
+    "interval": 20,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "nootnoot:hit_timer",
+      "comparison": ">",
+      "compare_to": 0
+    }
+  }
+}

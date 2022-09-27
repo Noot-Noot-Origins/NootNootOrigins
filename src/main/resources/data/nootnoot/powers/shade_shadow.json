@@ -3,5 +3,11 @@
   "red": 0,
   "green": 0,
   "blue": 0,
-  "alpha": 0.3
+  "alpha": 0.3,
+  "condition": {
+    "type": "origins:resource",
+    "resource": "nootnoot:hit_timer",
+    "comparison": "==",
+    "compare_to": 0
+  }
 }

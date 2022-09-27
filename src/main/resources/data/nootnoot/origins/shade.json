@@ -5,7 +5,9 @@
     "nootnoot:shade_shadow_realm",
     "nootnoot:shade_shadow_realm_toggle",
     "nootnoot:shade_double_jump",
-    "nootnoot:shade_decreased_fall_damage"
+    "nootnoot:shade_decreased_fall_damage",
+    "nootnoot:shade_hit_timer",
+    "nootnoot:shade_update_hit_timer"
   ],
   "icon": {
     "item": "minecraft:wither_rose"

@@ -53,7 +53,7 @@
         },
         {
           "type": "origins:explode",
-          "power": 4,
+          "power": 2,
           "destruction_type": "break",
           "damage_self": false,
           "create_fire": false

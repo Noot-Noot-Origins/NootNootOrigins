@@ -6,7 +6,7 @@
       "type": "origins:target_action",
       "action": {
         "type": "origins:change_resource",
-        "resource": "nootnoot:hit_timer",
+        "resource": "nootnoot:shade_hit_timer",
         "operation": "set",
         "change": 10
       }
@@ -16,13 +16,13 @@
     "type": "origins:action_over_time",
     "entity_action": {
       "type": "origins:change_resource",
-      "resource": "nootnoot:hit_timer",
+      "resource": "nootnoot:shade_hit_timer",
       "change": -1
     },
     "interval": 20,
     "condition": {
       "type": "origins:resource",
-      "resource": "nootnoot:hit_timer",
+      "resource": "nootnoot:shade_hit_timer",
       "comparison": ">",
       "compare_to": 0
     }

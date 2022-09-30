@@ -6,7 +6,7 @@
   },
   "condition": {
     "type": "origins:resource",
-    "resource": "nootnoot:hit_timer",
+    "resource": "nootnoot:shade_hit_timer",
     "comparison": "==",
     "compare_to": 0
   }

@@ -10,7 +10,8 @@
     "nootnoot:plane_rideable",
     "nootnoot:plane_extra_abilities",
     "nootnoot:plane_can_eat_fuel",
-    "nootnoot:plane_no_normal_food"
+    "nootnoot:plane_no_normal_food",
+    "nootnoot:plane_carpet_bomb"
   ],
   "icon": {
     "item": "minecraft:elytra"

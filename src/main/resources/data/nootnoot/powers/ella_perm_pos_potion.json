@@ -40,7 +40,8 @@
             "effect": "minecraft:jump_boost",
             "show_icon": false,
             "show_particles": false,
-            "duration": 1000000000
+            "duration": 1000000000,
+            "amplifier": 1
           },
           {
             "effect": "minecraft:slow_falling",
@@ -154,7 +155,7 @@
             "effect": "minecraft:jump_boost",
             "show_icon": false,
             "show_particles": false,
-            "duration": 1000000000
+            "duration": 1000000000,
           },
           {
             "effect": "minecraft:slow_falling",

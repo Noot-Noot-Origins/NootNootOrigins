@@ -2,18 +2,221 @@
   "type": "nootnoot:can_eat",
   "items": [
     {
+      "item": "minecraft:lava_bucket",
+      "food_component": {
+        "hunger": 25,
+        "saturation": 1
+      }
+    },
+    {
       "item": "minecraft:coal_block",
       "food_component": {
-        "hunger": 10,
-        "saturation": 12
+        "hunger": 20,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:dried_kelp_block",
+      "food_component": {
+        "hunger": 5,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:blaze_rod",
+      "food_component": {
+        "hunger": 3,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:charcoal",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 1
       }
     },
     {
       "item": "minecraft:coal",
       "food_component": {
-        "hunger": 1.11,
-        "saturation": 1.33,
+        "hunger": 2,
+        "saturation": 1,
         "snack": true
+      }
+    },
+    {
+      "tag": "minecraft:boats",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 1
+      }
+    },
+    {
+      "tag": "minecraft:logs_that_burn",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "tag": "nootnoot:planks_that_burn",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "tag": "nootnoot:stairs_that_burn",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "tag": "nootnoot:pressure_plates_that_burn",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "tag": "nootnoot:trapdoors_that_burn",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "tag": "nootnoot:fence_gates_that_burn",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "tag": "nootnoot:fences_that_burn",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:mangrove_roots",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:ladder",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:crafting_table",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:cartography_table",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:fletching_table",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:smithing_table",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:loom",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:bookshelf",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:lectern",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:composter",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:chest",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:trapped_chest",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:barrel",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:daylight_detector",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:jukebox",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:note_block",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
+      }
+    },
+    {
+      "tag": "minecraft:banners",
+      "food_component": {
+        "hunger": 0.375,
+        "saturation": 1
       }
     },
     {
@@ -30,13 +233,6 @@
           "chance": 1.0
         },
         "snack": true
-      }
-    },
-    {
-      "item": "minecraft:lava_bucket",
-      "food_component": {
-        "hunger": 20,
-        "saturation": 1
       }
     },
     {

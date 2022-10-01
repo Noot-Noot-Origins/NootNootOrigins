@@ -9,6 +9,7 @@
     "entity.passive.BeeEntityOwnableMixin",
     "entity.passive.VillagerEntityChangeTradePriceMixin",
     "entity.player.PlayerEntityMixin",
+    "item.BucketItemMixin",
     "item.ItemMixin"
   ],
   "client": [

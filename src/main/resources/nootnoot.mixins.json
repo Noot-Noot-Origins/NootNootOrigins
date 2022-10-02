@@ -10,7 +10,8 @@
     "entity.passive.VillagerEntityChangeTradePriceMixin",
     "entity.player.PlayerEntityMixin",
     "item.BucketItemMixin",
-    "item.ItemMixin"
+    "item.ItemMixin",
+    "item.BoatItemMixin"
   ],
   "client": [
     "NootNootOriginsMixin"

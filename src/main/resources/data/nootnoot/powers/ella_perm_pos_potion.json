@@ -156,6 +156,7 @@
             "show_icon": false,
             "show_particles": false,
             "duration": 1000000000,
+            "amplifier": 1
           },
           {
             "effect": "minecraft:slow_falling",

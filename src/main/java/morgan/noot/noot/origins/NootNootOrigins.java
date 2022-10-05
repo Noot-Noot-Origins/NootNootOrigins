@@ -1,5 +1,6 @@
 package morgan.noot.noot.origins;
 
+import morgan.noot.noot.origins.entity.NootNootOriginsEntityType;
 import morgan.noot.noot.origins.network.packet.NootNootOriginsPacketsInit;
 import morgan.noot.noot.origins.origins.powers.NootNootOriginsPowers;
 import morgan.noot.noot.origins.tags.NootNootOriginsTags;
@@ -23,6 +24,7 @@ public class NootNootOrigins implements ModInitializer {
 		NootNootOriginsTags.init();
 		NootNootOriginsPacketsInit.init();
 		NootNootOriginsPowers.init();
+		NootNootOriginsEntityType.init();
 
 		LOGGER.info("Noot Noot Origins has been initialized!");
 	}

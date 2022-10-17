@@ -3,6 +3,7 @@ package morgan.noot.noot.origins;
 import morgan.noot.noot.origins.entity.NootNootOriginsEntityType;
 import morgan.noot.noot.origins.network.packet.NootNootOriginsPacketsInit;
 import morgan.noot.noot.origins.origins.powers.NootNootOriginsPowers;
+import morgan.noot.noot.origins.server.command.NootNootOriginsCommands;
 import morgan.noot.noot.origins.tags.NootNootOriginsTags;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -25,6 +26,7 @@ public class NootNootOrigins implements ModInitializer {
 		NootNootOriginsPacketsInit.init();
 		NootNootOriginsPowers.init();
 		NootNootOriginsEntityType.init();
+		NootNootOriginsCommands.init();
 
 		LOGGER.info("Noot Noot Origins has been initialized!");
 	}

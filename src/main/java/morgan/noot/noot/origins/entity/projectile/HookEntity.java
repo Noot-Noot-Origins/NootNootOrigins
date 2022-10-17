@@ -82,13 +82,10 @@ public class HookEntity extends ProjectileEntity {
             this.setVelocity(Vec3d.ZERO);
         }
         if ( this.state == State.UNHOOKED ) {
+            NootNootOrigins.LOGGER.info("still unhooked");
+            this.setVelocity(this.getVelocity().add(0.0, -0.03, 0.0));
             NootNootOrigins.LOGGER.info("checking collisions");
             this.checkForCollision();
-            if ( this.state == State.UNHOOKED)
-            {
-                NootNootOrigins.LOGGER.info("still unhooked");
-                this.setVelocity(this.getVelocity().add(0.0, -0.03, 0.0));
-            }
         }
         if (this.state == State.HOOKED_TO_ENTITY){
             if (this.hookedEntity.isRemoved() || this.hookedEntity.world.getRegistryKey() != this.world.getRegistryKey()) {
@@ -119,23 +116,21 @@ public class HookEntity extends ProjectileEntity {
     public void updateTrackedPositionAndAngles(double x, double y, double z, float yaw, float pitch, int interpolationSteps, boolean interpolate) {
     }
 
-    private Vec3d calculateHookOffset( Vec3d position ) {
-        return this.getPos().subtract(position);
+    private Vec3d calculateHookOffset( Vec3d hitPosition, Vec3d hitEntityPosition ) {
+        return hitPosition.subtract(hitEntityPosition);
     }
 
-    private void updateHookedEntity(@Nullable Entity entity) {
+    private void updateHookedEntity(EntityHitResult entityHitResult) {
         this.state = State.HOOKED_TO_ENTITY;
-        this.hookedEntity = entity;
-        this.hookOffset = calculateHookOffset(this.hookedEntity.getPos());
+        this.hookedEntity = entityHitResult.getEntity();
+        this.hookOffset = calculateHookOffset( entityHitResult.getPos(), this.hookedEntity.getPos());
     }
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         NootNootOrigins.LOGGER.info("hit entity");
-        if (!this.world.isClient) {
-            this.updateHookedEntity(entityHitResult.getEntity());
-        }
+        this.updateHookedEntity(entityHitResult);
     }
 
     @Override

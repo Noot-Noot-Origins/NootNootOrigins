@@ -3,6 +3,7 @@ package morgan.noot.noot.origins;
 import morgan.noot.noot.origins.client.render.entity.HookEntityRenderer;
 import morgan.noot.noot.origins.entity.LivingEntityExtension;
 import morgan.noot.noot.origins.entity.NootNootOriginsEntityType;
+import morgan.noot.noot.origins.entity.projectile.HookEntity;
 import morgan.noot.noot.origins.network.packet.NootNootOriginsPacketsInit;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -26,6 +27,15 @@ public class NootNootOriginsClient implements ClientModInitializer {
             client.execute(() -> {
                 // Everything in this lambda is run on the render thread
                 ((LivingEntityExtension)client.player).setDoubleJumps(d);
+            });
+        });
+
+        //Hook ID Packets
+        ClientPlayNetworking.registerGlobalReceiver(NootNootOriginsPacketsInit.HOOK_ID_PACKET_ID, (client, handler, buf, responseSender) -> {
+            int d = buf.readInt();
+            client.execute(() -> {
+                // Everything in this lambda is run on the render thread
+                ((LivingEntityExtension)client.player).setHook((HookEntity) client.world.getEntityById(d));
             });
         });
 

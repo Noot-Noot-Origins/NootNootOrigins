@@ -14,5 +14,6 @@
   "order": 10,
   "impact": 2,
   "name": "Catboy",
-  "description": "Youwu awre a catbowy, awnd a wwhowe of wone aws weww"
+  "description": "Youwu awre a catbowy, awnd a wwhowe of wone aws weww",
+  "unchooseable": true
 }

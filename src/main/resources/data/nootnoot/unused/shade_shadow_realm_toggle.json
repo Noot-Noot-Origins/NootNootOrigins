@@ -1,0 +1,13 @@
+{
+  "type": "origins:toggle",
+  "active_by_default": false,
+  "key": {
+    "key": "key.origins.primary_active"
+  },
+  "condition": {
+    "type": "origins:resource",
+    "resource": "nootnoot:shade_hit_timer",
+    "comparison": "==",
+    "compare_to": 0
+  }
+}

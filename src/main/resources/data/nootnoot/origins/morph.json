@@ -13,7 +13,9 @@
     "nootnoot:block_block",
     "nootnoot:morph_no_elytra_when_big",
     "nootnoot:morph_is_morph_tag",
-    "nootnoot:morph_paper_glider"
+    "nootnoot:morph_paper_glider",
+    "nootnoot:morph_rideable_when_big",
+    "nootnoot:morph_ride_players_when_small"
   ],
   "icon": {
     "item": "minecraft:sea_lantern"

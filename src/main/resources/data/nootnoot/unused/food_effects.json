@@ -1,0 +1,16 @@
+{
+  "item": "minecraft:stick",
+  "food_component": {
+    "hunger": 1,
+    "saturation": 1,
+    "effect": {
+      "effect": {
+        "effect": "minecraft:poison",
+        "duration":  100,
+        "amplifier":  1
+      },
+      "chance": 1.0
+    },
+    "snack": true
+  }
+}

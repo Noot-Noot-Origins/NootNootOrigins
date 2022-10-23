@@ -53,7 +53,7 @@
         },
         {
           "type": "origins:explode",
-          "power": 4,
+          "power": 3,
           "destruction_type": "break",
           "damage_self": false,
           "create_fire": false
@@ -69,6 +69,10 @@
           "resource": "nootnoot:plane_911_toggle",
           "operation": "set",
           "change": 0
+        },
+        {
+          "type": "origins:set_fall_distance",
+          "fall_distance": 0
         }
       ]
     },

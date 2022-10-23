@@ -5,10 +5,13 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "entity.LivingEntityDoubleJumpMixin",
+    "entity.LivingEntityHooksMixin",
     "entity.ai.goal.ActiveTargetGoalMakeNeutralMixin",
     "entity.passive.BeeEntityOwnableMixin",
     "entity.passive.VillagerEntityChangeTradePriceMixin",
     "entity.player.PlayerEntityMixin",
+    "item.BoatItemMixin",
+    "item.BucketItemMixin",
     "item.ItemMixin"
   ],
   "client": [

@@ -2,17 +2,276 @@
   "type": "nootnoot:can_eat",
   "items": [
     {
+      "item": "minecraft:lava_bucket",
+      "food_component": {
+        "hunger": 12,
+        "saturation": 1
+      }
+    },
+    {
       "item": "minecraft:coal_block",
       "food_component": {
         "hunger": 10,
-        "saturation": 12
+        "saturation": 0.8
+      }
+    },
+    {
+      "item": "minecraft:dried_kelp_block",
+      "food_component": {
+        "hunger": 10,
+        "saturation": 0.6
+      }
+    },
+    {
+      "item": "minecraft:blaze_rod",
+      "food_component": {
+        "hunger": 8,
+        "saturation": 2
+      }
+    },
+    {
+      "item": "minecraft:charcoal",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 1,
+        "snack": true
       }
     },
     {
       "item": "minecraft:coal",
       "food_component": {
-        "hunger": 1.11,
-        "saturation": 1.33,
+        "hunger": 4,
+        "saturation": 1,
+        "snack": true
+      }
+    },
+    {
+      "tag": "minecraft:boats",
+      "food_component": {
+        "hunger": 6,
+        "saturation": 0.5
+      }
+    },
+    {
+      "tag": "minecraft:logs_that_burn",
+      "food_component": {
+        "hunger": 6,
+        "saturation": 0.5
+      }
+    },
+    {
+      "tag": "nootnoot:planks_that_burn",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 0.5
+      }
+    },
+    {
+      "tag": "nootnoot:stairs_that_burn",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 0.5
+      }
+    },
+    {
+      "tag": "nootnoot:pressure_plates_that_burn",
+      "food_component": {
+        "hunger": 1,
+        "saturation": 0.5,
+        "snack": true
+      }
+    },
+    {
+      "tag": "nootnoot:trapdoors_that_burn",
+      "food_component": {
+        "hunger": 3,
+        "saturation": 0.6
+      }
+    },
+    {
+      "tag": "nootnoot:fence_gates_that_burn",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 1
+      }
+    },
+    {
+      "tag": "nootnoot:fences_that_burn",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:mangrove_roots",
+      "food_component": {
+        "hunger": 1,
+        "saturation": 0.5,
+        "snack": true
+      }
+    },
+    {
+      "item": "minecraft:ladder",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 0.5
+      }
+    },
+    {
+      "item": "minecraft:crafting_table",
+      "food_component": {
+        "hunger": 6,
+        "saturation": 0.5
+      }
+    },
+    {
+      "item": "minecraft:cartography_table",
+      "food_component": {
+        "hunger": 6,
+        "saturation": 0.6
+      }
+    },
+    {
+      "item": "minecraft:fletching_table",
+      "food_component": {
+        "hunger": 5,
+        "saturation": 0.4
+      }
+    },
+    {
+      "item": "minecraft:smithing_table",
+      "food_component": {
+        "hunger": 7,
+        "saturation": 0.8
+      }
+    },
+    {
+      "item": "minecraft:loom",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 0.6
+      }
+    },
+    {
+      "item": "minecraft:bookshelf",
+      "food_component": {
+        "hunger": 8,
+        "saturation": 0.7
+      }
+    },
+    {
+      "item": "minecraft:lectern",
+      "food_component": {
+        "hunger": 9,
+        "saturation": 1
+      }
+    },
+    {
+      "item": "minecraft:composter",
+      "food_component": {
+        "hunger": 7,
+        "saturation": 0.5
+      }
+    },
+    {
+      "item": "minecraft:chest",
+      "food_component": {
+        "hunger": 10,
+        "saturation": 0.8
+      }
+    },
+    {
+      "item": "minecraft:trapped_chest",
+      "food_component": {
+        "hunger": 10,
+        "saturation": 0.7
+      }
+    },
+    {
+      "item": "minecraft:barrel",
+      "food_component": {
+        "hunger": 8,
+        "saturation": 0.8
+      }
+    },
+    {
+      "item": "minecraft:daylight_detector",
+      "food_component": {
+        "hunger": 6,
+        "saturation": 0.3
+      }
+    },
+    {
+      "item": "minecraft:jukebox",
+      "food_component": {
+        "hunger": 14,
+        "saturation": 1.3
+      }
+    },
+    {
+      "item": "minecraft:note_block",
+      "food_component": {
+        "hunger": 10,
+        "saturation": 0.8
+      }
+    },
+    {
+      "tag": "minecraft:banners",
+      "food_component": {
+        "hunger": 10,
+        "saturation": 0.5
+      }
+    },
+    {
+      "item": "minecraft:scaffolding",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 1
+      }
+    },
+    {
+      "tag": "nootnoot:doors_that_burn",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 0.5
+      }
+    },
+    {
+      "tag": "nootnoot:signs_that_burn",
+      "food_component": {
+        "hunger": 4,
+        "saturation": 0.6
+      }
+    },
+    {
+      "tag": "nootnoot:slabs_that_burn",
+      "food_component": {
+        "hunger": 1,
+        "saturation": 1,
+        "snack": true
+      }
+    },
+    {
+      "tag": "nootnoot:buttons_that_burn",
+      "food_component": {
+        "hunger": 1,
+        "saturation": 1,
+        "snack": true
+      }
+    },
+    {
+      "tag": "minecraft:saplings",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 0.8,
+        "snack": true
+      }
+    },
+    {
+      "item": "minecraft:bowl",
+      "food_component": {
+        "hunger": 1,
+        "saturation": 1.6,
         "snack": true
       }
     },
@@ -20,30 +279,46 @@
       "item": "minecraft:stick",
       "food_component": {
         "hunger": 1,
-        "saturation": 0.6,
-        "effect": {
-          "effect": {
-            "effect": "minecraft:poison",
-            "duration":  100,
-            "amplifier":  1
-          },
-          "chance": 1.0
-        },
+        "saturation": 1,
         "snack": true
       }
     },
     {
-      "item": "minecraft:lava_bucket",
+      "item": "minecraft:azalea",
       "food_component": {
-        "hunger": 20,
-        "saturation": 1
+        "hunger": 2,
+        "saturation": 0.3
       }
     },
     {
-      "tag": "minecraft:saplings",
+      "item": "minecraft:flowering_azalea",
       "food_component": {
-        "hunger": 10,
-        "saturation": 1
+        "hunger": 2,
+        "saturation": 0.3
+      }
+    },
+    {
+      "tag": "minecraft:wool",
+      "food_component": {
+        "hunger": 2,
+        "saturation": 0.5,
+        "snack": true
+      }
+    },
+    {
+      "tag": "minecraft:wool_carpets",
+      "food_component": {
+        "hunger": 1,
+        "saturation": 1,
+        "snack": true
+      }
+    },
+    {
+      "item": "minecraft:bamboo",
+      "food_component": {
+        "hunger": 1,
+        "saturation": 0.5,
+        "snack": true
       }
     }
   ]

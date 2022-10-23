@@ -1,0 +1,13 @@
+{
+  "type": "origins:model_color",
+  "red": 0,
+  "green": 0,
+  "blue": 0,
+  "alpha": 0.3,
+  "condition": {
+    "type": "origins:resource",
+    "resource": "nootnoot:shade_hit_timer",
+    "comparison": "==",
+    "compare_to": 0
+  }
+}

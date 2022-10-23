@@ -1,0 +1,6 @@
+{
+  "commands.hook.length.success": "Changed hook length for %s",
+  "commands.hook.length.not.living.entity": "This entity cannot have any hooks",
+  "commands.remove.hook.success": "Removed hook for %s",
+  "commands.remove.hook.not.living.entity": "This entity cannot have any hooks"
+}

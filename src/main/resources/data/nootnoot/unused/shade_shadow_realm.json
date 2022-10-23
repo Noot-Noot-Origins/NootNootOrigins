@@ -88,7 +88,7 @@
     "type": "origins:modify_damage_dealt",
     "modifier": {
       "operation": "multiply_base",
-      "value": 2
+      "value": -1
     },
     "condition": {
       "type": "origins:power_active",
@@ -99,7 +99,7 @@
     "type": "origins:modify_damage_taken",
     "modifier": {
       "operation": "multiply_base",
-      "value": -1
+      "value": 1
     },
     "condition": {
       "type": "origins:power_active",

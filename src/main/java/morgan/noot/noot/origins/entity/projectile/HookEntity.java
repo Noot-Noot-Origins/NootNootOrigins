@@ -61,7 +61,6 @@ public class HookEntity extends ProjectileEntity {
     static {
         TrackedDataHandlerRegistry.register(STATE);
     }
-
     private static final TrackedData<Integer> HOOK_ENTITY_ID = DataTracker.registerData(HookEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Float> HOOK_LENGTH = DataTracker.registerData(HookEntity.class, TrackedDataHandlerRegistry.FLOAT);
     private static final TrackedData<State> HOOK_STATE = DataTracker.registerData(HookEntity.class, STATE);
@@ -132,38 +131,10 @@ public class HookEntity extends ProjectileEntity {
         return ProjectileUtil.getEntityCollision(this.world, this, currentPosition, nextPosition, this.getBoundingBox().stretch(this.getVelocity()).expand(1.0), this::canHit);
     }
 
-    private void checkForCollision() {
-        Vec3d vec3d2;
-        Vec3d vec3d3 = this.getPos();
-        HitResult hitResult = this.world.raycast(new RaycastContext(vec3d3, vec3d2 = vec3d3.add(this.getVelocity()), RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, this));
-        if (hitResult.getType() != HitResult.Type.MISS) {
-            vec3d2 = hitResult.getPos();
-        }
-        while (!this.isRemoved()) {
-            EntityHitResult entityHitResult = this.getEntityCollision(vec3d3, vec3d2);
-            if (entityHitResult != null) {
-                hitResult = entityHitResult;
-            }
-            if (hitResult != null && hitResult.getType() == HitResult.Type.ENTITY) {
-                Entity entity = ((EntityHitResult)hitResult).getEntity();
-                Entity entity2 = this.getOwner();
-                if (entity instanceof PlayerEntity && entity2 instanceof PlayerEntity && !((PlayerEntity)entity2).shouldDamagePlayer((PlayerEntity)entity)) {
-                    hitResult = null;
-                    entityHitResult = null;
-                }
-            }
-            if (hitResult != null) {
-                this.onCollision(hitResult);
-                this.velocityDirty = true;
-            }
-            if (entityHitResult == null) break;
-            hitResult = null;
-        }
-
-        /*
-        HitResult hitResult = ProjectileUtil.getCollision(this, this::canHit);
-        this.onCollision(hitResult);
-        */
+    @Override
+    public void updateTrackedPositionAndAngles(double x, double y, double z, float yaw, float pitch, int interpolationSteps, boolean interpolate) {
+        this.setPosition(x, y, z);
+        this.setRotation(yaw, pitch);
     }
 
     @Override
@@ -189,13 +160,9 @@ public class HookEntity extends ProjectileEntity {
                 break;
             }
         }
-        if (this.isTouchingWaterOrRain() || blockState.isOf(Blocks.POWDER_SNOW)) {
-            this.extinguish();
-        }
         if (this.state == State.HOOKED_TO_BLOCK) {
             if (this.inBlockState != blockState && this.shouldFall()) {
-                NootNootOrigins.LOGGER.info("UNHOOKED");
-                this.updateHookState(State.UNHOOKED);
+                this.fall();
             }
             return;
         }
@@ -248,6 +215,23 @@ public class HookEntity extends ProjectileEntity {
 
         this.setPosition(h, j, k);
         this.checkBlockCollision();
+    }
+
+    private boolean shouldFall() {
+        return this.state == State.HOOKED_TO_BLOCK && this.world.isSpaceEmpty(new Box(this.getPos(), this.getPos()).expand(0.06));
+    }
+
+    private void fall() {
+        NootNootOrigins.LOGGER.info("UNHOOKED");
+        this.updateHookState(State.UNHOOKED);
+    }
+
+    @Override
+    public void move(MovementType movementType, Vec3d movement) {
+        super.move(movementType, movement);
+        if (movementType != MovementType.SELF && this.shouldFall()) {
+            this.fall();
+        }
     }
 
     /*
@@ -325,10 +309,6 @@ public class HookEntity extends ProjectileEntity {
         return false;
     }
 
-    @Override
-    public void updateTrackedPositionAndAngles(double x, double y, double z, float yaw, float pitch, int interpolationSteps, boolean interpolate) {
-    }
-
     private Vec3d calculateHookOffset( Vec3d hitPosition, Vec3d hitEntityPosition ) {
         return hitPosition.subtract(hitEntityPosition);
     }
@@ -363,23 +343,14 @@ public class HookEntity extends ProjectileEntity {
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
         NootNootOrigins.LOGGER.info("HIT BLOCK");
-
-        super.onBlockHit(blockHitResult);
         this.inBlockState = this.world.getBlockState(blockHitResult.getBlockPos());
-
-        this.updateHookState(State.HOOKED_TO_BLOCK);
-
+        super.onBlockHit(blockHitResult);
         Vec3d vec3d = blockHitResult.getPos().subtract(this.getX(), this.getY(), this.getZ());
+        this.setVelocity(vec3d);
         Vec3d vec3d2 = vec3d.normalize().multiply(0.05f);
         this.setPos(this.getX() - vec3d2.x, this.getY() - vec3d2.y, this.getZ() - vec3d2.z);
-
+        this.updateHookState(State.HOOKED_TO_BLOCK);
         this.updateHookLength(this.distanceTo(this.getOwner()));
-
-        this.setVelocity(Vec3d.ZERO);
-    }
-
-    private boolean shouldFall() {
-        return this.state == State.HOOKED_TO_BLOCK && this.world.isSpaceEmpty(new Box(this.getPos(), this.getPos()).expand(0.06));
     }
 
     @Override

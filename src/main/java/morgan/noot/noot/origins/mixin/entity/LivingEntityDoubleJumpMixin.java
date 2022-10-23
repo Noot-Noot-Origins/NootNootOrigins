@@ -106,7 +106,6 @@ public abstract class LivingEntityDoubleJumpMixin extends Entity implements Livi
             this.setVelocity(this.getVelocity().add(MathHelper.sin(f) * 0.2f, 0.0, -MathHelper.cos(f) * 0.2f));
             this.velocityDirty = true;
         }
-        NootNootOrigins.LOGGER.info(String.valueOf(f)+" "+MathHelper.sin(f)+" "+-MathHelper.cos(f)+" "+speed);
     }
 
     @Inject(method = "tickMovement",at = @At(value = "INVOKE",target = "Lnet/minecraft/entity/LivingEntity;shouldSwimInFluids()Z",shift = At.Shift.BEFORE))

@@ -54,11 +54,8 @@ public class HookEntityRenderer extends EntityRenderer<HookEntity> {
         HookEntityRenderer.vertex(vertexConsumer, matrix4f, matrix3f, i, 1.0f, 1, 1, 0);
         HookEntityRenderer.vertex(vertexConsumer, matrix4f, matrix3f, i, 0.0f, 1, 0, 0);
         matrixStack.pop();
-        int j = playerEntity.getMainArm() == Arm.RIGHT ? 1 : -1;
+        int j = -(playerEntity.getMainArm() == Arm.RIGHT ? 1 : -1);
         ItemStack itemStack = playerEntity.getMainHandStack();
-        if (!itemStack.isOf(Items.FISHING_ROD)) {
-            j = -j;
-        }
         float h = playerEntity.getHandSwingProgress(g);
         float k = MathHelper.sin(MathHelper.sqrt(h) * (float)Math.PI);
         float l = MathHelper.lerp(g, playerEntity.prevBodyYaw, playerEntity.bodyYaw) * ((float)Math.PI / 180);

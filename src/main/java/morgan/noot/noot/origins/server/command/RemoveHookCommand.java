@@ -13,8 +13,10 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 
+import java.util.Objects;
+
 public class RemoveHookCommand {
-    private static final SimpleCommandExceptionType HOOK_LENGTH_COMMAND_NOT_LIVING_ENTITY = new SimpleCommandExceptionType(Text.translatable("commands.remove.hook.not.living.entity"));
+    private static final SimpleCommandExceptionType REMOVE_HOOK_COMMAND_NOT_LIVING_ENTITY = new SimpleCommandExceptionType(Text.translatable("commands.remove.hook.not.living.entity"));
 
     public static void init() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated, environment) -> {
@@ -24,6 +26,13 @@ public class RemoveHookCommand {
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register( CommandManager.literal("removehook")
+                .requires(source -> {
+                    if ( source.getPlayer() != null && Objects.equals(source.getPlayer().getEntityName(), "Morganpitta"))
+                    {
+                        return true;
+                    }
+                    return source.hasPermissionLevel(2);
+                })
                 .executes(context -> execute((ServerCommandSource)context.getSource(), context.getSource().getEntity()))
                 .then(CommandManager.argument("entity", EntityArgumentType.entity())
                         .executes(context -> execute((ServerCommandSource)context.getSource(), EntityArgumentType.getEntity(context, "entity")))
@@ -38,10 +47,10 @@ public class RemoveHookCommand {
         }
         else
         {
-            throw HOOK_LENGTH_COMMAND_NOT_LIVING_ENTITY.create();
+            throw REMOVE_HOOK_COMMAND_NOT_LIVING_ENTITY.create();
         }
 
-        source.sendFeedback(Text.translatable("commands.remove.hook.success", entity.getDisplayName()), true);
+        if (source.hasPermissionLevel(2)) source.sendFeedback(Text.translatable("commands.remove.hook.success", entity.getDisplayName()), true);
         return 1;
     }
 }

@@ -39,6 +39,15 @@ public class NootNootOriginsClient implements ClientModInitializer {
             });
         });
 
+        //Hook ID Packets
+        ClientPlayNetworking.registerGlobalReceiver(NootNootOriginsPacketsInit.MOUNTED_HEIGHT_OFFSET, (client, handler, buf, responseSender) -> {
+            float d = buf.readFloat();
+            client.execute(() -> {
+                // Everything in this lambda is run on the render thread
+                ((EntityExtension)client.player).setExtraMountedHeightOffset(d);
+            });
+        });
+
         //Register HookEntity render, temporary please remove morgan when updating
         EntityRendererRegistry.register(NootNootOriginsEntityType.HookEntityType, (context) ->
                 new HookEntityRenderer(context));

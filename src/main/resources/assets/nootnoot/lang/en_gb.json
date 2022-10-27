@@ -2,5 +2,8 @@
   "commands.hook.length.success": "Changed hook length for %s",
   "commands.hook.length.not.living.entity": "This entity cannot have any hooks",
   "commands.remove.hook.success": "Removed hook for %s",
-  "commands.remove.hook.not.living.entity": "This entity cannot have any hooks"
+  "commands.remove.hook.not.living.entity": "This entity cannot have any hooks",
+  "commands.set.mount.height.success": "Set mount height for %s",
+  "commands.orb.of.origin.success": "Gave origin orb to %s",
+  "commands.orb.of.origin.not.player": "Entity is not player"
 }

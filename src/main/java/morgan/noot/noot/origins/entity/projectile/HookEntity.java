@@ -53,56 +53,42 @@ public class HookEntity extends ProjectileEntity {
     public Vec3d hookOffset = null;
     public Entity hookedEntity = null;
     public float hookLength = 40;
-    public static final float minHookLength = 2.5f;
+    public static final float minHookLength = 1f;
+    public static final float maxHookLength = 200f;
+
     @Nullable
     private BlockState inBlockState;
 
-    private static final TrackedDataHandler<State> STATE = TrackedDataHandler.ofEnum(State.class);
-    static {
-        TrackedDataHandlerRegistry.register(STATE);
-    }
-    private static final TrackedData<Integer> HOOK_ENTITY_ID = DataTracker.registerData(HookEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Float> HOOK_LENGTH = DataTracker.registerData(HookEntity.class, TrackedDataHandlerRegistry.FLOAT);
-    private static final TrackedData<State> HOOK_STATE = DataTracker.registerData(HookEntity.class, STATE);
 
     public float getHookLength() { return this.hookLength; }
 
     public void updateHookLength(float hookLength) {
+        hookLength = Math.max(hookLength,minHookLength);
         this.hookLength = hookLength;
         this.getDataTracker().set(HOOK_LENGTH, hookLength);
     }
 
     @Override
     protected void initDataTracker() {
-        this.getDataTracker().startTracking(HOOK_ENTITY_ID, 0);
         this.getDataTracker().startTracking(HOOK_LENGTH, 40.f);
-        this.getDataTracker().startTracking(HOOK_STATE, State.UNHOOKED);
     }
 
     @Override
     public void onTrackedDataSet(TrackedData<?> data) {
-        if (HOOK_ENTITY_ID.equals(data)) {
-            int i = this.getDataTracker().get(HOOK_ENTITY_ID);
-            this.hookedEntity = i > 0 ? this.world.getEntityById(i - 1) : null;
-        }
         if (HOOK_LENGTH.equals(data)) {
             this.hookLength = this.getDataTracker().get(HOOK_LENGTH);
-        }
-        if (HOOK_STATE.equals(data)) {
-            this.state = this.getDataTracker().get(HOOK_STATE);
         }
         super.onTrackedDataSet(data);
     }
 
     private void updateHookedEntityId(@Nullable Entity entity) {
         this.hookedEntity = entity;
-        this.getDataTracker().set(HOOK_ENTITY_ID, entity == null ? 0 : entity.getId() + 1);
     }
 
     private void updateHookState( State state )
     {
         this.state = state;
-        this.getDataTracker().set(HOOK_STATE, state);
     }
 
     public HookEntity(EntityType<? extends ProjectileEntity> entityType, World world) {
@@ -119,11 +105,18 @@ public class HookEntity extends ProjectileEntity {
             }
             this.setOwner(playerEntity);
         }
-        ((LivingEntityExtension)this.getOwner()).setHook(this);
     }
 
     public HookEntity(World world, LivingEntity owner) {
         super(NootNootOriginsEntityType.HookEntityType, world);
+    }
+
+    @Override
+    public void setOwner(@Nullable Entity entity) {
+        super.setOwner(entity);
+        if (entity != null) {
+            ((LivingEntityExtension)this.getOwner()).setHook(this);
+        }
     }
 
     @Nullable
@@ -139,6 +132,41 @@ public class HookEntity extends ProjectileEntity {
 
     @Override
     public void tick() {
+
+        //Min Hook length
+        if (hookLength<minHookLength)
+        {
+            this.updateHookLength(minHookLength);
+        }
+
+        //doesnt own this hook
+        if (this.getOwner() != null && (((LivingEntityExtension)this.getOwner()).getHook() != this))
+        {
+            this.discard();
+            return;
+        }
+
+        //Owner is Dead
+        if (this.removeIfInvalid(this.getPlayerOwner()))
+        {
+            return;
+        }
+
+        if (this.state == State.HOOKED_TO_ENTITY) {
+            if (this.hookedEntity == null || this.hookedEntity.isRemoved() || this.hookedEntity.world.getRegistryKey() != this.world.getRegistryKey()) {
+                this.discard();
+                return;
+            }
+            if ( hookOffset != null )
+            {
+                this.setPosition(this.hookedEntity.getPos().add(hookOffset));
+                //this.velocityDirty = true;
+            }
+            this.updateOwnersPosition();
+
+            return;
+        }
+
         Vec3d vec3d2;
         VoxelShape voxelShape;
         BlockPos blockPos;
@@ -164,8 +192,10 @@ public class HookEntity extends ProjectileEntity {
             if (this.inBlockState != blockState && this.shouldFall()) {
                 this.fall();
             }
+            this.updateOwnersPosition();
             return;
         }
+
         Vec3d vec3d3 = this.getPos();
         HitResult hitResult = this.world.raycast(new RaycastContext(vec3d3, vec3d2 = vec3d3.add(vec3d), RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, this));
         if (hitResult.getType() != HitResult.Type.MISS) {
@@ -188,8 +218,12 @@ public class HookEntity extends ProjectileEntity {
                 this.onCollision(hitResult);
                 this.velocityDirty = true;
             }
+            //this is needed or it crashes the game
+            break;
+            /*
             if (entityHitResult == null) break;
             hitResult = null;
+             */
         }
         vec3d = this.getVelocity();
         double e = vec3d.x;
@@ -206,15 +240,21 @@ public class HookEntity extends ProjectileEntity {
         this.setPitch((float)(MathHelper.atan2(f, l) * 57.2957763671875));
         this.setPitch(PersistentProjectileEntity.updateRotation(this.prevPitch, this.getPitch()));
         this.setYaw(PersistentProjectileEntity.updateRotation(this.prevYaw, this.getYaw()));
-        float m = 0.99f;
-
-        this.setVelocity(vec3d.multiply(m));
 
         Vec3d vec3d4 = this.getVelocity();
         this.setVelocity(vec3d4.x, vec3d4.y - (double)0.05f, vec3d4.z);
 
         this.setPosition(h, j, k);
-        this.checkBlockCollision();
+    }
+
+    private void updateOwnersPosition()
+    {
+        if (  state != State.UNHOOKED && this.getOwner() != null && this.distanceTo(this.getOwner())>hookLength)
+        {
+            this.updateHookLength(Math.min(this.distanceTo(this.getOwner()),this.getHookLength()));
+            double addedVelocity = (this.getPos().distanceTo(this.getOwner().getPos())-hookLength)*0.05;
+            this.getOwner().setVelocity(this.getOwner().getVelocity().add( this.getPos().subtract(this.getOwner().getPos()).normalize().multiply(addedVelocity)));
+        }
     }
 
     private boolean shouldFall() {
@@ -222,8 +262,7 @@ public class HookEntity extends ProjectileEntity {
     }
 
     private void fall() {
-        NootNootOrigins.LOGGER.info("UNHOOKED");
-        this.updateHookState(State.UNHOOKED);
+        this.discard();
     }
 
     @Override
@@ -234,76 +273,9 @@ public class HookEntity extends ProjectileEntity {
         }
     }
 
-    /*
-    @Override
-    public void tick() {
-        super.tick();
-        PlayerEntity playerEntity = this.getPlayerOwner();
-
-        if (hookLength<minHookLength)
-        {
-            this.updateHookLength(minHookLength);
-        }
-
-        if (this.getOwner() != null && ((LivingEntityExtension)this.getOwner()).getHook() != this)
-        {
-            this.discard();
-            return;
-        }
-        if ( this.state == State.HOOKED_TO_ENTITY && (this.hookedEntity.isRemoved() || this.hookedEntity.world.getRegistryKey() != this.world.getRegistryKey())) {
-            this.discard();
-            NootNootOrigins.LOGGER.info("HOOKED ENTITY GONE");
-            return;
-        }
-
-        BlockPos blockPos;
-        BlockState blockState;
-        VoxelShape voxelShape;
-        Vec3d vec3d2;
-        if (!((blockState = this.world.getBlockState(blockPos = this.getBlockPos())).isAir() || (voxelShape = blockState.getCollisionShape(this.world, blockPos)).isEmpty())) {
-            vec3d2 = this.getPos();
-            for (Box box : voxelShape.getBoundingBoxes()) {
-                if (!box.offset(blockPos).contains(vec3d2)) continue;
-                this.updateHookState(State.HOOKED_TO_BLOCK);
-                break;
-            }
-        }
-
-        if (this.inBlockState != blockState && this.shouldFall()) {
-            //this.discard();
-            NootNootOrigins.LOGGER.info("HOOKED BLOCK GONE");
-            return;
-        }
-
-        if (!this.world.isClient && this.removeIfInvalid(playerEntity)) {
-            return;
-        }
-
-
-        if ( this.state == State.UNHOOKED ) {
-            this.setVelocity(this.getVelocity().add(0.0, -0.03, 0.0));
-            this.checkForCollision();
-        }
-
-        if (this.state == State.HOOKED_TO_ENTITY){
-            this.setPosition(this.hookedEntity.getPos().add(hookOffset));
-        }
-        else if (this.state == State.UNHOOKED)
-        {
-            this.setPosition(this.getPos().add(this.getVelocity()));
-        }
-
-        if (  state != State.UNHOOKED && this.getOwner() != null && this.distanceTo(this.getOwner())>hookLength)
-        {
-            double addedVelocity = (this.getPos().distanceTo(this.getOwner().getPos())-hookLength)*0.05;
-            this.getOwner().setVelocity(this.getOwner().getVelocity().add( this.getPos().subtract(this.getOwner().getPos()).normalize().multiply(addedVelocity)));
-        }
-    }
-     */
-
     private boolean removeIfInvalid(PlayerEntity player) {
-        if ( player == null || player.isRemoved() || !player.isAlive() || this.squaredDistanceTo(player) > 4096.0) {
-            //this.discard();
+        if ( player == null || player.isRemoved() || !player.isAlive() || this.squaredDistanceTo(player) > (maxHookLength*maxHookLength)) {
+            this.discard();
             return true;
         }
         return false;
@@ -333,16 +305,14 @@ public class HookEntity extends ProjectileEntity {
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
-        NootNootOrigins.LOGGER.info("HIT ENTITY");
         super.onEntityHit(entityHitResult);
         this.updateHookedEntity(entityHitResult);
-        this.updateHookLength(Math.max(this.distanceTo(this.getOwner()),minHookLength));
+        this.updateHookLength(this.distanceTo(this.getOwner())+minHookLength);
         this.setVelocity(Vec3d.ZERO);
     }
 
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
-        NootNootOrigins.LOGGER.info("HIT BLOCK");
         this.inBlockState = this.world.getBlockState(blockHitResult.getBlockPos());
         super.onBlockHit(blockHitResult);
         Vec3d vec3d = blockHitResult.getPos().subtract(this.getX(), this.getY(), this.getZ());
@@ -350,12 +320,21 @@ public class HookEntity extends ProjectileEntity {
         Vec3d vec3d2 = vec3d.normalize().multiply(0.05f);
         this.setPos(this.getX() - vec3d2.x, this.getY() - vec3d2.y, this.getZ() - vec3d2.z);
         this.updateHookState(State.HOOKED_TO_BLOCK);
-        this.updateHookLength(this.distanceTo(this.getOwner()));
+        this.updateHookLength(this.distanceTo(this.getOwner())+minHookLength);
     }
 
     @Override
     public boolean canUsePortals() {
         return false;
+    }
+
+    @Override
+    public boolean shouldRender(double distance) {
+        double d = this.getBoundingBox().getAverageSideLength() * 10.0;
+        if (Double.isNaN(d)) {
+            d = 1.0;
+        }
+        return distance < (d *= 64.0 * PersistentProjectileEntity.getRenderDistanceMultiplier()) * d;
     }
 
     @Nullable
@@ -380,7 +359,7 @@ public class HookEntity extends ProjectileEntity {
         }
     }
 
-    static enum State {
+    enum State {
         UNHOOKED,
         HOOKED_TO_ENTITY,
         HOOKED_TO_BLOCK;

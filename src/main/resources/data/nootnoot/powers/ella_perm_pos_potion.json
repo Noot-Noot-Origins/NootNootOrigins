@@ -16,7 +16,8 @@
             "effect": "minecraft:speed",
             "show_icon": false,
             "show_particles": false,
-            "duration": 1000000000
+            "duration": 1000000000,
+            "amplifier": 1
           },
           {
             "effect": "minecraft:strength",
@@ -131,7 +132,8 @@
             "effect": "minecraft:speed",
             "show_icon": false,
             "show_particles": false,
-            "duration": 1000000000
+            "duration": 1000000000,
+            "amplifier": 1
           },
           {
             "effect": "minecraft:strength",

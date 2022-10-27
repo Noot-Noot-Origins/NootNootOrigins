@@ -79,6 +79,33 @@
 		}
 	},
 
+	"150_percent_fire_damage_taken": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:name",
+					"name": "onFire"
+				},
+				{
+					"type": "origins:name",
+					"name": "onFire.player"
+				}
+			]
+		},
+		"modifier": {
+			"operation": "multiply_base_additive",
+			"value": 0.5
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "nootnoot:morph_size_level",
+			"comparison": "==",
+			"compare_to": 0
+		}
+	},
+
 	"200_percent_damage_taken": {
 		"type": "origins:modify_damage_taken",
 		"damage_condition": {
@@ -95,6 +122,14 @@
 				{
 					"type": "origins:name",
 					"name": "cactus"
+				},
+				{
+					"type": "origins:name",
+					"name": "onFire"
+				},
+				{
+					"type": "origins:name",
+					"name": "onFire.player"
 				}
 			],
 			"inverted": true

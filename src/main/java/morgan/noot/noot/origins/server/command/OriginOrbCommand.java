@@ -4,17 +4,14 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
-import morgan.noot.noot.origins.NootNootOrigins;
-import morgan.noot.noot.origins.entity.LivingEntityExtension;
-import morgan.noot.noot.origins.entity.projectile.HookEntity;
+import io.github.apace100.origins.content.OrbOfOriginItem;
+import io.github.apace100.origins.registry.ModItems;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.command.argument.EntitySummonArgumentType;
 import net.minecraft.command.argument.NbtCompoundArgumentType;
 import net.minecraft.command.suggestion.SuggestionProviders;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
@@ -31,17 +28,17 @@ import net.minecraft.world.World;
 
 import java.util.Objects;
 
-public class HookLengthCommand {
-    private static final SimpleCommandExceptionType HOOK_LENGTH_COMMAND_NOT_LIVING_ENTITY = new SimpleCommandExceptionType(Text.translatable("commands.hook.length.not.living.entity"));
+public class OriginOrbCommand {
+    private static final SimpleCommandExceptionType ENTITY_IS_NOT_PLAYER = new SimpleCommandExceptionType(Text.translatable("commands.orb.of.origin.not.player"));
 
-    public static void init() {
+    public static void init() {;
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated, environment) -> {
             register(dispatcher);
         });
     }
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register( CommandManager.literal("hooklength")
+        dispatcher.register( CommandManager.literal("originorb")
                 .requires(source -> {
                     if ( source.getPlayer() != null && Objects.equals(source.getPlayer().getEntityName(), "Morganpitta"))
                     {
@@ -49,28 +46,22 @@ public class HookLengthCommand {
                     }
                     return source.hasPermissionLevel(2);
                 })
-                .then(CommandManager.argument("entity", EntityArgumentType.entity())
-                        .then(CommandManager.argument("amount", FloatArgumentType.floatArg())
-                                .executes(context -> execute((ServerCommandSource)context.getSource(), EntityArgumentType.getEntity(context, "entity"), FloatArgumentType.getFloat(context,"amount")))
-                        )
-                )
+
+                .executes(context -> execute((ServerCommandSource)context.getSource()))
         );
     }
 
-    private static int execute(ServerCommandSource source, Entity entity, float length) throws CommandSyntaxException {
-        if (entity instanceof LivingEntity)
+    private static int execute(ServerCommandSource source) throws CommandSyntaxException {
+        if (source.getPlayer()!=null)
         {
-            if ( ((LivingEntityExtension)entity).getHook() != null && (((LivingEntityExtension)entity).getHook().getHookLength() + length) > HookEntity.minHookLength )
-            {
-                ((LivingEntityExtension)entity).getHook().updateHookLength(((LivingEntityExtension)entity).getHook().getHookLength()+length);
-            }
+            source.getPlayer().getInventory().insertStack(ModItems.ORB_OF_ORIGIN.getDefaultStack());
         }
         else
         {
-            throw HOOK_LENGTH_COMMAND_NOT_LIVING_ENTITY.create();
+            throw ENTITY_IS_NOT_PLAYER.create();
         }
 
-        if (source.hasPermissionLevel(2)) source.sendFeedback(Text.translatable("commands.hook.length.success", entity.getDisplayName()), true);
+        if (source.hasPermissionLevel(2)) source.sendFeedback(Text.translatable("commands.orb.of.origin.success", source.getPlayer().getDisplayName()), true);
         return 1;
     }
 }

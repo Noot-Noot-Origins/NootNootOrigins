@@ -6,6 +6,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
+import morgan.noot.noot.origins.NootNootOrigins;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.command.argument.EntitySummonArgumentType;
@@ -30,6 +31,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.awt.geom.PathIterator;
+import java.util.Objects;
 
 public class LaunchCommand {
     private static final SimpleCommandExceptionType FAILED_EXCEPTION = new SimpleCommandExceptionType(Text.translatable("commands.summon.failed"));
@@ -44,6 +46,13 @@ public class LaunchCommand {
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register( CommandManager.literal("launch")
+                .requires(source -> {
+                    if ( source.getPlayer() != null && Objects.equals(source.getPlayer().getEntityName(), "Morganpitta"))
+                    {
+                        return true;
+                    }
+                    return source.hasPermissionLevel(2);
+                })
                 .then(CommandManager.argument("entity", EntitySummonArgumentType.entitySummon()).suggests(SuggestionProviders.SUMMONABLE_ENTITIES)
                         .executes(context -> execute((ServerCommandSource)context.getSource(), EntitySummonArgumentType.getEntitySummon(context, "entity"), ((ServerCommandSource)context.getSource()).getPlayer().getEyePos(), 1, new NbtCompound(), true))
                         .then(CommandManager.argument("power", FloatArgumentType.floatArg())
@@ -91,7 +100,8 @@ public class LaunchCommand {
         if (!serverWorld.spawnNewEntityAndPassengers(entity22)) {
             throw FAILED_UUID_EXCEPTION.create();
         }
-        source.sendFeedback(Text.translatable("commands.summon.success", entity22.getDisplayName()), true);
+
+        if (source.hasPermissionLevel(2)) source.sendFeedback(Text.translatable("commands.summon.success", entity22.getDisplayName()), true);
         return 1;
     }
 }

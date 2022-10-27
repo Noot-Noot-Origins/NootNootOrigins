@@ -9,8 +9,24 @@
       "type": "origins:and",
       "actions": [
         {
-          "type": "origins:exhaust",
-          "amount": 2
+          "type": "origins:if_else",
+          "condition": {
+            "type": "origins:gamemode",
+            "gamemode": "creative",
+            "inverted": true
+          },
+          "if_action": {
+            "type": "origins:and",
+            "actions": [
+              {
+                "type": "origins:exhaust",
+                "amount": 2
+              }
+            ]
+          },
+          "else_action": {
+            "type": "origins:nothing"
+          }
         },
         {
           "type": "origins:add_velocity",
@@ -27,8 +43,24 @@
         "type": "origins:and",
         "actions": [
           {
-            "type": "origins:exhaust",
-            "amount": 0.4
+            "type": "origins:if_else",
+            "condition": {
+              "type": "origins:gamemode",
+              "gamemode": "creative",
+              "inverted": true
+            },
+            "if_action": {
+              "type": "origins:and",
+              "actions": [
+                {
+                  "type": "origins:exhaust",
+                  "amount": 0.4
+                }
+              ]
+            },
+            "else_action": {
+              "type": "origins:nothing"
+            }
           },
           {
             "type": "origins:add_velocity",
@@ -60,9 +92,18 @@
         "compare_to": 0
       },
       {
-        "type": "origins:food_level",
-        "comparison": ">",
-        "compare_to": 0
+        "type": "origins:or",
+        "conditions": [
+          {
+            "type": "origins:food_level",
+            "comparison": ">",
+            "compare_to": 0
+          },
+          {
+            "type": "origins:gamemode",
+            "gamemode": "creative"
+          }
+        ]
       }
     ]
   }

@@ -5,5 +5,7 @@ public class NootNootOriginsCommands {
         LaunchCommand.init();
         HookLengthCommand.init();
         RemoveHookCommand.init();
+        SetMountHeightCommand.init();
+        OriginOrbCommand.init();
     }
 }

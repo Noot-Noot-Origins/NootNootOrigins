@@ -26,11 +26,20 @@
     ],
     "preLaunch": [
       "morgan.noot.noot.origins.NootNootOriginsPreLaunch"
+    ],
+    "cardinal-components": [
+      "morgan.noot.noot.origins.NootNootOriginsComponents"
     ]
   },
   "mixins": [
     "nootnoot.mixins.json"
   ],
+
+  "custom": {
+    "cardinal-components": [
+      "nootnoot:mount_position"
+    ]
+  },
 
   "depends": {
     "fabricloader": ">=0.14.9",

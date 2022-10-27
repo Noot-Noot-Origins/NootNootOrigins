@@ -66,6 +66,14 @@ dependencies {
 	include("com.github.LlamaLad7:MixinExtras:0.0.12")
 	implementation("com.github.LlamaLad7:MixinExtras:0.0.12")
 	annotationProcessor("com.github.LlamaLad7:MixinExtras:0.0.12")
+
+
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cardinal_version}"
+	// Adds a dependency on a specific module
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cardinal_version}"
+	// Includes Cardinal Components API as a Jar-in-Jar dependency (optional)
+	include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cardinal_version}"
+	include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cardinal_version}"
 }
 
 processResources {

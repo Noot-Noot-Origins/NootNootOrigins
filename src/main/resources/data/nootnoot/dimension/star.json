@@ -1,11 +1,13 @@
 {
 	"type": "minecraft:overworld",
 	"generator": {
-		"type": "minecraft:noise",
-		"settings": "minecraft:overworld",
-		"biome_source": {
-			"type": "minecraft:fixed",
-			"biome": "nootnoot:star"
+		"type": "minecraft:flat",
+		"settings": {
+			"biome": "minecraft:plains",
+			"lakes": false,
+			"features": false,
+			"layers": [],
+			"structure_overrides": []
 		}
 	}
 }

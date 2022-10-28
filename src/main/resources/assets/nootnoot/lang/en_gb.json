@@ -5,5 +5,8 @@
   "commands.remove.hook.not.living.entity": "This entity cannot have any hooks",
   "commands.set.mount.height.success": "Set mount height for %s",
   "commands.orb.of.origin.success": "Gave origin orb to %s",
-  "commands.orb.of.origin.not.player": "Entity is not player"
+  "commands.orb.of.origin.not.player": "Entity is not player",
+  "commands.spawn.success": "Teleported %s to their spawn",
+  "commands.spawn.not.player": "This entity has no spawn point",
+  "commands.star.success": "Teleported %s to the %s dimension"
 }

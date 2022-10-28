@@ -35,5 +35,30 @@
       "comparison": ">",
       "compare_to": 0
     }
+  },
+  "modify_stats_when_not_flying": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "origins:execute_command",
+      "command": "setmountheight @s 0.625",
+      "permission_level": 4
+    },
+    "condition": {
+      "type": "origins:fall_flying",
+      "inverted": true
+    },
+    "interval": 5
+  },
+  "modify_stats_when_flying": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "origins:execute_command",
+      "command": "setmountheight @s 0.3105",
+      "permission_level": 4
+    },
+    "condition": {
+      "type": "origins:fall_flying"
+    },
+    "interval": 5
   }
 }

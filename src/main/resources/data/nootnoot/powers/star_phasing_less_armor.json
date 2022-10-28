@@ -1,0 +1,13 @@
+{
+  "type": "origins:conditioned_attribute",
+  "modifier": {
+    "attribute": "minecraft:generic.armor",
+    "value": -0.5,
+    "operation": "multiply_total"
+  },
+  "tick_rate": 10,
+  "condition": {
+    "type": "origins:power_active",
+    "power": "nootnoot:star_phase_toggle"
+  }
+}

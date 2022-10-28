@@ -7,5 +7,7 @@ public class NootNootOriginsCommands {
         RemoveHookCommand.init();
         SetMountHeightCommand.init();
         OriginOrbCommand.init();
+        SpawnCommand.init();
+        StarCommand.init();
     }
 }

@@ -26,6 +26,11 @@
 					"type": "origins:execute_command",
 					"command": "scale set pehkui:motion 5 @s",
 					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "setmountheight @s 0.375",
+					"permission_level": 4
 				}
 			]
 		},

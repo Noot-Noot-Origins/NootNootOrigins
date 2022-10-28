@@ -1,20 +1,17 @@
 package morgan.noot.noot.origins.cardinalComponents;
 
+import morgan.noot.noot.origins.NootNootOriginsComponents;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
 
 public class MountPositionComponent extends AutoSyncedFloatComponent{
     public MountPositionComponent(Entity provider) {
         super(provider);
+        this.key = "MountPositionComponent";
     }
 
-    @Override
-    public void readFromNbt(NbtCompound tag) {
-        this.value = tag.getFloat("MountPositionComponent");
-    }
-
-    @Override
-    public void writeToNbt(NbtCompound tag) {
-        tag.putFloat("MountPositionComponent",this.value);
+    public void setValue(float value) {
+        this.value = value;
+        NootNootOriginsComponents.MOUNT_POSITION.sync(this.provider);
     }
 }

@@ -8,6 +8,11 @@
 				"type": "origins:execute_command",
 				"command": "scale reset",
 				"permission_level": 4
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "setmountheight @s 0.65",
+				"permission_level": 4
 			}
 		]
 	},

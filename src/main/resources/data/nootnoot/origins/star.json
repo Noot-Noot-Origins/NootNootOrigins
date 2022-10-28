@@ -1,0 +1,18 @@
+{
+  "powers": [
+    "nootnoot:star_dimension_travel",
+    "nootnoot:star_model_colour",
+    "nootnoot:star_phase_toggle",
+    "nootnoot:star_phasing",
+    "nootnoot:star_phasing_invisibility",
+    "nootnoot:star_phasing_less_armor",
+    "nootnoot:star_slow_fall"
+  ],
+  "icon": {
+    "item": "minecraft:nether_star"
+  },
+  "order": 3,
+  "impact": 3,
+  "name": "Star",
+  "description": "temp"
+}

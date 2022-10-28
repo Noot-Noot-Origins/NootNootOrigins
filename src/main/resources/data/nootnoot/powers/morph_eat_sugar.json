@@ -1,7 +1,7 @@
 {
 	"type": "origins:active_self",
 	"name": "Totally Not A Drug addiction",
-	"description": "You can 'consume sugar' when you are small, granting you 'special abilities'for a while",
+	"description": "You can consume 'sugar' when you are small, granting you 'special abilities' for a short time",
 	"entity_action": {
 		"type": "origins:and",
 		"actions": [{

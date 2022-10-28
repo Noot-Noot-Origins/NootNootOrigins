@@ -1,7 +1,7 @@
 {
 	"type": "origins:action_on_block_break",
     "name": "High Power",
-    "description": "When you are big, you are so strong that you can launch entities when you break blocks",
+    "description": "When you are big, your strength launches entities into the air when you break blocks.",
 	"entity_action": {
 		"type": "origins:exhaust",
 		"amount": 1

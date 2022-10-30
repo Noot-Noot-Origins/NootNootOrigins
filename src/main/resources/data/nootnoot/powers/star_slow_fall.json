@@ -2,5 +2,21 @@
   "type": "origins:modify_falling",
   "velocity": 0.01,
   "take_fall_damage": false,
-  "hidden": true
+  "hidden": true,
+  "condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:power_active",
+        "power": "nootnoot:star_phase_toggle"
+      },
+      {
+        "type": "origins:in_block",
+        "block_condition": {
+          "type": "origins:block",
+          "block": "minecraft:air"
+        }
+      }
+    ]
+  }
 }

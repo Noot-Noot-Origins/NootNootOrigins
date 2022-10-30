@@ -4,13 +4,16 @@
   "package": "morgan.noot.noot.origins.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "entity.EntityGravityMixin",
     "entity.EntityMountPositionMixin",
     "entity.LivingEntityDoubleJumpMixin",
+    "entity.LivingEntityGravityMixin",
     "entity.LivingEntityHooksMixin",
+    "entity.LivingEntityStarDimensionMixin",
     "entity.ai.goal.ActiveTargetGoalMakeNeutralMixin",
     "entity.passive.BeeEntityOwnableMixin",
     "entity.passive.VillagerEntityChangeTradePriceMixin",
-    "entity.player.PlayerEntityMixin",
+    "entity.player.PlayerEntityDoubleJumpMixin",
     "item.BoatItemMixin",
     "item.BucketItemMixin",
     "item.ItemMixin"

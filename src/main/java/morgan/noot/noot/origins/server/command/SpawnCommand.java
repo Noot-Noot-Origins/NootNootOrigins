@@ -5,9 +5,11 @@ import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import morgan.noot.noot.origins.EntityExtension;
+import morgan.noot.noot.origins.entity.LivingEntityExtension;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
@@ -45,8 +47,8 @@ public class SpawnCommand {
         if (player!=null)
         {
             ServerPlayerEntity serverPlayer = player.getServer().getPlayerManager().getPlayer(player.getEntityName());
-            Optional<Vec3d> vec3d= PlayerEntity.findRespawnPosition(serverPlayer.server.getOverworld(),serverPlayer.getSpawnPointPosition(), serverPlayer.getSpawnAngle(),serverPlayer.isSpawnForced(),serverPlayer.isAlive());
-            player.teleport(vec3d.get().getX(),vec3d.get().getY(), vec3d.get().getZ());
+            Optional<Vec3d> vec3d = PlayerEntity.findRespawnPosition(serverPlayer.server.getOverworld(),serverPlayer.getSpawnPointPosition(), serverPlayer.getSpawnAngle(),serverPlayer.isSpawnForced(),serverPlayer.isAlive());
+            ((LivingEntityExtension)player).teleportToDimension(serverPlayer.server.getOverworld(),vec3d.get().getX(),vec3d.get().getY(), vec3d.get().getZ(),player.getYaw(), player.getPitch());
         }
         else
         {

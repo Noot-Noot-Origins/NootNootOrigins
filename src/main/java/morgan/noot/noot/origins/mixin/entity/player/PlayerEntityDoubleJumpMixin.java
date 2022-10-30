@@ -14,14 +14,14 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixin extends LivingEntityDoubleJumpMixin {
+public abstract class PlayerEntityDoubleJumpMixin extends LivingEntityDoubleJumpMixin {
     @Shadow public abstract void incrementStat(Identifier stat);
 
     @Shadow public abstract void addExhaustion(float exhaustion);
 
     @Shadow protected HungerManager hungerManager;
 
-    protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
+    protected PlayerEntityDoubleJumpMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
 

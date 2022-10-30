@@ -23,6 +23,7 @@
     "minecraft:apple",
     "minecraft:mushroom_stew",
     "minecraft:bread",
+    "minecraft:golden_carrot",
     "minecraft:golden_apple",
     "minecraft:enchanted_golden_apple",
     "minecraft:cookie",
@@ -36,6 +37,7 @@
     "minecraft:beetroot_soup",
     "minecraft:sweet_berries",
     "minecraft:glow_berries",
-    "minecraft:honey_bottle"
+    "minecraft:honey_bottle",
+    "minecraft:suspicious_stew"
   ]
 }

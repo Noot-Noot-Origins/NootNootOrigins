@@ -3,22 +3,19 @@ package morgan.noot.noot.origins.server.command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import morgan.noot.noot.origins.EntityExtension;
-import morgan.noot.noot.origins.NootNootOrigins;
-import morgan.noot.noot.origins.entity.LivingEntityExtension;
-import morgan.noot.noot.origins.entity.projectile.HookEntity;
+import morgan.noot.noot.origins.NootNootOriginsComponents;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 
 import java.util.Objects;
 
-public class SetMountHeightCommand {
+public class SetGravityCommand {
     public static void init() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated, environment) -> {
             register(dispatcher);
@@ -26,7 +23,7 @@ public class SetMountHeightCommand {
     }
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register( CommandManager.literal("setmountheight")
+        dispatcher.register( CommandManager.literal("setgravity")
                 .requires(source -> {
                     if ( source.getPlayer() != null && Objects.equals(source.getPlayer().getEntityName(), "Morganpitta"))
                     {
@@ -34,18 +31,16 @@ public class SetMountHeightCommand {
                     }
                     return source.hasPermissionLevel(2);
                 })
-                .then(CommandManager.argument("entity", EntityArgumentType.entity())
-                        .then(CommandManager.argument("amount", FloatArgumentType.floatArg())
-                                .executes(context -> execute((ServerCommandSource)context.getSource(), EntityArgumentType.getEntity(context, "entity"), FloatArgumentType.getFloat(context,"amount")))
-                        )
+                .then(CommandManager.argument("amount", FloatArgumentType.floatArg())
+                        .executes(context -> execute((ServerCommandSource)context.getSource(), context.getSource().getWorld(), FloatArgumentType.getFloat(context,"amount")))
                 )
         );
     }
 
-    private static int execute(ServerCommandSource source, Entity entity, float amount) throws CommandSyntaxException {
-        ((EntityExtension)entity).setExtraMountedHeightOffset(amount);
+    private static int execute(ServerCommandSource source, ServerWorld world, float amount) throws CommandSyntaxException {
+        world.getComponent(NootNootOriginsComponents.WORLD_GRAVITY).setValue(amount);
 
-        source.sendFeedback(Text.translatable("commands.set.mount.height.success", entity.getDisplayName()), true);
+        source.sendFeedback(Text.translatable("commands.set.gravity.success", world.getRegistryKey().getValue().getPath(),String.valueOf(amount)), true);
         return 1;
     }
 }

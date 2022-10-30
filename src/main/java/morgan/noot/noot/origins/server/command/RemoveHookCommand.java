@@ -50,7 +50,7 @@ public class RemoveHookCommand {
             throw REMOVE_HOOK_COMMAND_NOT_LIVING_ENTITY.create();
         }
 
-        if (source.hasPermissionLevel(2)) source.sendFeedback(Text.translatable("commands.remove.hook.success", entity.getDisplayName()), true);
+        source.sendFeedback(Text.translatable("commands.remove.hook.success", entity.getDisplayName()), true);
         return 1;
     }
 }

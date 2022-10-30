@@ -71,9 +71,12 @@ dependencies {
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cardinal_version}"
 	// Adds a dependency on a specific module
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cardinal_version}"
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-world:${project.cardinal_version}"
+
 	// Includes Cardinal Components API as a Jar-in-Jar dependency (optional)
 	include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cardinal_version}"
 	include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cardinal_version}"
+	include "dev.onyxstudios.cardinal-components-api:cardinal-components-world:${project.cardinal_version}"
 }
 
 processResources {

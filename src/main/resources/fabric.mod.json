@@ -39,7 +39,11 @@
     "cardinal-components": [
       "nootnoot:mount_position",
       "nootnoot:star_position",
-      "nootnoot:star_world_key"
+      "nootnoot:star_velocity",
+      "nootnoot:star_health",
+      "nootnoot:star_world_key",
+      "nootnoot:world_gravity",
+      "nootnoot:entity_gravity"
     ]
   },
 

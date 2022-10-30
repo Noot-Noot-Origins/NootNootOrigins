@@ -101,7 +101,7 @@ public class LaunchCommand {
             throw FAILED_UUID_EXCEPTION.create();
         }
 
-        if (source.hasPermissionLevel(2)) source.sendFeedback(Text.translatable("commands.summon.success", entity22.getDisplayName()), true);
+        source.sendFeedback(Text.translatable("commands.summon.success", entity22.getDisplayName()), true);
         return 1;
     }
 }

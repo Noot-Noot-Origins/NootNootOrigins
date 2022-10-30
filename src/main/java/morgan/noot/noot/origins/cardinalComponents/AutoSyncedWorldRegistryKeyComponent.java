@@ -1,5 +1,6 @@
 package morgan.noot.noot.origins.cardinalComponents;
 
+import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import morgan.noot.noot.origins.NootNootOriginsComponents;
 import net.minecraft.entity.Entity;
@@ -12,13 +13,15 @@ import net.minecraft.world.World;
 
 public class AutoSyncedWorldRegistryKeyComponent implements WorldRegistryKeyComponent, AutoSyncedComponent {
     String key;
+    ComponentKey<AutoSyncedWorldRegistryKeyComponent> componentComponentKey;
     RegistryKey<World> value = World.OVERWORLD;
-    public final Entity provider;
+    public final Object provider;
 
-    public AutoSyncedWorldRegistryKeyComponent(Entity provider)
+    public AutoSyncedWorldRegistryKeyComponent(Object provider, String key, ComponentKey<AutoSyncedWorldRegistryKeyComponent> componentComponentKey)
     {
         this.provider = provider;
-        this.key = "AutoSyncedFloatComponent";
+        this.key = key;
+        this.componentComponentKey = componentComponentKey;
     }
 
     @Override
@@ -28,7 +31,7 @@ public class AutoSyncedWorldRegistryKeyComponent implements WorldRegistryKeyComp
 
     public void setValue(RegistryKey<World> value) {
         this.value = value;
-        //NootNootOriginsComponents.COMPONENTKEY.sync(this.provider);
+        componentComponentKey.sync(this.provider);
     }
 
     @Override

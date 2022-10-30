@@ -1,5 +1,7 @@
 package morgan.noot.noot.origins.cardinalComponents;
 
+import dev.onyxstudios.cca.api.v3.component.Component;
+import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import morgan.noot.noot.origins.NootNootOriginsComponents;
 import net.fabricmc.loader.impl.lib.sat4j.core.Vec;
@@ -9,13 +11,15 @@ import net.minecraft.util.math.Vec3d;
 
 public class AutoSyncedVec3dComponent implements Vec3dComponent, AutoSyncedComponent {
     String key;
+    ComponentKey<AutoSyncedVec3dComponent> componentComponentKey;
     Vec3d value = Vec3d.ZERO;
-    public final Entity provider;
+    public final Object provider;
 
-    public AutoSyncedVec3dComponent(Entity provider)
+    public AutoSyncedVec3dComponent(Object provider, String key, ComponentKey<AutoSyncedVec3dComponent> componentComponentKey)
     {
         this.provider = provider;
-        this.key = "AutoSyncedVec3dComponent";
+        this.key = key;
+        this.componentComponentKey = componentComponentKey;
     }
 
     @Override
@@ -25,7 +29,7 @@ public class AutoSyncedVec3dComponent implements Vec3dComponent, AutoSyncedCompo
 
     public void setValue(Vec3d value) {
         this.value = value;
-        //NootNootOriginsComponents.COMPONENTKEY.sync(this.provider);
+        componentComponentKey.sync(this.provider);
     }
 
     @Override

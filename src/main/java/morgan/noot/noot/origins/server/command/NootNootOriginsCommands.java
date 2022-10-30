@@ -9,5 +9,6 @@ public class NootNootOriginsCommands {
         OriginOrbCommand.init();
         SpawnCommand.init();
         StarCommand.init();
+        SetGravityCommand.init();
     }
 }

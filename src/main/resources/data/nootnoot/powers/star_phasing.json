@@ -4,13 +4,8 @@
   "render_type": "blindness",
   "view_distance": 500,
   "condition": {
-    "type": "origins:and",
-    "conditions": [
-      {
-        "type": "origins:power_active",
-        "power": "nootnoot:star_phase_toggle"
-      }
-    ]
+    "type": "origins:power_active",
+    "power": "nootnoot:star_phase_toggle"
   },
   "block_condition": {
     "type": "origins:in_tag",

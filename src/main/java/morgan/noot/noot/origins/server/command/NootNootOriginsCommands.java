@@ -10,5 +10,6 @@ public class NootNootOriginsCommands {
         SpawnCommand.init();
         StarCommand.init();
         SetGravityCommand.init();
+        KillBeesCommand.init();
     }
 }

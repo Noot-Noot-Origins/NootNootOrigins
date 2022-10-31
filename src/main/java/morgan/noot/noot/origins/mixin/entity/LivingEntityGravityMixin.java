@@ -1,7 +1,6 @@
 package morgan.noot.noot.origins.mixin.entity;
 
-import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import morgan.noot.noot.origins.EntityExtension;
+import morgan.noot.noot.origins.entity.EntityExtension;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

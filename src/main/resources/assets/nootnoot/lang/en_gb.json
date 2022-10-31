@@ -9,5 +9,7 @@
   "commands.spawn.success": "Teleported %s to their spawn",
   "commands.spawn.not.player": "This entity has no spawn point",
   "commands.star.success": "Teleported %s to the %s dimension",
-  "commands.set.gravity.success": "Set the %s dimension's gravity to %s"
+  "commands.set.gravity.success": "Set the %s dimension's gravity to %s",
+  "commands.kill.bee.success": "Killed bees for %s",
+  "commands.kill.bee.not.living.entity": "This entity cannot have any bees"
 }

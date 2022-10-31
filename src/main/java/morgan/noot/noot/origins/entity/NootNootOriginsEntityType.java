@@ -14,8 +14,8 @@ public class NootNootOriginsEntityType {
             Registry.ENTITY_TYPE,
             new Identifier(NootNootOrigins.MODID,"hook_entity"),
             FabricEntityTypeBuilder.<HookEntity>create(SpawnGroup.MISC, HookEntity::new)
-                .dimensions(EntityDimensions.fixed(0.25F, 0.25F)) // dimensions in Minecraft units of the projectile
-                .trackRangeBlocks(4).trackedUpdateRate(10) // necessary for all thrown projectiles (as it prevents it from breaking, lol)
+                .dimensions(EntityDimensions.fixed(0.5F, 0.5F)) // dimensions in Minecraft units of the projectile
+                .trackRangeBlocks(4).trackedUpdateRate(20) // necessary for all thrown projectiles (as it prevents it from breaking, lol)
                 .build()
     );
 

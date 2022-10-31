@@ -1,7 +1,7 @@
 package morgan.noot.noot.origins.mixin.entity;
 
 import dev.onyxstudios.cca.api.v3.component.ComponentAccess;
-import morgan.noot.noot.origins.EntityExtension;
+import morgan.noot.noot.origins.entity.EntityExtension;
 import morgan.noot.noot.origins.NootNootOriginsComponents;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.command.CommandOutput;

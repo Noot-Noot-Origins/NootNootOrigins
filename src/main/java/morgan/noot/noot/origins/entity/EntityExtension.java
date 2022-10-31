@@ -1,4 +1,4 @@
-package morgan.noot.noot.origins;
+package morgan.noot.noot.origins.entity;
 
 import morgan.noot.noot.origins.network.packet.NootNootOriginsPacketsInit;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;

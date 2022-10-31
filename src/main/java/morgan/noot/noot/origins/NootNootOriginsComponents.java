@@ -4,6 +4,7 @@ import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.ComponentRegistryV3;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
+import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy;
 import dev.onyxstudios.cca.api.v3.world.WorldComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.world.WorldComponentInitializer;
 import morgan.noot.noot.origins.cardinalComponents.AutoSyncedFloatComponent;
@@ -45,7 +46,7 @@ public final class NootNootOriginsComponents implements EntityComponentInitializ
         registry.registerFor(LivingEntity.class, STAR_VELOCITY, entity -> new AutoSyncedVec3dComponent(entity, "StarVelocityComponent", STAR_VELOCITY));
         registry.registerFor(LivingEntity.class, STAR_WORLD_KEY, entity -> new AutoSyncedWorldRegistryKeyComponent(entity, "StarWorldRegistryKeyComponent", STAR_WORLD_KEY));
         registry.registerFor(LivingEntity.class, STAR_HEALTH, entity -> new AutoSyncedFloatComponent(entity, "StarHealthComponent", STAR_HEALTH));
-        registry.registerFor(Entity.class, ENTITY_GRAVITY, entity -> new AutoSyncedFloatComponent(entity, "EntityGravity", ENTITY_GRAVITY,0.08f));
+        registry.registerFor(Entity.class, ENTITY_GRAVITY, entity -> new AutoSyncedFloatComponent(entity, "EntityGravity", ENTITY_GRAVITY,1));
     }
 
     @Override

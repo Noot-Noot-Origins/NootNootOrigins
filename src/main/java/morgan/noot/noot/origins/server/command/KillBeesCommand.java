@@ -15,6 +15,7 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Box;
 
+import java.util.List;
 import java.util.Objects;
 
 public class KillBeesCommand {
@@ -45,7 +46,11 @@ public class KillBeesCommand {
         if (entity instanceof LivingEntity)
         {
             Box box = ((Entity)entity).getBoundingBox().expand(24);
-            source.getWorld().getEntitiesByClass(BeeEntity.class, box, beeEntity -> ((BeeEntityExtension)beeEntity).getOwner() == entity);
+            List<BeeEntity> list = source.getWorld().getEntitiesByClass(BeeEntity.class, box, beeEntity -> ((BeeEntityExtension)beeEntity).getOwner() == entity);
+            for (BeeEntity bee: list)
+            {
+                bee.kill();
+            }
         }
         else
         {

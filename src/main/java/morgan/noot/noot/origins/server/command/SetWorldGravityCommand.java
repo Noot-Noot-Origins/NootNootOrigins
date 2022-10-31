@@ -12,7 +12,7 @@ import net.minecraft.text.Text;
 
 import java.util.Objects;
 
-public class SetGravityCommand {
+public class SetWorldGravityCommand {
     public static void init() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated, environment) -> {
             register(dispatcher);
@@ -20,7 +20,7 @@ public class SetGravityCommand {
     }
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register( CommandManager.literal("setgravity")
+        dispatcher.register( CommandManager.literal("setworldgravity")
                 .requires(source -> {
                     if ( source.getPlayer() != null && Objects.equals(source.getPlayer().getEntityName(), "Morganpitta"))
                     {
@@ -37,7 +37,7 @@ public class SetGravityCommand {
     private static int execute(ServerCommandSource source, ServerWorld world, float amount) throws CommandSyntaxException {
         world.getComponent(NootNootOriginsComponents.WORLD_GRAVITY).setValue(amount);
 
-        source.sendFeedback(Text.translatable("commands.set.gravity.success", world.getRegistryKey().getValue().getPath(),String.valueOf(amount)), true);
+        source.sendFeedback(Text.translatable("commands.set.world.gravity.success", world.getRegistryKey().getValue().getPath(),String.valueOf(amount)), true);
         return 1;
     }
 }

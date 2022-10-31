@@ -2,6 +2,7 @@ package morgan.noot.noot.origins.cardinalComponents;
 
 import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
+import dev.onyxstudios.cca.api.v3.entity.PlayerComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
 

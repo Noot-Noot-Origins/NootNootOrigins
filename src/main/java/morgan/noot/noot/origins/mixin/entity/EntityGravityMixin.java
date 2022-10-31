@@ -24,10 +24,10 @@ public abstract class EntityGravityMixin implements Nameable,
     }
 
     public float getEntityGravity(){
-        return this.getComponent(NootNootOriginsComponents.ENTITY_GRAVITY).getValue();
+        return this.getComponent(NootNootOriginsComponents.ENTITY_GRAVITY).getValue()*0.08f;
     }
 
     public float getFullGravity(){
-        return this.getComponent(NootNootOriginsComponents.ENTITY_GRAVITY).getValue()*this.world.getComponent(NootNootOriginsComponents.WORLD_GRAVITY).getValue();
+        return this.getEntityGravity()*this.world.getComponent(NootNootOriginsComponents.WORLD_GRAVITY).getValue();
     }
 }

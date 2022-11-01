@@ -41,12 +41,12 @@ public final class NootNootOriginsComponents implements EntityComponentInitializ
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
-        registry.registerFor(Entity.class, MOUNT_POSITION, entity -> new AutoSyncedFloatComponent(entity, "MountPositionComponent", MOUNT_POSITION));
+        registry.beginRegistration(Entity.class, MOUNT_POSITION).respawnStrategy(RespawnCopyStrategy.ALWAYS_COPY).end(entity -> new AutoSyncedFloatComponent(entity, "MountPositionComponent", MOUNT_POSITION));
         registry.registerFor(LivingEntity.class, STAR_POSITION, entity -> new AutoSyncedVec3dComponent(entity, "StarPositionComponent", STAR_POSITION));
         registry.registerFor(LivingEntity.class, STAR_VELOCITY, entity -> new AutoSyncedVec3dComponent(entity, "StarVelocityComponent", STAR_VELOCITY));
         registry.registerFor(LivingEntity.class, STAR_WORLD_KEY, entity -> new AutoSyncedWorldRegistryKeyComponent(entity, "StarWorldRegistryKeyComponent", STAR_WORLD_KEY));
         registry.registerFor(LivingEntity.class, STAR_HEALTH, entity -> new AutoSyncedFloatComponent(entity, "StarHealthComponent", STAR_HEALTH));
-        registry.registerFor(Entity.class, ENTITY_GRAVITY, entity -> new AutoSyncedFloatComponent(entity, "EntityGravity", ENTITY_GRAVITY,1));
+        registry.beginRegistration(Entity.class, ENTITY_GRAVITY).respawnStrategy(RespawnCopyStrategy.ALWAYS_COPY).end(entity -> new AutoSyncedFloatComponent(entity, "EntityGravity", ENTITY_GRAVITY,1));
     }
 
     @Override

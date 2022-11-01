@@ -1,5 +1,5 @@
 {
-	"replace": false,
+	"replace": true,
 	"allow_random": true,
 	"enabled": true,
 	"origins": [

@@ -3,7 +3,7 @@
   "item_condition": {
     "type": "origins:ingredient",
     "ingredient": {
-      "tag": "nootnoot:all_food"
+      "tag": "nootnoot:all_food_without_golden_food"
     }
   }
 }

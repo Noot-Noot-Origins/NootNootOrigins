@@ -6,7 +6,7 @@
   "icon": {
     "item": "minecraft:glass_pane"
   },
-  "order": 6,
+  "order": 0,
   "impact": 2,
   "name": "glass_canon",
   "description": "literally a glass canon"

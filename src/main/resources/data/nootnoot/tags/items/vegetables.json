@@ -3,6 +3,14 @@
     "minecraft:apple",
     "minecraft:carrot",
     "minecraft:potato",
-    "minecraft:beetroot"
+    "minecraft:poisonous_potato",
+    "minecraft:beetroot",
+    "minecraft:sweet_berries",
+    "minecraft:glow_berries",
+    "minecraft:melon_slice",
+    "minecraft:golden_apple",
+    "minecraft:enchanted_golden_apple",
+    "minecraft:golden_carrot",
+    "minecraft:glistering_melon_slice"
   ]
 }

@@ -7,7 +7,7 @@
   "icon": {
     "item": "minecraft:wither_rose"
   },
-  "order": 3,
+  "order": 0,
   "impact": 3,
   "name": "Shade",
   "description": "temp"

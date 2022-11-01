@@ -13,12 +13,13 @@
     "nootnoot:bloomfolk_decreased_villager_prices",
     "nootnoot:bloomfolk_bee_tame",
     "nootnoot:bloomfolk_bee_counts",
-    "nootnoot:bloomfolk_bees"
+    "nootnoot:bloomfolk_bees",
+    "nootnoot:bloomfolk_kill_bees"
   ],
   "icon": {
     "item": "minecraft:poppy"
   },
-  "order": 4,
+  "order": 0,
   "impact": 1,
   "name": "Bloomfolk",
   "description": "Being a close relative to the moobloom, all the creatures of the overworld love you!"

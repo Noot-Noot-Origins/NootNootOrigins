@@ -20,7 +20,7 @@
   "icon": {
     "item": "minecraft:sea_lantern"
   },
-  "order": 4,
+  "order": 0,
   "impact": 3,
   "name": "Morph-i.n.e",
   "description": "The result of a experiment gone very wrong..."

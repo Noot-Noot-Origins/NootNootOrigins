@@ -4,6 +4,10 @@
     "type": "origins:and",
     "actions": [
       {
+        "type": "origins:execute_command",
+        "command": "power remove @s nootnoot:ella_pos_potion_stack"
+      },
+      {
         "type": "origins:apply_effect",
         "effects": [
           {

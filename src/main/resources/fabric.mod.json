@@ -43,7 +43,8 @@
       "nootnoot:star_health",
       "nootnoot:star_world_key",
       "nootnoot:world_gravity",
-      "nootnoot:entity_gravity"
+      "nootnoot:entity_gravity",
+      "nootnoot:entity_host_uuid"
     ]
   },
 

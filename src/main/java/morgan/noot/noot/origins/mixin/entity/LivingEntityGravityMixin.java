@@ -1,5 +1,6 @@
 package morgan.noot.noot.origins.mixin.entity;
 
+import morgan.noot.noot.origins.NootNootOrigins;
 import morgan.noot.noot.origins.entity.EntityExtension;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -17,21 +18,25 @@ public abstract class LivingEntityGravityMixin extends Entity {
         super(type, world);
     }
 
+
+
     @ModifyConstant(method = "travel",constant = @Constant(doubleValue = 0.08,ordinal = 0))
     public double modifyGravityValue(double original)
     {
         return ((EntityExtension)this).getFullGravity();
     }
 
+
     @ModifyConstant(method = "travel",constant = @Constant(doubleValue = 0.01,ordinal = 0))
-    public double modifySlowFallGravityValue(double original)
+    public double modifySlowFallGravityValue(double constant)
     {
-        return original/8;
+        return ((EntityExtension)this).getFullGravity()/8.f;
     }
 
     @ModifyVariable(method = "computeFallDamage", at = @At("HEAD"), ordinal = 0)
     private float injected(float original) {
         return original / (0.08f/((EntityExtension)this).getFullGravity());
     }
+
 
 }

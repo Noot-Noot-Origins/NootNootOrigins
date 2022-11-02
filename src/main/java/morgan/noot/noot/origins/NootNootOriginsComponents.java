@@ -7,9 +7,7 @@ import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
 import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy;
 import dev.onyxstudios.cca.api.v3.world.WorldComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.world.WorldComponentInitializer;
-import morgan.noot.noot.origins.cardinalComponents.AutoSyncedFloatComponent;
-import morgan.noot.noot.origins.cardinalComponents.AutoSyncedVec3dComponent;
-import morgan.noot.noot.origins.cardinalComponents.AutoSyncedWorldRegistryKeyComponent;
+import morgan.noot.noot.origins.cardinalComponents.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Identifier;
@@ -38,6 +36,9 @@ public final class NootNootOriginsComponents implements EntityComponentInitializ
     public static final ComponentKey<AutoSyncedFloatComponent> ENTITY_GRAVITY =
             ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier("nootnoot:entity_gravity"), AutoSyncedFloatComponent.class);
 
+    public static final ComponentKey<AutoSyncedUUIDComponent> ENTITY_HOST_UUID =
+            ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier("nootnoot:entity_host_uuid"), AutoSyncedUUIDComponent.class);
+
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
@@ -47,6 +48,7 @@ public final class NootNootOriginsComponents implements EntityComponentInitializ
         registry.registerFor(LivingEntity.class, STAR_WORLD_KEY, entity -> new AutoSyncedWorldRegistryKeyComponent(entity, "StarWorldRegistryKeyComponent", STAR_WORLD_KEY));
         registry.registerFor(LivingEntity.class, STAR_HEALTH, entity -> new AutoSyncedFloatComponent(entity, "StarHealthComponent", STAR_HEALTH));
         registry.beginRegistration(Entity.class, ENTITY_GRAVITY).respawnStrategy(RespawnCopyStrategy.ALWAYS_COPY).end(entity -> new AutoSyncedFloatComponent(entity, "EntityGravity", ENTITY_GRAVITY,1));
+        registry.registerForPlayers(ENTITY_HOST_UUID,player -> new AutoSyncedUUIDComponent(player, "EntityHostUUID", ENTITY_HOST_UUID),RespawnCopyStrategy.ALWAYS_COPY);
     }
 
     @Override

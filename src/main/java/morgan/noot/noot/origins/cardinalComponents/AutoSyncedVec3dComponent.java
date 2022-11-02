@@ -9,6 +9,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.Vec3d;
 
+import java.util.UUID;
+
 public class AutoSyncedVec3dComponent implements Vec3dComponent, AutoSyncedComponent {
     String key;
     ComponentKey<AutoSyncedVec3dComponent> componentComponentKey;
@@ -20,6 +22,14 @@ public class AutoSyncedVec3dComponent implements Vec3dComponent, AutoSyncedCompo
         this.provider = provider;
         this.key = key;
         this.componentComponentKey = componentComponentKey;
+    }
+
+    public AutoSyncedVec3dComponent(Object provider, String key, ComponentKey<AutoSyncedVec3dComponent> componentComponentKey, Vec3d value)
+    {
+        this.provider = provider;
+        this.key = key;
+        this.componentComponentKey = componentComponentKey;
+        this.value = value;
     }
 
     @Override

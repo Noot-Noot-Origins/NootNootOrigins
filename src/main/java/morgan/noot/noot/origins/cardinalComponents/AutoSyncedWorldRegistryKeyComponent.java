@@ -7,6 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;
@@ -22,6 +23,14 @@ public class AutoSyncedWorldRegistryKeyComponent implements WorldRegistryKeyComp
         this.provider = provider;
         this.key = key;
         this.componentComponentKey = componentComponentKey;
+    }
+
+    public AutoSyncedWorldRegistryKeyComponent(Object provider, String key, ComponentKey<AutoSyncedWorldRegistryKeyComponent> componentComponentKey, RegistryKey<World> value)
+    {
+        this.provider = provider;
+        this.key = key;
+        this.componentComponentKey = componentComponentKey;
+        this.value = value;
     }
 
     @Override

@@ -12,5 +12,6 @@ public class NootNootOriginsCommands {
         SetWorldGravityCommand.init();
         SetEntityGravityCommand.init();
         KillBeesCommand.init();
+        InfectCommand.init();
     }
 }

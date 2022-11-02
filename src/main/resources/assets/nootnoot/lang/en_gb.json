@@ -12,5 +12,8 @@
   "commands.set.world.gravity.success": "Set the %s dimension's gravity to %s",
   "commands.kill.bee.success": "Killed bees for %s",
   "commands.kill.bee.not.living.entity": "This entity cannot have any bees",
-  "commands.set.entity.gravity.success": "Set %s gravity to %s"
+  "commands.set.entity.gravity.success": "Set %s gravity to %s",
+  "commands.infect.not.player": "Entity is not a player",
+  "commands.infect.miss": "The player is not interacting with any entities",
+  "commands.infect.success": "Successfully infected %s"
 }

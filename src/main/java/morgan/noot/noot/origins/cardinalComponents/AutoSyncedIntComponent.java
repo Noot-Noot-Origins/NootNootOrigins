@@ -18,6 +18,14 @@ public class AutoSyncedIntComponent implements IntComponent, AutoSyncedComponent
         this.componentComponentKey = componentComponentKey;
     }
 
+    public AutoSyncedIntComponent(Object provider, String key, ComponentKey<AutoSyncedIntComponent> componentComponentKey, int value)
+    {
+        this.provider = provider;
+        this.key = key;
+        this.componentComponentKey = componentComponentKey;
+        this.value = value;
+    }
+
     @Override
     public int getValue() {
         return this.value;

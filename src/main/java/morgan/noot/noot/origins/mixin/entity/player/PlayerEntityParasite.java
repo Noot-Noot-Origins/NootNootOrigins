@@ -13,6 +13,7 @@ import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.UUID;
@@ -25,11 +26,10 @@ public abstract class PlayerEntityParasite extends LivingEntity implements Playe
 
     LivingEntity hostEntity;
 
-    public boolean hasHost(){
+    public boolean hasHost() {
         UUID uuid = this.getComponent(NootNootOriginsComponents.ENTITY_HOST_UUID).getValue();
         Entity entity;
-        if (this.world instanceof ServerWorld && (entity = ((ServerWorld)this.world).getEntity(uuid))instanceof LivingEntity)
-        {
+        if (this.world instanceof ServerWorld && (entity = ((ServerWorld) this.world).getEntity(uuid)) instanceof LivingEntity) {
             this.hostEntity = (LivingEntity) entity;
         }
         if (this.hostEntity == null) return false;
@@ -37,47 +37,60 @@ public abstract class PlayerEntityParasite extends LivingEntity implements Playe
     }
 
     @Nullable
-    public Entity getHost(){
+    public Entity getHost() {
         UUID uuid = this.getComponent(NootNootOriginsComponents.ENTITY_HOST_UUID).getValue();
         Entity entity;
-        if (this.world instanceof ServerWorld && (entity = ((ServerWorld)this.world).getEntity(uuid))instanceof LivingEntity)
-        {
+        if (this.world instanceof ServerWorld && (entity = ((ServerWorld) this.world).getEntity(uuid)) instanceof LivingEntity) {
             this.hostEntity = (LivingEntity) entity;
         }
         return this.hostEntity;
     }
 
-    public void setHost( Entity entity ){
+    public void setHost(Entity entity) {
         UUID uuid;
-        if ( entity == null )
-        {
+        if (entity == null) {
             uuid = null;
-        }
-        else
-        {
+        } else {
             uuid = entity.getUuid();
         }
         this.getComponent(NootNootOriginsComponents.ENTITY_HOST_UUID).setValue(uuid);
     }
 
-    public void infect( LivingEntity entity ) {
+    public void infect(LivingEntity entity) {
         if (entity == null || !entity.isAlive()) return;
         NootNootOrigins.LOGGER.info("start riding");
         boolean riding = false;
         if (!this.world.isClient) {
-            riding = this.startRiding(entity);
+            riding = this.startRiding(entity,true);
         }
 
+        this.hostEntity = entity;
         NootNootOrigins.LOGGER.info(String.valueOf(riding));
+        NootNootOrigins.LOGGER.info("hashost:"+String.valueOf(this.hasHost()));
+        NootNootOrigins.LOGGER.info("gethost:"+String.valueOf(this.getHost().toString()));
     }
 
-    @Inject(method = "shouldDismount",at = @At("HEAD"),cancellable = true)
-    public void shouldDismount(CallbackInfoReturnable<Boolean> cir)
-    {
-        if (this.hasHost())
-        {
+    public void unInfect() {
+        this.stopRiding();
+        this.setHost(null);
+    }
+
+    @Inject(method = "shouldDismount", at = @At("HEAD"), cancellable = true)
+    public void shouldDismount(CallbackInfoReturnable<Boolean> cir) {
+        if (this.hasHost()) {
             cir.setReturnValue(false);
         }
     }
 
+    @Inject(method = "tick", at = @At("HEAD"))
+    public void tick(CallbackInfo ci) {
+        if (this.hasHost() && !this.getHost().isAlive()) {
+            NootNootOrigins.LOGGER.info("host ded or not exist");
+            this.unInfect();
+        }
+        if ( !this.world.isClient && this.hasHost() && (!this.hasVehicle() || this.getVehicle() != this.getHost())) {
+            NootNootOrigins.LOGGER.info("re riding");
+            this.startRiding(this.getHost(),true);
+        }
+    }
 }

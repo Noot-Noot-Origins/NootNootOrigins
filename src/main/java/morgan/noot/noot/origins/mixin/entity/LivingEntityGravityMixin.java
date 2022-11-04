@@ -37,6 +37,4 @@ public abstract class LivingEntityGravityMixin extends Entity {
     private float injected(float original) {
         return original / (0.08f/((EntityExtension)this).getFullGravity());
     }
-
-
 }

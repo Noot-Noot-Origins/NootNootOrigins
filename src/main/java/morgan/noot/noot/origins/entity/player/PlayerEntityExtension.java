@@ -17,4 +17,6 @@ public interface PlayerEntityExtension {
     void setHost( Entity entity );
 
     void infect( LivingEntity entity );
+
+    void unInfect();
 }

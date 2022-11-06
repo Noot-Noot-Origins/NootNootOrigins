@@ -14,7 +14,7 @@
     "entity.passive.BeeEntityOwnableMixin",
     "entity.passive.VillagerEntityChangeTradePriceMixin",
     "entity.player.PlayerEntityDoubleJumpMixin",
-    "entity.player.PlayerEntityParasite",
+    "entity.player.PlayerEntityParasiteMixin",
     "item.BoatItemMixin",
     "item.BucketItemMixin",
     "item.ItemMixin"

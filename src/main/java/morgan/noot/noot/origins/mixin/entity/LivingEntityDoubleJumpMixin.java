@@ -1,8 +1,7 @@
 package morgan.noot.noot.origins.mixin.entity;
 
-import morgan.noot.noot.origins.NootNootOrigins;
 import morgan.noot.noot.origins.entity.LivingEntityExtension;
-import morgan.noot.noot.origins.network.packet.NootNootOriginsPacketsInit;
+import morgan.noot.noot.origins.network.packet.NootNootOriginsPackets;
 import morgan.noot.noot.origins.origins.powers.NootNootOriginsPowers;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -71,7 +70,7 @@ public abstract class LivingEntityDoubleJumpMixin extends Entity implements Livi
         if (this.isPlayer() && !this.world.isClient() && ((ServerPlayerEntity) (Object) this).networkHandler != null) {
             PacketByteBuf buf = PacketByteBufs.create();
             buf.writeInt(doubleJumps);
-            ServerPlayNetworking.send((ServerPlayerEntity) (Object) this, NootNootOriginsPacketsInit.DOUBLE_JUMP_PACKET_ID, buf);
+            ServerPlayNetworking.send((ServerPlayerEntity) (Object) this, NootNootOriginsPackets.DOUBLE_JUMP_PACKET_ID, buf);
         }
     }
 

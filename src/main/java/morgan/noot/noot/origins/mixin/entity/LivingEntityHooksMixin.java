@@ -1,9 +1,8 @@
 package morgan.noot.noot.origins.mixin.entity;
 
-import morgan.noot.noot.origins.NootNootOrigins;
 import morgan.noot.noot.origins.entity.LivingEntityExtension;
 import morgan.noot.noot.origins.entity.projectile.HookEntity;
-import morgan.noot.noot.origins.network.packet.NootNootOriginsPacketsInit;
+import morgan.noot.noot.origins.network.packet.NootNootOriginsPackets;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.Entity;
@@ -42,7 +41,7 @@ public abstract class LivingEntityHooksMixin extends Entity implements LivingEnt
         if (this.isPlayer() && !this.world.isClient() && ((ServerPlayerEntity) (Object) this).networkHandler != null) {
             PacketByteBuf buf = PacketByteBufs.create();
             buf.writeInt(hook.getId());
-            ServerPlayNetworking.send((ServerPlayerEntity) (Object) this, NootNootOriginsPacketsInit.HOOK_ID_PACKET_ID, buf);
+            ServerPlayNetworking.send((ServerPlayerEntity) (Object) this, NootNootOriginsPackets.HOOK_ID_PACKET_ID, buf);
         }
     }
 

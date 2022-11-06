@@ -59,6 +59,7 @@ public class InfectCommand {
         LivingEntity entity;
         if ( hitResult.getType() == HitResult.Type.ENTITY && ((EntityHitResult) hitResult).getEntity() instanceof LivingEntity) {
             entity = (LivingEntity) ((EntityHitResult) hitResult).getEntity();
+
             ((PlayerEntityExtension) player).infect(entity);
         } else {
             throw INFECT_COMMAND_MISS.create();

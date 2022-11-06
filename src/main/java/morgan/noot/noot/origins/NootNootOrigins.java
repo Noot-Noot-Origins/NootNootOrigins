@@ -1,7 +1,7 @@
 package morgan.noot.noot.origins;
 
 import morgan.noot.noot.origins.entity.NootNootOriginsEntityType;
-import morgan.noot.noot.origins.network.packet.NootNootOriginsPacketsInit;
+import morgan.noot.noot.origins.network.packet.NootNootOriginsPackets;
 import morgan.noot.noot.origins.origins.powers.NootNootOriginsPowers;
 import morgan.noot.noot.origins.server.command.NootNootOriginsCommands;
 import morgan.noot.noot.origins.tags.NootNootOriginsTags;
@@ -23,10 +23,10 @@ public class NootNootOrigins implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		NootNootOriginsTags.init();
-		NootNootOriginsPacketsInit.init();
 		NootNootOriginsPowers.init();
 		NootNootOriginsEntityType.init();
 		NootNootOriginsCommands.init();
+		NootNootOriginsPackets.registerC2SPackets();
 
 		LOGGER.info("Noot Noot Origins has been initialized!");
 	}

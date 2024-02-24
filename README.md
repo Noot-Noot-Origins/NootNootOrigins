@@ -54,7 +54,6 @@ You can pick from 5 different sizes, moving to one larger or one smaller once ev
 - You cannot use Elytra
 
 ***Extra Large***
-> "ISCLAIMER: Dick size does not scale with Morph-Size, and you are stuck with the smallest size's penis (1/2)"
 - 5 Scale
 - 1 Reach
 - 0.4 Motion
